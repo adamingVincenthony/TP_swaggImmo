@@ -3,20 +3,41 @@ package fr.adaming.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="proprietaires")
+@XmlRootElement
 public class Proprietaire implements Serializable {
 
 	/* Les attributs */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_prop")
 	private int id;
+	@Column(name="nom_prop")
 	private String nom;
+	@Column(name="adresse_prop")
 	private String adresse;
+	@Column(name="numprive_prop")
 	private String numeroPrive;
+	@Column(name="numtravail_prop")
 	private String numeroTravail;
 	
 	/* Les associations */
 	/**
 	 * Un propriétaire est associé à un ou plusieurs bien
 	 */
+	@OneToMany(mappedBy="proprietaire")
 	private List<Bien> listeBien;
 
 	/* Les constructeurs */
@@ -45,6 +66,7 @@ public class Proprietaire implements Serializable {
 	}
 
 	/* getter et setters */
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -53,6 +75,7 @@ public class Proprietaire implements Serializable {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -61,6 +84,7 @@ public class Proprietaire implements Serializable {
 		this.nom = nom;
 	}
 
+	@XmlElement
 	public String getAdresse() {
 		return adresse;
 	}
@@ -69,6 +93,7 @@ public class Proprietaire implements Serializable {
 		this.adresse = adresse;
 	}
 
+	@XmlElement
 	public String getNumeroPrive() {
 		return numeroPrive;
 	}
@@ -77,6 +102,7 @@ public class Proprietaire implements Serializable {
 		this.numeroPrive = numeroPrive;
 	}
 
+	@XmlElement
 	public String getNumeroTravail() {
 		return numeroTravail;
 	}
@@ -85,6 +111,7 @@ public class Proprietaire implements Serializable {
 		this.numeroTravail = numeroTravail;
 	}
 
+	@XmlElement
 	public List<Bien> getListeBien() {
 		return listeBien;
 	}

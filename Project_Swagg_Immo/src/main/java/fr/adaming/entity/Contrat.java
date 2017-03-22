@@ -3,28 +3,56 @@ package fr.adaming.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+/**
+ * La classe persistence Contrat qui représente l'achat ou la location 
+ * d'un bien par un client
+ * @author inti0302
+ *
+ */
+@Entity
+@Table(name="contrats")
+@XmlRootElement
 public class Contrat implements Serializable{
-	private static final long serialVersionUID = 1L;
 	
 	//Attributs
+	private static final long serialVersionUID = 1L;	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_contrat")
 	private int id;
+	@Column(name="prix_contrat")
 	private float prix;
+	@Column(name="date_contrat")
 	private Date date;
+	@Column(name="reference_contrat")
 	private long reference;
 	
 	/* Les associations :*/
 	/**
 	 * Un contrat concerne un bien
 	 */
+	@OneToOne
 	private Bien bien;
 	/**
 	 * Un contrat est signé par un seul client
 	 */
+	@ManyToOne
 	private Client client;
 	/**
 	 * Un contrat est signé par un seul responsable (Vraiment utile ?)
 	 */
-	private Utilisateur utilisateur;
+	@ManyToOne
+	private Utilisateur responsable;
 	
 	/**
 	 * ctor vide
@@ -65,10 +93,11 @@ public class Contrat implements Serializable{
 
 	
 
+	@XmlElement
 	public Date getDate() {
 		return date;
 	}
-
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -76,7 +105,7 @@ public class Contrat implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@XmlElement
 	public float getPrix() {
 		return prix;
 	}
@@ -89,6 +118,7 @@ public class Contrat implements Serializable{
 		this.date = date;
 	}
 
+	@XmlElement
 	public long getReference() {
 		return reference;
 	}
@@ -97,7 +127,7 @@ public class Contrat implements Serializable{
 		this.reference = reference;
 	}
 
-	
+	@XmlElement
 	public Bien getBien() {
 		return bien;
 	}
@@ -105,7 +135,7 @@ public class Contrat implements Serializable{
 	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
-
+	@XmlElement
 	public Client getClient() {
 		return client;
 	}
@@ -113,20 +143,22 @@ public class Contrat implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
+	@XmlElement
+	public Utilisateur getResponsable() {
+		return responsable;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setResponsable(Utilisateur responsable) {
+		this.responsable = responsable;
 	}
 
 	@Override
 	public String toString() {
 		return "Contrat [id=" + id + ", prix=" + prix + ", date=" + date + ", reference=" + reference + ", bien=" + bien
-				+ ", client=" + client + ", utilisateur=" + utilisateur + "]";
+				+ ", client=" + client + ", responsable=" + responsable + "]";
 	}
+
+
 
 	
 	

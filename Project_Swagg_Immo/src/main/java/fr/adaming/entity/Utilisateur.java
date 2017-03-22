@@ -3,6 +3,16 @@ package fr.adaming.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 
  * @author Robin
@@ -11,26 +21,37 @@ import java.util.List;
  * Peut-être associée à :
  * plusieurs biens, plusieurs visites et plusieurs contrats
  */
+@Entity
+@Table(name="utilisateurs")
+@XmlRootElement
 public class Utilisateur implements Serializable {
 
 	/* les attributs */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_user")
 	private int id;
+	@Column(name="nom_user")
 	private String nom;
+	@Column(name="mdp_user")
 	private String password;
 	
 	/* les associations */
 	/**
 	 * Un utilisateur peut gérer plusieurs bien
 	 */
+	@OneToMany(mappedBy="responsable")
 	private List<Bien> listeBien;
 	/**
 	 * Un utilisateur peut avoir signé plusieurs contrats
 	 */
+	@OneToMany(mappedBy="responsable")
 	private List<Contrat> listeContrat;
 	/**
 	 * Un utilisateur peut avoir plusieures visites 
 	 */
+	@OneToMany(mappedBy="responsable")
 	private List<Visite> listeVisite;
 	
 	/**
@@ -62,6 +83,7 @@ public class Utilisateur implements Serializable {
 	/**
 	 * Les getters et setters
 	 */
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -71,7 +93,7 @@ public class Utilisateur implements Serializable {
 		this.id = id;
 	}
 
-
+	@XmlElement
 	public String getNom() {
 		return nom;
 	}
@@ -81,7 +103,7 @@ public class Utilisateur implements Serializable {
 		this.nom = nom;
 	}
 
-
+	@XmlElement
 	public String getPassword() {
 		return password;
 	}
@@ -92,6 +114,7 @@ public class Utilisateur implements Serializable {
 	}
 
 
+	@XmlElement
 	public List<Bien> getListeBien() {
 		return listeBien;
 	}
@@ -101,7 +124,7 @@ public class Utilisateur implements Serializable {
 		this.listeBien = listeBien;
 	}
 
-
+	@XmlElement
 	public List<Contrat> getListeContrat() {
 		return listeContrat;
 	}
@@ -111,7 +134,7 @@ public class Utilisateur implements Serializable {
 		this.listeContrat = listeContrat;
 	}
 
-
+	@XmlElement
 	public List<Visite> getListeVisite() {
 		return listeVisite;
 	}

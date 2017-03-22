@@ -2,14 +2,28 @@ package fr.adaming.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="admins")
 public class Admin implements Serializable {
 	
 	/**
 	 * attributs de la classe admin
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_admin")
 	private int idAdmin;
+	@Column(name="nom_admin")
 	private String nom;
+	@Column(name="password_admin")
 	private String password;
 	
 	/**
