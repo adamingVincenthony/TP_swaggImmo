@@ -1,5 +1,6 @@
 package fr.adaming.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,15 +8,19 @@ import java.util.Date;
  * @author inti0210
  *
  */
-public class Bien {
+public class Bien implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String statut;
 	private String type;
 	private Date dateSoumission;
 	private Date dateDispo;
 	private String localisation;
-	private long revenucadastral;
+	private long revenuCadastral;
 	private String surface; //en declarant la surface en tant que String on peut utiliser les pareurs suivant le type de bien
 	
 	/** -----------------------------------------Constructeurs -------------------------------------------*/ 
@@ -33,18 +38,18 @@ public class Bien {
 	 * @param dateSoumission
 	 * @param dateDispo
 	 * @param localisation
-	 * @param revenucadastral
+	 * @param revenuCadastral
 	 * @param surface
 	 */
 	public Bien(String statut, String type, Date dateSoumission, Date dateDispo, String localisation,
-			long revenucadastral, String surface) {
+			long revenuCadastral, String surface) {
 		super();
 		this.statut = statut;
 		this.type = type;
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.localisation = localisation;
-		this.revenucadastral = revenucadastral;
+		this.revenuCadastral = revenuCadastral;
 		this.surface = surface;
 	}
 
@@ -56,11 +61,11 @@ public class Bien {
 	 * @param dateSoumission
 	 * @param dateDispo
 	 * @param localisation
-	 * @param revenucadastral
+	 * @param revenuCadastral
 	 * @param surface
 	 */
 	public Bien(int id, String statut, String type, Date dateSoumission, Date dateDispo, String localisation,
-			long revenucadastral, String surface) {
+			long revenuCadastral, String surface) {
 		super();
 		this.id = id;
 		this.statut = statut;
@@ -68,7 +73,7 @@ public class Bien {
 		this.dateSoumission = dateSoumission;
 		this.dateDispo = dateDispo;
 		this.localisation = localisation;
-		this.revenucadastral = revenucadastral;
+		this.revenuCadastral = revenuCadastral;
 		this.surface = surface;
 	}
 	
@@ -111,10 +116,10 @@ public class Bien {
 		this.localisation = localisation;
 	}
 	public long getRevenucadastral() {
-		return revenucadastral;
+		return revenuCadastral;
 	}
-	public void setRevenucadastral(long revenucadastral) {
-		this.revenucadastral = revenucadastral;
+	public void setRevenucadastral(long revenuCadastral) {
+		this.revenuCadastral = revenuCadastral;
 	}
 	public String getSurface() {
 		return surface;
@@ -128,7 +133,7 @@ public class Bien {
 	@Override
 	public String toString() {
 		return "Bien [id=" + id + ", statut=" + statut + ", type=" + type + ", dateSoumission=" + dateSoumission
-				+ ", dateDispo=" + dateDispo + ", localisation=" + localisation + ", revenucadastral=" + revenucadastral
+				+ ", dateDispo=" + dateDispo + ", localisation=" + localisation + ", revenuCadastral=" + revenuCadastral
 				+ ", surface=" + surface + "]";
 	}
 	
