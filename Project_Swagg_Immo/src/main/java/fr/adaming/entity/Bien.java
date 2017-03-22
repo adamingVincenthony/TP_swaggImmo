@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="biens")
 @XmlRootElement
 //ajout de la strategy de génération de table
-public abstract class Bien implements Serializable{
+public class Bien implements Serializable{
 
 
 	/* les attributs */
@@ -56,25 +56,25 @@ public abstract class Bien implements Serializable{
 	 * Association avec un propriétaire : 
 	 * chaque bien appartient à un propriétaire
 	 */
-	@ManyToOne
+
 	private Proprietaire proprietaire;
 	/**
 	 * Association avec un utilisateur :
 	 * Chaque bien est géré par un Conseiler Clientèle
 	 */
-	@ManyToOne
+	
 	private Utilisateur responsable;
 	/**
 	 * Association avec les clients intéressés :
 	 * Chaque bien peut être le centre d'intêret de plusieurs clients
 	 */
-	@ManyToMany
+
 	private List<Client> clientInteret;
 	/**
 	 * Association avec un contrat :
 	 * Un bien peut éventuellement être lié à un client via un contrat
 	 */
-	@OneToOne(mappedBy="bien")
+	
 	private Contrat contrat;
 	
 	/**
@@ -82,8 +82,8 @@ public abstract class Bien implements Serializable{
 	 * Un bien peut être visité différentes fois
 	 * Mais une visite ne concerne qu'un seul bien
 	 */
-	@OneToMany(mappedBy="bien")
-	private Visite visite;
+	
+	private List<Visite> listeVisite;
 	
 	
 	/** -----------------------------------------Constructeurs -------------------------------------------*/ 
@@ -228,11 +228,11 @@ public abstract class Bien implements Serializable{
 	}
 	
 	@XmlElement
-	public Visite getVisite() {
-		return visite;
+	public List<Visite> getListeVisite() {
+		return listeVisite;
 	}
-	public void setVisite(Visite visite) {
-		this.visite = visite;
+	public void setListeVisite(List<Visite> listeVisite) {
+		this.listeVisite = listeVisite;
 	}
 	/**--------------------------------------------------Autres méthodes------------------------------------*/
 	
@@ -242,6 +242,7 @@ public abstract class Bien implements Serializable{
 				+ ", dateDispo=" + dateDispo + ", localisation=" + localisation + ", revenuCadastral=" + revenuCadastral
 				+ ", surface=" + surface + "]";
 	}
+	
 	
 	
 	

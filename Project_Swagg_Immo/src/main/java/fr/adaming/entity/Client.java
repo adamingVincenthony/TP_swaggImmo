@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,17 +36,17 @@ public class Client implements Serializable{
 	/**
 	 * Un client peut-être intéressé par plusieurs bien 
 	 */
-	@ManyToMany(mappedBy="clientInteret")
+	
 	private List<Bien> listeInteret;
 	/**
 	 * Un client peut avoir plusieurs contrat avec l'agence
 	 */
-	@OneToMany(mappedBy="client")
+	
 	private List<Contrat> listeContrat;
 	/**
 	 * Un client peut réaliser plusieures visites
 	 */
-	@OneToMany(mappedBy="client")
+
 	private List<Visite> listeVisite;
 	
 	

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -41,17 +42,17 @@ public class Utilisateur implements Serializable {
 	/**
 	 * Un utilisateur peut gérer plusieurs bien
 	 */
-	@OneToMany(mappedBy="responsable")
+
 	private List<Bien> listeBien;
 	/**
 	 * Un utilisateur peut avoir signé plusieurs contrats
 	 */
-	@OneToMany(mappedBy="responsable")
+
 	private List<Contrat> listeContrat;
 	/**
 	 * Un utilisateur peut avoir plusieures visites 
 	 */
-	@OneToMany(mappedBy="responsable")
+	
 	private List<Visite> listeVisite;
 	
 	/**

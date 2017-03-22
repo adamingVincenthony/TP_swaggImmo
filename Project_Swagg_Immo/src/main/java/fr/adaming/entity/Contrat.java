@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -41,17 +42,17 @@ public class Contrat implements Serializable{
 	/**
 	 * Un contrat concerne un bien
 	 */
-	@OneToOne
+
 	private Bien bien;
 	/**
 	 * Un contrat est signé par un seul client
 	 */
-	@ManyToOne
+
 	private Client client;
 	/**
 	 * Un contrat est signé par un seul responsable (Vraiment utile ?)
 	 */
-	@ManyToOne
+
 	private Utilisateur responsable;
 	
 	/**

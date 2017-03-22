@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -38,17 +39,17 @@ public class Visite implements Serializable {
 	/**
 	 * Une visite concerne un bien
 	 */
-	@ManyToOne
+
 	private Bien bien;
 	/**
 	 * Une visite concerne un client
 	 */
-	@ManyToOne
+	
 	private Client client;
 	/**
 	 * Une visite concerne un responsable
 	 */
-	@ManyToOne
+
 	private Utilisateur responsable;
 	
 	/* Les constructeurs */
