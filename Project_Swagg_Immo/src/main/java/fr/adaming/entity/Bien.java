@@ -2,11 +2,11 @@ package fr.adaming.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Classe définissant les caractéristiques du bien immobilier
  * @author inti0210
- *
  */
 public class Bien implements Serializable{
 
@@ -22,6 +22,30 @@ public class Bien implements Serializable{
 	private String localisation;
 	private long revenuCadastral;
 	private String surface; //en declarant la surface en tant que String on peut utiliser les pareurs suivant le type de bien
+	
+	
+	/*Déclaration des associations */
+	
+	/**
+	 * Association avec un propriétaire : 
+	 * chaque bien appartient à un propriétaire
+	 */
+	private Proprietaire proprietaire;
+	/**
+	 * Association avec un utilisateur :
+	 * Chaque bien est géré par un Conseiler Clientèle
+	 */
+	private Utilisateur utilisateur;
+	/**
+	 * Association avec les clients intéressés :
+	 * Chaque bien peut être le centre d'intêret de plusieurs clients
+	 */
+	private List<Client> clientInteret;
+	/**
+	 * Association avec un contrat :
+	 * Un bien peut éventuellement être lié à un client via un contrat
+	 */
+	private Contrat contrat;
 	
 	/** -----------------------------------------Constructeurs -------------------------------------------*/ 
 	
@@ -128,6 +152,30 @@ public class Bien implements Serializable{
 		this.surface = surface;
 	}
 	
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	public List<Client> getClientInteret() {
+		return clientInteret;
+	}
+	public void setClientInteret(List<Client> clientInteret) {
+		this.clientInteret = clientInteret;
+	}
+	public Contrat getContrat() {
+		return contrat;
+	}
+	public void setContrat(Contrat contrat) {
+		this.contrat = contrat;
+	}
 	/**--------------------------------------------------Autres méthodes------------------------------------*/
 	
 	@Override

@@ -1,6 +1,7 @@
 package fr.adaming.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 
@@ -12,10 +13,25 @@ import java.io.Serializable;
  */
 public class Utilisateur implements Serializable {
 
+	/* les attributs */
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nom;
 	private String password;
+	
+	/* les associations */
+	/**
+	 * Un utilisateur peut gérer plusieurs bien
+	 */
+	private List<Bien> listeBien;
+	/**
+	 * Un utilisateur peut avoir signé plusieurs contrats
+	 */
+	private List<Contrat> listeContrat;
+	/**
+	 * Un utilisateur peut avoir plusieures visites 
+	 */
+	private List<Visite> listeVisite;
 	
 	/**
 	 * ctor 
@@ -73,6 +89,36 @@ public class Utilisateur implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public List<Bien> getListeBien() {
+		return listeBien;
+	}
+
+
+	public void setListeBien(List<Bien> listeBien) {
+		this.listeBien = listeBien;
+	}
+
+
+	public List<Contrat> getListeContrat() {
+		return listeContrat;
+	}
+
+
+	public void setListeContrat(List<Contrat> listeContrat) {
+		this.listeContrat = listeContrat;
+	}
+
+
+	public List<Visite> getListeVisite() {
+		return listeVisite;
+	}
+
+
+	public void setListeVisite(List<Visite> listeVisite) {
+		this.listeVisite = listeVisite;
 	}
 	
 	
