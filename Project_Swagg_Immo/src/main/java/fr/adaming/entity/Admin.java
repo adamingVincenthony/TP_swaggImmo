@@ -1,6 +1,8 @@
 package fr.adaming.entity;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable {
 	
 	/**
 	 * attributs de la classe admin

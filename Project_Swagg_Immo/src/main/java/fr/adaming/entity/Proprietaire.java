@@ -1,6 +1,8 @@
 package fr.adaming.entity;
 
-public class Proprietaire {
+import java.io.Serializable;
+
+public class Proprietaire implements Serializable {
 
 /**
  * attributs
