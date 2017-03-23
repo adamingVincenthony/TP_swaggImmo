@@ -6,7 +6,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.entity.Bien;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Utilisateur;
+
 /**
  * methodes permettant de gérer les utilisateurs(conseillers immobilier) dans la bdd
  * @author inti0210
@@ -47,6 +50,12 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 	@Override
 	public void deleteUtilisateur(Utilisateur u) {
 		sf.getCurrentSession().delete(u);
+	}
+
+	@Override
+	public void attribuer(Client client, Bien bien) {
+		sf.getCurrentSession().merge(client);
+		sf.getCurrentSession().merge(bien);
 	}
 	
 }

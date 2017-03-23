@@ -6,7 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.BienDaoImpl;
+import fr.adaming.dao.ClientDaoImpl;
+import fr.adaming.dao.IBienDao;
+import fr.adaming.dao.IClientDao;
 import fr.adaming.dao.IUtilisateurDao;
+import fr.adaming.dao.UtilisateurDaoImpl;
+import fr.adaming.entity.Bien;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Utilisateur;
 
 @Service
@@ -14,8 +21,9 @@ import fr.adaming.entity.Utilisateur;
 public class UtilisateurServiceImpl implements IUtilisateurService{
 
 	@Autowired
-	public IUtilisateurDao utilisateurDao;
-	
+	private IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
+	private IClientDao clientDao = new ClientDaoImpl();
+	private IBienDao bienDao = new BienDaoImpl();
 	
 	/**
 	 * setter
@@ -26,47 +34,64 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	}
 
 	/**
-	 * Ajoute un Utilisateur en appelant la methode associée de la dao
+	 * méthodes de la couche service de la classe Utilisateur pour la gestion des utilisateurs
+	 */
+	
+	/**
+	 * Ajoute un utilisateur en appelant la methode associée de la dao
 	 */
 	@Override
-	public Utilisateur addUtilisateur(Utilisateur u) {
-		// TODO Auto-generated method stub
-		return null;
+	public void addUtilisateur(Utilisateur utilisateur) {
+		
+		utilisateurDao.addUtilisateur(utilisateur);
+	}
+	
+	/**
+	 * Recupere une liste de utilisateur
+	 */
+	@Override
+	public List<Utilisateur> findAllUtilisateur() {
+		return utilisateurDao.findAllUtilisateurs();
 	}
 
+	
 	/**
-	 * Recupere une liste d'utilisateurs
+	 * Supprime un utilisateur
 	 */
 	@Override
-	public List<Utilisateur> findAllUtilisateurs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * Recupere un utilisateur par son Id
-	 */
-	@Override
-	public Utilisateur getByIdUtilisateur(int id_u) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteUtilisateur(int id) {
+		Utilisateur utilisateur = utilisateurDao.getByIdUtilisateur(id);
+		utilisateurDao.deleteUtilisateur(utilisateur);
+		
 	}
 
 	/**
 	 * Modifie un utilisateur
 	 */
 	@Override
-	public Utilisateur updateUtilisateur(Utilisateur u) {
-		// TODO Auto-generated method stub
-		return null;
+	public void updateUtilisateur(Utilisateur utilisateur) {
+		utilisateurDao.updateUtilisateur(utilisateur);
+		
 	}
 
 	/**
-	 * Supprime un utilisaeur
+	 * Recupere un utilisateur par son Id
 	 */
 	@Override
-	public void deleteUtilisateur(int id) {
-		// TODO Auto-generated method stub
+	public Utilisateur getByIdUtilisateur(int id) {
+		return utilisateurDao.getByIdUtilisateur(id);
+	}
+
+	/**
+	 * méthode d'attribution d'un client un bien
+	 */
+	@Override
+	public void attribuer(int idClient, int idBien) {
+		Client client = clientDao.getByIdClient(idClient);
+		List<Bien> listeBien = client.getListeInteret();
+		Bien bien = bienDao.getByIdBien(idBien);
+		listeBien.add(bien);
+		utilisateurDao.attribuer(client, listeBien);
 		
 	}
 

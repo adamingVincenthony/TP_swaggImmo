@@ -49,8 +49,8 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	 */
 	@Override
 	public void deleteProprietaire(int id) {
-		Proprietaire proprio = proprietaireDao.getByIdProprietaire(id);
-		proprietaireDao.deleteProprietaire(proprio);
+		Proprietaire proprietaire = proprietaireDao.getByIdProprietaire(id);
+		proprietaireDao.deleteProprietaire(proprietaire);
 		
 	}
 

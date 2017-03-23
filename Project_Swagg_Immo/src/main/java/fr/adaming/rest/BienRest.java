@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import fr.adaming.entity.Proprietaire;
-import fr.adaming.service.IProprietaireService;
+import fr.adaming.entity.Bien;
+import fr.adaming.service.IBienService;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,26 +19,26 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
- * annotations path et component du proprietaireRest
+ * annotations path et component du bienRest
  * @author inti0277
  *
  */
 @Component
-@Path("/proprietaire")
-public class ProprietaireRest {
+@Path("/bien")
+public class BienRest {
 	
 	/**
 	 * injection automatique du propriétaire service
 	 */
 	@Autowired
-	private IProprietaireService proprietaireService;
+	private IBienService bienService;
 
 	/**
-	 * set du proprietaireService
-	 * @param proprietaireService
+	 * set du bienService
+	 * @param bienService
 	 */
-	public void setProprietaireService(IProprietaireService proprietaireService) {
-		this.proprietaireService = proprietaireService;
+	public void setBienService(IBienService bienService) {
+		this.bienService = bienService;
 	}
 	
 	
@@ -49,8 +49,8 @@ public class ProprietaireRest {
 	@GET
 	@Path("/findAll")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Proprietaire> findAllProprietaireRest(){
-		return proprietaireService.findAllProprietaire();
+	public List<Bien> findAllBienRest(){
+		return bienService.findAllBien();
 	}
 	
 	/**
@@ -61,30 +61,30 @@ public class ProprietaireRest {
 	@GET
 	@Path("/getById/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Proprietaire getByIdProprietaireRest(@PathParam("id_param") int id) {
-		return proprietaireService.getByIdProprietaire(id);
+	public Bien getByIdBienRest(@PathParam("id_param") int id) {
+		return bienService.getByIdBien(id);
 	}
 	
 	/**
 	 * méthode d'ajout d'un propriétaire 
-	 * @param proprietaire
+	 * @param bien
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addProprietaireRest(Proprietaire proprietaire){
-		proprietaireService.addProprietaire(proprietaire);
+	public void addBienRest(Bien bien){
+		bienService.addBien(bien);
 	}
 	
 	/**
 	 * méthode de mise à jour des données d'un propriétaire
-	 * @param proprietaire
+	 * @param bien
 	 */
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateProprietaireRest(Proprietaire proprietaire){
-		proprietaireService.updateProprietaire(proprietaire);
+	public void updateBienRest(Bien bien){
+		bienService.updateBien(bien);
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class ProprietaireRest {
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
-		proprietaireService.deleteProprietaire(id);
+		bienService.deleteBien(id);
 	}
 	
 }

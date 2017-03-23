@@ -50,7 +50,7 @@ public class UtilisateurRest {
 	@Path("/findAll")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Utilisateur> findAllUtilisateurRest(){
-		return utilisateurService.findAllUtilisateurs();
+		return utilisateurService.findAllUtilisateur();
 	}
 	
 	/**
@@ -70,7 +70,6 @@ public class UtilisateurRest {
 	 * @param utilisateur
 	 */
 	@POST
-	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void addUtilisateurRest(Utilisateur utilisateur){
@@ -82,7 +81,6 @@ public class UtilisateurRest {
 	 * @param utilisateur
 	 */
 	@PUT
-	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void updateUtilisateurRest(Utilisateur utilisateur){
@@ -94,7 +92,6 @@ public class UtilisateurRest {
 	 * @param id
 	 */
 	@DELETE
-	@Path("/delete/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
 		utilisateurService.deleteUtilisateur(id);

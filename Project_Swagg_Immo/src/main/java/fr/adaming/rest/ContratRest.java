@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import fr.adaming.entity.Proprietaire;
-import fr.adaming.service.IProprietaireService;
+import fr.adaming.entity.Contrat;
+import fr.adaming.service.IContratService;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,26 +19,26 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
- * annotations path et component du proprietaireRest
+ * annotations path et component du contratRest
  * @author inti0277
  *
  */
 @Component
-@Path("/proprietaire")
-public class ProprietaireRest {
+@Path("/contrat")
+public class ContratRest {
 	
 	/**
 	 * injection automatique du propriétaire service
 	 */
 	@Autowired
-	private IProprietaireService proprietaireService;
+	private IContratService contratService;
 
 	/**
-	 * set du proprietaireService
-	 * @param proprietaireService
+	 * set du contratService
+	 * @param contratService
 	 */
-	public void setProprietaireService(IProprietaireService proprietaireService) {
-		this.proprietaireService = proprietaireService;
+	public void setContratService(IContratService contratService) {
+		this.contratService = contratService;
 	}
 	
 	
@@ -49,8 +49,8 @@ public class ProprietaireRest {
 	@GET
 	@Path("/findAll")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Proprietaire> findAllProprietaireRest(){
-		return proprietaireService.findAllProprietaire();
+	public List<Contrat> findAllContratRest(){
+		return contratService.findAllContrat();
 	}
 	
 	/**
@@ -61,30 +61,31 @@ public class ProprietaireRest {
 	@GET
 	@Path("/getById/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Proprietaire getByIdProprietaireRest(@PathParam("id_param") int id) {
-		return proprietaireService.getByIdProprietaire(id);
+	public Contrat getByIdContratRest(@PathParam("id_param") int id) {
+		return contratService.getByIdContrat(id);
 	}
 	
 	/**
 	 * méthode d'ajout d'un propriétaire 
-	 * @param proprietaire
+	 * @param contrat
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addProprietaireRest(Proprietaire proprietaire){
-		proprietaireService.addProprietaire(proprietaire);
+	public void addContratRest(Contrat contrat){
+		contratService.addContrat(contrat);
 	}
 	
 	/**
 	 * méthode de mise à jour des données d'un propriétaire
-	 * @param proprietaire
+	 * @param contrat
 	 */
 	@PUT
+	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateProprietaireRest(Proprietaire proprietaire){
-		proprietaireService.updateProprietaire(proprietaire);
+	public void updateContratRest(Contrat contrat){
+		contratService.updateContrat(contrat);
 	}
 	
 	/**
@@ -92,9 +93,10 @@ public class ProprietaireRest {
 	 * @param id
 	 */
 	@DELETE
+	@Path("/delete/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
-		proprietaireService.deleteProprietaire(id);
+		contratService.deleteContrat(id);
 	}
 	
 }
