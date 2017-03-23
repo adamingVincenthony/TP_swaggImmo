@@ -38,7 +38,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	public Utilisateur addUtilisateur(Utilisateur u) {
 		
 		Session s = sf.getCurrentSession();
-		return (Utilisateur) s.save(u);
+		s.save(u);
+		return u;
 	}
 
 	@Override
@@ -58,7 +59,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	@Override
 	public Utilisateur updateUtilisateur(Utilisateur u) { 
 		Session s = sf.getCurrentSession();
-		return (Utilisateur) s.merge(u);
+		s.merge(u);
+		return u;
 	}
 
 	@Override

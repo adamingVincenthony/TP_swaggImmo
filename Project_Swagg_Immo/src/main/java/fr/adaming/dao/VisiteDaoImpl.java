@@ -27,7 +27,8 @@ public class VisiteDaoImpl implements IVisiteDao{
 	@Override
 	public Visite addVisite(Visite v) { 
 		Session s =	sf.getCurrentSession();
-		return (Visite)	s.save(v);
+		s.save(v);
+		return v;
 	}
 
 	@Override
@@ -46,9 +47,9 @@ public class VisiteDaoImpl implements IVisiteDao{
 
 	@Override
 	public Visite updateVisite(Visite v) {
-
 		Session s  = sf.getCurrentSession();
-		return (Visite) 	s.merge(v);
+		s.merge(v);
+		return v;	
 	}
 
 	@Override

@@ -29,7 +29,9 @@ public class ContratDaoImpl implements IContratDao{
 	@Override
 	public Contrat addContrat(Contrat c) {
 		
-		return (Contrat) sf.getCurrentSession().save(c);
+		Session s = sf.getCurrentSession();
+		s.save(c);
+		return c;
 	}
 
 	@Override
@@ -49,7 +51,8 @@ public class ContratDaoImpl implements IContratDao{
 	@Override
 	public Contrat updateContrat(Contrat c) {
 		Session s = sf.getCurrentSession();
-		return (Contrat) s.merge(c);
+		s.merge(c);
+		return c;
 	}
 
 	@Override
@@ -68,9 +71,6 @@ public class ContratDaoImpl implements IContratDao{
 		s.merge(bien);
 		s.merge(client);
 	}
-	
-
-	
 	
 	
 }
