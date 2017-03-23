@@ -52,7 +52,7 @@ app.factory("propProvider", function($http) {
 	 * afficher tous les propriétaires
 	 */
 	function findAllProp(callback) {
-		$http.get(urlglobal + '/proprietaires/') /* VERIFIER L'URL AVEC REST */
+		$http.get(urlglobal + '/liste/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);

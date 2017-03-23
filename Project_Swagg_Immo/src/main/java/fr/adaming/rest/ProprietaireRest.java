@@ -47,7 +47,7 @@ public class ProprietaireRest {
 	 * @return
 	 */
 	@GET
-	@Path("/findAll")
+	@Path("/liste")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Proprietaire> findAllProprietaireRest(){
 		return proprietaireService.findAllProprietaire();

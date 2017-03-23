@@ -92,16 +92,11 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
  * -------------------------------------------------------Fonction pour afficher
  * tous les propriétaires
  */
-.controller("findAllProp",
-		function($rootScope, $scope, propProvider, $location) {
+.controller("findAllProp",function($rootScope, $scope, propProvider, $location) {
 			propProvider.findAllProp(function(callback) {
 				$scope.proprietaires = callback.data;
 			})
-		}
-
-
-
-});
+		});
 
 
 
