@@ -65,7 +65,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	 * Supprime un utilisaeur
 	 */
 	@Override
-	public void deleteUtilisateur(Utilisateur u) {
+	public void deleteUtilisateur(int id) {
 		// TODO Auto-generated method stub
 		
 	}

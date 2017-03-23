@@ -10,5 +10,5 @@ public interface IUtilisateurService {
 	public List<Utilisateur> findAllUtilisateurs();
 	public Utilisateur getByIdUtilisateur(int id_u);
 	public Utilisateur updateUtilisateur(Utilisateur u);
-	public void deleteUtilisateur(Utilisateur u);
+	public void deleteUtilisateur(int id);
 }
