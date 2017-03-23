@@ -24,8 +24,9 @@ public class ProprietaireDaoImpl implements IProprietaireDao{
 	
 	@Override
 	public Proprietaire addProprietaire(Proprietaire p) {
-		
-		return (Proprietaire) sf.getCurrentSession().save(p);
+		System.out.println("Le propriétaire ajouté est bien : "+p.getNom()+p.getAdresse()+p.getNumeroPrive()+p.getNumeroTravail());
+		sf.getCurrentSession().save(p);
+		return p;
 	}
 
 	@Override

@@ -4,10 +4,10 @@
 app.controller("addProp", function($scope, $rootScope, $location, propProvider) {
 	$scope.propForm = {
 		/** on initialise des valeurs nulles */
-		propNom : "",
-		propAdresse : "",
-		propTel1 : "",
-		propTel2 : ""
+		nom : "",
+		adresse : "",
+		numeroPrive : "",
+		numeroTravail : ""
 	}
 	/** Développement de la méthode ajouter appellée dans la page */
 	$scope.ajouter = function() {

@@ -89,13 +89,6 @@
 
 		<!-- jersey -->
 
-		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-json -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.18.3</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-server -->
 	<dependency>
 			<groupId>com.sun.jersey</groupId>
