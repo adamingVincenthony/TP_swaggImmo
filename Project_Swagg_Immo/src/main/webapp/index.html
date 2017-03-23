@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<!-- JQuery libraries-->
+<script type="text/javascript" src="scripts/boostrap/js/jquery.js"></script>
+
+<!-- Bootstrap libraries-->
+<link rel="stylesheet" type="text/css" href="scripts/boostrap/css/bootstrap.css">
+<script type="text/javascript" src="scripts/boostrap/js/bootstrap.js"></script>
+
+<!-- ref vers feuilles css -->
+<link rel="stylesheet" href="style/style.css">
+
+</head>
+<body >
+<div class="container-fluid">
+	<table style="font-family: Arial;">
+	<tr>
+			<td colspan="2" class="header">
+			</td>
+	</tr>
+	<table/>
+	<div  class="container">
+	<div class="row">
+				<nav class="navbar navbar-inverse">
+					<ul class="nav nav-pills">
+						<li role="presentation" class="active"><a href="#">Accueil</a></li>
+						<li role="presentation"><a href="#/accueil"><span class="label label-warning">Liste des Poils</span></a></li>
+						<li role="presentation"><a href="#/rechercher"><span class="label label-warning">Liste des Poils</span></a></li>
+						<li role="presentation"><a href="#/ajouter"><span class="label label-warning">Liste des Poils</span></a></li>
+						<li role="presentation"><a href="#/supprimer"><span class="label label-warning">Liste des Poils</span></a></li>
+						<li role="presentation"><a href="#/modifier"><span class="label label-warning">Liste des Poils</span></a></li>
+					</ul>
+				</nav>
+		
+		<div class="col-xs-2" id="leftmenu">
+				<div class="col-xs-12" style="margin-top: 15px">
+				<a href="#/home">Accueil</a> 
+				<a href="#/template1">T1_àcompleter</a> 
+				<a href="#/template2">T2_à completer</a>
+				<a href="#/template1">T1_à completer</a> 
+				<a href="#/template2">T2_à completer</a> 
+				<a href="#/template1">T1_à completer</a> 
+				<a href="#/template2">T2_à completer</a>
+						
+						
+						<!-- 				Activation avec le mode html 5 -->
+				<!-- 				<a href="home">Accueil</a>  -->
+				<!-- 				<a href="cours">Cours</a> -->
+				<!-- 				<a href="etu">Etudiants</a> -->
+						
+				</div>
+
+
+		</div>
+	
+		<div class="col-xs-10" id="maincontent">
+
+						<h1>Bonjour Bienvenue sur le Site de Swagg Immo</h1>
+						<ng-view></ng-view>
+
+		</div>		
+				
+<table>
+		<tr>
+			<td colspan="2" class="footer">
+				<h1>Website Footer</h1>
+			</td>
+		</tr>
+</table>
+		</div>
+		</div>
+	
+	</div>
+</body>
+</html>

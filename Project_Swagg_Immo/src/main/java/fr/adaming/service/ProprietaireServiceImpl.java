@@ -17,6 +17,15 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	@Autowired
 	private IProprietaireDao proprietaireDao = new ProprietaireDaoImpl();
 	
+	
+	/**
+	 * setter
+	 * @param proprietaireDao
+	 */
+	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
+		this.proprietaireDao = proprietaireDao;
+	}
+
 	/**
 	 * Ajoute un proprietaire en appelant la methode associée de la dao
 	 */
@@ -39,8 +48,9 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	 * Supprime un proprietaire
 	 */
 	@Override
-	public void deleteProprietaire(Proprietaire proprietaire) {
-		proprietaireDao.deleteProprietaire(proprietaire);
+	public void deleteProprietaire(int id) {
+		Proprietaire proprio = proprietaireDao.getByIdProprietaire(id);
+		proprietaireDao.deleteProprietaire(proprio);
 		
 	}
 
