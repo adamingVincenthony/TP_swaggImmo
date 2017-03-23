@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -36,17 +38,18 @@ public class Client implements Serializable{
 	/**
 	 * Un client peut-être intéressé par plusieurs bien 
 	 */
-	
+	@ManyToMany
+	//@JoinColumn(name="bien_id_fk", referencedColumnName="id_bien")
 	private List<Bien> listeInteret;
 	/**
 	 * Un client peut avoir plusieurs contrat avec l'agence
 	 */
-	
+	@OneToMany(mappedBy="client")
 	private List<Contrat> listeContrat;
 	/**
 	 * Un client peut réaliser plusieures visites
 	 */
-
+	@OneToMany(mappedBy="client")
 	private List<Visite> listeVisite;
 	
 	

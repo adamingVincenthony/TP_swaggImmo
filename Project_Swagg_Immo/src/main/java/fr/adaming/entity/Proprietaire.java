@@ -39,6 +39,7 @@ public class Proprietaire implements Serializable {
 	 * Un propriétaire est associé à un ou plusieurs bien
 	 */
 
+	@OneToMany(mappedBy="proprietaire")
 	private List<Bien> listeBien;
 
 	/* Les constructeurs */

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -57,24 +58,29 @@ public class Bien implements Serializable{
 	 * chaque bien appartient à un propriétaire
 	 */
 
+	@ManyToOne
+	@JoinColumn(name="proprietaire_id_fk", referencedColumnName="id_prop")
 	private Proprietaire proprietaire;
 	/**
 	 * Association avec un utilisateur :
 	 * Chaque bien est géré par un Conseiler Clientèle
 	 */
-	
+	@ManyToOne
+	@JoinColumn(name="responsable_id_fk",referencedColumnName="id_user")
 	private Utilisateur responsable;
 	/**
 	 * Association avec les clients intéressés :
 	 * Chaque bien peut être le centre d'intêret de plusieurs clients
 	 */
-
+	@ManyToMany(mappedBy="listeInteret")
+	//@JoinColumn(name="client_id_fk", referencedColumnName="id_client")
 	private List<Client> clientInteret;
 	/**
 	 * Association avec un contrat :
 	 * Un bien peut éventuellement être lié à un client via un contrat
 	 */
-	
+	@OneToOne
+	@JoinColumn(name="contrat_id_fk",referencedColumnName="id_contrat")
 	private Contrat contrat;
 	
 	/**
@@ -82,7 +88,7 @@ public class Bien implements Serializable{
 	 * Un bien peut être visité différentes fois
 	 * Mais une visite ne concerne qu'un seul bien
 	 */
-	
+	@OneToMany(mappedBy="bien")
 	private List<Visite> listeVisite;
 	
 	

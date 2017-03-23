@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -42,17 +43,20 @@ public class Contrat implements Serializable{
 	/**
 	 * Un contrat concerne un bien
 	 */
-
+	@OneToOne(mappedBy="contrat")
 	private Bien bien;
 	/**
 	 * Un contrat est signé par un seul client
 	 */
-
+	@ManyToOne
+	@JoinColumn(name="client_id_fk",referencedColumnName="id_client")
 	private Client client;
 	/**
 	 * Un contrat est signé par un seul responsable (Vraiment utile ?)
 	 */
 
+	@ManyToOne
+	@JoinColumn(name="responsable_id_fk",referencedColumnName="id_user")
 	private Utilisateur responsable;
 	
 	/**

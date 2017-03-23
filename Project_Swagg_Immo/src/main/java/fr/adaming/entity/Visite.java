@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -39,17 +40,20 @@ public class Visite implements Serializable {
 	/**
 	 * Une visite concerne un bien
 	 */
-
+	@ManyToOne
+	@JoinColumn(name="bien_id_fk",referencedColumnName="id_bien")
 	private Bien bien;
 	/**
 	 * Une visite concerne un client
 	 */
-	
+	@ManyToOne
+	@JoinColumn(name="client_id_fk",referencedColumnName="id_client")
 	private Client client;
 	/**
 	 * Une visite concerne un responsable
-	 */
-
+	*/
+	@ManyToOne
+	@JoinColumn(name="user_id_fk",referencedColumnName="id_user")
 	private Utilisateur responsable;
 	
 	/* Les constructeurs */
