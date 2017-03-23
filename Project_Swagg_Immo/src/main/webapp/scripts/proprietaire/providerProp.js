@@ -6,7 +6,7 @@ app.factory("propProvider", function($http) {
 	/**
 	 * URL globale pour l'appel des services propriétaires
 	 */
-	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/proprietaire"; /* METTRE L'URL QUAND SERVICE OKI */
+	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/bien"; /* METTRE L'URL QUAND SERVICE OKI */
 
 	/**
 	 * ------------------------------------------------------------ Fonction

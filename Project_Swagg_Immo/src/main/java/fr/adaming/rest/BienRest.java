@@ -73,6 +73,7 @@ public class BienRest<T extends Bien> {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void addBienRest(T bien){
+		System.out.println(bien.getRevenuCadastral()+" "+bien.getType());
 		bienService.addBien(bien);
 	}
 	

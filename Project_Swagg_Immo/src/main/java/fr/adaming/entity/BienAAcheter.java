@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @Entity
-@DiscriminatorValue("bien_a_louer")
+@DiscriminatorValue("bien_a_acheter")
 @XmlRootElement
 public class BienAAcheter extends TerrainAAcheter {
 
