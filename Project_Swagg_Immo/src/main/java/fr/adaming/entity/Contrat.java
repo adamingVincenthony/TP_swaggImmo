@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 /**
  * La classe persistence Contrat qui représente l'achat ou la location 
  * d'un bien par un client
@@ -140,7 +141,7 @@ public class Contrat implements Serializable{
 	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
-	@XmlElement
+	@XmlTransient
 	public Client getClient() {
 		return client;
 	}
@@ -148,7 +149,7 @@ public class Contrat implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	@XmlElement
+	@XmlTransient
 	public Utilisateur getResponsable() {
 		return responsable;
 	}

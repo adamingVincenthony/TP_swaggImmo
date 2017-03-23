@@ -5,25 +5,31 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Classe définissant les caractéristiques du bien immobilier
  * @author inti0210
  */
 @Entity
-@Table(name="biens")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type_bien_d")
+@DiscriminatorValue("bien")
 @XmlRootElement
 //ajout de la strategy de génération de table
 public class Bien implements Serializable{
@@ -197,7 +203,7 @@ public class Bien implements Serializable{
 	public void setSurface(String surface) {
 		this.surface = surface;
 	}
-	@XmlElement
+	@XmlTransient
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
@@ -225,7 +231,7 @@ public class Bien implements Serializable{
 	public void setClientInteret(List<Client> clientInteret) {
 		this.clientInteret = clientInteret;
 	}
-	@XmlElement
+	@XmlTransient
 	public Contrat getContrat() {
 		return contrat;
 	}

@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -102,7 +103,7 @@ public class Visite implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	@XmlElement
+	@XmlTransient
 	public Bien getBien() {
 		return bien;
 	}
@@ -110,7 +111,7 @@ public class Visite implements Serializable {
 	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
-	@XmlElement
+	@XmlTransient
 	public Client getClient() {
 		return client;
 	}
@@ -119,7 +120,7 @@ public class Visite implements Serializable {
 		this.client = client;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public Utilisateur getResponsable() {
 		return responsable;
 	}
