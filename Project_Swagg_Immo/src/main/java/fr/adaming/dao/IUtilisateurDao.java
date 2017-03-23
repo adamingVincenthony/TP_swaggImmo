@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 
 
@@ -20,4 +21,5 @@ public interface IUtilisateurDao {
 	public Utilisateur updateUtilisateur(Utilisateur u);
 	public void deleteUtilisateur(Utilisateur u);
 	public void attribuer(Client client, Bien bien);
+	public List<Bien> getListeBienProprietaire(int id_p);
 }

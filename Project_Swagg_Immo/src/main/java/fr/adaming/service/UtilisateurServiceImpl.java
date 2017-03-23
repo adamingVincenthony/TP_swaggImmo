@@ -10,10 +10,13 @@ import fr.adaming.dao.BienDaoImpl;
 import fr.adaming.dao.ClientDaoImpl;
 import fr.adaming.dao.IBienDao;
 import fr.adaming.dao.IClientDao;
+import fr.adaming.dao.IProprietaireDao;
 import fr.adaming.dao.IUtilisateurDao;
+import fr.adaming.dao.ProprietaireDaoImpl;
 import fr.adaming.dao.UtilisateurDaoImpl;
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 
 @Service
@@ -24,6 +27,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	private IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
 	private IClientDao clientDao = new ClientDaoImpl();
 	private IBienDao bienDao = new BienDaoImpl();
+	private IProprietaireDao proprietaireDao = new ProprietaireDaoImpl();
 	
 	/**
 	 * setter
@@ -91,7 +95,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		Bien bien = bienDao.getByIdBien(idBien);
 		
 		List<Bien> listeBien = client.getListeInteret();
-		List<Client> listeClient= bien.getClientInteret();
+		List<Client> listeClient= bien.getClientInteret(); 
 
 		listeBien.add(bien);
 		listeClient.add(client);
@@ -100,6 +104,16 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		bien.setClientInteret(listeClient);
 		
 		utilisateurDao.attribuer(client, bien);
+		
+	}
+
+	/**
+	 * méthode d'affichage de la liste des biens d'un propriétaire dans la liste des intérêts
+	 */
+	@Override
+	public List<Bien> getListeBienProprietaire(int id_p) {
+		
+		return utilisateurDao.getListeBienProprietaire(id_p);
 		
 	}
 

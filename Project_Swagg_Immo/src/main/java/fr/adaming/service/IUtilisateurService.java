@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 
 public interface IUtilisateurService {
@@ -24,4 +25,10 @@ public interface IUtilisateurService {
 	 * @param idBien
 	 */
 	public void attribuer(int idClient, int idBien);
+	
+	/**
+	 * méthode d'affichage de la liste des biens d'un proprio  dans la liste des intérêts
+	 */
+	public List<Bien> getListeBienProprietaire(int id_p);
+	
 }

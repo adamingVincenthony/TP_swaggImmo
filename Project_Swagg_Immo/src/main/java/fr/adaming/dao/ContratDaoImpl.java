@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.entity.Bien;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Contrat;
 /**
  * methodes permettant de gérer les contrats dans la bdd
@@ -55,4 +57,20 @@ public class ContratDaoImpl implements IContratDao{
 		Session s = sf.getCurrentSession();
 		s.delete(c);
 	}
+
+	/**
+	 * méthode d'attribution du bien loué ou vendu au client
+	 */
+	@Override
+	public void attribuer(Contrat contrat, Client client, Bien bien) {
+		Session s = sf.getCurrentSession();
+		s.merge(contrat);
+		s.merge(bien);
+		s.merge(client);
+	}
+	
+
+	
+	
+	
 }

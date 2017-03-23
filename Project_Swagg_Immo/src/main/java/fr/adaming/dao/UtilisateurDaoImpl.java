@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 
 /**
@@ -18,7 +19,7 @@ import fr.adaming.entity.Utilisateur;
  *
  */
 @Repository
-public class UtilisateurDaoImpl implements IUtilisateurDao{
+public class UtilisateurDaoImpl implements IUtilisateurDao {
 
 	@Autowired
 	private SessionFactory sf;
@@ -27,6 +28,12 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 		this.sf = sf;
 	}
 	
+	@Autowired 
+	private IProprietaireDao proprietaireDao;
+	
+	/**
+	 * méthodes de gestion des utilisateurs
+	 */
 	@Override
 	public Utilisateur addUtilisateur(Utilisateur u) {
 		
@@ -60,12 +67,24 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 		s .delete(u);
 	}
 
+	/**
+	 * méthode d'attribution d'un bien à un client dans la liste des intérêts
+	 */
 	@Override
 	public void attribuer(Client client, Bien bien) {
-		Session s1 = sf.getCurrentSession();
-		Session s2 = sf.getCurrentSession();
-		s1.merge(client);
-		s2.merge(bien);
+		Session s = sf.getCurrentSession();
+		s.merge(client);
+		s.merge(bien);
+	}
+
+	/**
+	 * méthode pour afficher la liste des biens d'un proprietaire
+	 */
+	@Override
+	public List<Bien> getListeBienProprietaire(int id_p) {
+		Proprietaire proprietaire = proprietaireDao.getByIdProprietaire(id_p);
+		List<Bien> listeBien = proprietaire.getListeBien();
+		return listeBien;
 	}
 	
 }

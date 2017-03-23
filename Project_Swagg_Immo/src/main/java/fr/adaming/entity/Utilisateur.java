@@ -50,7 +50,7 @@ public class Utilisateur implements Serializable {
 	@OneToMany(mappedBy="responsable")
 	private List<Contrat> listeContrat;
 	/**
-	 * Un utilisateur peut avoir plusieures visites 
+	 * Un utilisateur peut avoir plusieurs visites 
 	 */
 	@OneToMany(mappedBy="responsable")
 	private List<Visite> listeVisite;
