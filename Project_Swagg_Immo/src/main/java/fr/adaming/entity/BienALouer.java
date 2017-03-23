@@ -1,8 +1,8 @@
 package fr.adaming.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,13 +11,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @Entity
-@Table(name="biens_alouer")
+@DiscriminatorValue("bien_a_louer")
 @XmlRootElement
 public class BienALouer extends Bien{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	

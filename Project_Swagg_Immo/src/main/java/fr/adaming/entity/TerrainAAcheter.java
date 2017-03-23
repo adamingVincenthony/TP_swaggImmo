@@ -1,8 +1,8 @@
 package fr.adaming.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * classe définissant les bien et les terrains à l'achat et qui hérite des attributs globaux de la classe Bien
@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @Entity
-@Table(name="terrain_aacheter")
+@DiscriminatorValue("terrain_a_acheter")
 @XmlRootElement
 public class TerrainAAcheter extends Bien{
 
