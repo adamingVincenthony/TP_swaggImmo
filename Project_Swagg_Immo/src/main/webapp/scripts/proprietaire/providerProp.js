@@ -36,7 +36,7 @@ app.factory("propProvider", function($http) {
 	 * chercher un propriétaire
 	 */
 	function getProp(idProp, callback) {
-		$http.get(urlglobal +'/'+ idProp) 
+		$http.get(urlglobal +'/get/'+idProp) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);

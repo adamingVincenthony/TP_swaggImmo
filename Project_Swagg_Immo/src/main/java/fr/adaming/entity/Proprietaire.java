@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(name="proprietaires")
@@ -41,7 +43,8 @@ public class Proprietaire implements Serializable {
 	 * Un propriétaire est associé à un ou plusieurs bien
 	 */
 
-	@OneToMany(mappedBy="proprietaire")
+	@OneToMany(mappedBy="proprietaire",fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List<Bien> listeBien;
 
 	/* Les constructeurs */
