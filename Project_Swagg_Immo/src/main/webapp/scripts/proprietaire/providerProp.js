@@ -6,7 +6,7 @@ app.factory("propProvider", function($http) {
 	/**
 	 * URL globale pour l'appel des services propriétaires
 	 */
-	var urlglobal = ""; /* METTRE L'URL QUAND SERVICE OKI */
+	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/proprietaire"; /* METTRE L'URL QUAND SERVICE OKI */
 
 	/**
 	 * ------------------------------------------------------------ Fonction
@@ -15,7 +15,7 @@ app.factory("propProvider", function($http) {
 	function addProp(propForm, callback) {
 		$http({
 			method : 'POST',
-			url : urlglobal + '/ajouter', /* VERIFIER L'URL AVEC REST */
+			url : urlglobal + '/add', /* VERIFIER L'URL AVEC REST */
 			data : angular.toJson(propForm),
 			headers : {
 				'Content-Type' : 'application/json'
