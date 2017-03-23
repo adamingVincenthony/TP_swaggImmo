@@ -2,6 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,28 +24,33 @@ public class ClientDaoImpl implements IClientDao{
 	
 	@Override
 	public Client addClient(Client cl) {
-		
-		return (Client) sf.getCurrentSession().save(cl);
+		Session s = sf.getCurrentSession();
+		return (Client) s.save(cl);
 	}
 
 	@Override
 	public List<Client> findAllClients() {
 		String req="SELECT cl from Client cl";
-		return sf.getCurrentSession().createQuery(req).list();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		return query.list();
 	}
 
 	@Override
 	public Client getByIdClient(int id_cl) {
-		return (Client) sf.getCurrentSession().get(Client.class, id_cl);
+		Session s = sf.getCurrentSession();
+		return (Client)	s.get(Client.class, id_cl);
 	}
 
 	@Override
 	public Client updateClient(Client cl) {
-		return (Client) sf.getCurrentSession().merge(cl);
+		Session s = sf.getCurrentSession();
+		return (Client)	s.merge(cl);
 	}
 
 	@Override
 	public void deleteClient(Client cl) {
-		sf.getCurrentSession().delete(cl);
+		Session s = sf.getCurrentSession();
+		s.delete(cl);
 	}
 }

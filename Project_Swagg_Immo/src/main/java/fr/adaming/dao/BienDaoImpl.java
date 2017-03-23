@@ -2,6 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,22 +33,27 @@ public class BienDaoImpl implements IBienDao{
 	@Override
 	public List<Bien> findAllBiens() {
 		String req="SELECT b from Bien b";
-		return sf.getCurrentSession().createQuery(req).list();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		return query.list();
 	}
 
 	@Override
 	public Bien getByIdBien(int id_b) {
-		return (Bien) sf.getCurrentSession().get(Bien.class, id_b);
+		Session s = sf.getCurrentSession();
+		return (Bien) s.get(Bien.class, id_b);
 	}
 
 	@Override
 	public Bien updateBien(Bien b) {
-		return (Bien) sf.getCurrentSession().merge(b);
+		Session s = sf.getCurrentSession();
+		return (Bien) s.merge(b);
 	}
 
 	@Override
 	public void deleteBien(Bien b) {
-		sf.getCurrentSession().delete(b);
+		Session s = sf.getCurrentSession();
+		s.delete(b);
 	}
 
 }

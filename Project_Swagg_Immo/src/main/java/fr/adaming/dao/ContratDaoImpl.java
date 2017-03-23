@@ -2,7 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
-
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,21 +33,26 @@ public class ContratDaoImpl implements IContratDao{
 	@Override
 	public List<Contrat> findAllContrats() {
 		String req="SELECT c from Contrat c";
-		return sf.getCurrentSession().createQuery(req).list();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		return query.list();
 	}
 
 	@Override
 	public Contrat getByIdContrat(int id_c) {
-		return (Contrat) sf.getCurrentSession().get(Contrat.class, id_c);
+		Session s = sf.getCurrentSession();
+		return (Contrat) s.get(Contrat.class, id_c);
 	}
 
 	@Override
 	public Contrat updateContrat(Contrat c) {
-		return (Contrat) sf.getCurrentSession().merge(c);
+		Session s = sf.getCurrentSession();
+		return (Contrat) s.merge(c);
 	}
 
 	@Override
 	public void deleteContrat(Contrat c) {
-		sf.getCurrentSession().delete(c);
+		Session s = sf.getCurrentSession();
+		s.delete(c);
 	}
 }
