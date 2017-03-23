@@ -88,10 +88,18 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	@Override
 	public void attribuer(int idClient, int idBien) {
 		Client client = clientDao.getByIdClient(idClient);
-		List<Bien> listeBien = client.getListeInteret();
 		Bien bien = bienDao.getByIdBien(idBien);
+		
+		List<Bien> listeBien = client.getListeInteret();
+		List<Client> listeClient= bien.getClientInteret();
+
 		listeBien.add(bien);
-		utilisateurDao.attribuer(client, listeBien);
+		listeClient.add(client);
+		
+		client.setListeInteret(listeBien);
+		bien.setClientInteret(listeClient);
+		
+		utilisateurDao.attribuer(client, bien);
 		
 	}
 

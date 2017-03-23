@@ -15,7 +15,7 @@ app.factory("propProvider", function($http) {
 	function addProp(propForm, callback) {
 		$http({
 			method : 'POST',
-			url : urlglobal + '/add', /* VERIFIER L'URL AVEC REST */
+			url : urlglobal, 
 			data : angular.toJson(propForm),
 			headers : {
 				'Content-Type' : 'application/json'
@@ -36,17 +36,17 @@ app.factory("propProvider", function($http) {
 	 * chercher un propriétaire
 	 */
 	function getProp(idProp, callback) {
-		$http.get(urlglobal + '/proprietaire/' + idProp) /*
-															 * VERIFIER L'URL
-															 * AVEC REST
-															 */
-		.success(function(response) {
-			console.log(response);
+		$http.get(urlglobal +'/'+ idProp) 
+														
+		.then(function successCallback(response) {
+			console.log(response.data);
+			console.log("successLook");
 			callback(response);
-		}).error(function(response) {
-			console.log(response.statusText);
-		})
-	}
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	
+}
 	/**
 	 * -----------------------------------------------------------Fonction pour
 	 * afficher tous les propriétaires
@@ -67,7 +67,7 @@ app.factory("propProvider", function($http) {
 	function deleteProp(id, callback){
 		$http({
 			method : 'DELETE',
-			url : urlglobal + '/delprop/'+id, /* VERIFIER L'URL AVEC REST */
+			url : urlglobal +'/'+id, /*Encoder ça en formulaire ?  */
 			})
 			.then(function successCallback(response) {
 				console.log(response.data);
@@ -85,8 +85,8 @@ app.factory("propProvider", function($http) {
 	function updateProp(propUpdateForm, callback){
 		$http({
 			method : 'PUT',
-			url : urlglobal + '/proprietaire', /* VERIFIER L'URL AVEC REST */
-			data : angular.toJson(paysUpdate),
+			url : urlglobal, 
+			data : angular.toJson(propUpdateForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}

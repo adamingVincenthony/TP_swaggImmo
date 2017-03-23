@@ -25,6 +25,8 @@ public class Proprietaire implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_prop")
 	private int id;
+	
+	
 	@Column(name="nom_prop")
 	private String nom;
 	@Column(name="adresse_prop")
@@ -66,6 +68,10 @@ public class Proprietaire implements Serializable {
 		this.numeroPrive = numeroPrive;
 		this.numeroTravail = numeroTravail;
 	}
+
+
+
+	
 
 	/* getter et setters */
 	@XmlElement

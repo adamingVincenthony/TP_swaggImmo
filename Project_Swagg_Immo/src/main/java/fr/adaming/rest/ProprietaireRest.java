@@ -59,7 +59,7 @@ public class ProprietaireRest {
 	 * @return
 	 */
 	@GET
-	@Path("/getById/{id_param}")
+	@Path("/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Proprietaire getByIdProprietaireRest(@PathParam("id_param") int id) {
 		return proprietaireService.getByIdProprietaire(id);
@@ -92,7 +92,12 @@ public class ProprietaireRest {
 	 * @param id
 	 */
 	@DELETE
+<<<<<<< HEAD
 	@Produces(MediaType.APPLICATION_JSON)
+=======
+	@Path("/{id_param}")
+	@Consumes(MediaType.APPLICATION_JSON)
+>>>>>>> branch 'master' of https://github.com/adamingVincenthony/TP_swaggImmo.git
 	public void deleteUser(@PathParam("id_param") int id){
 		proprietaireService.deleteProprietaire(id);
 	}
