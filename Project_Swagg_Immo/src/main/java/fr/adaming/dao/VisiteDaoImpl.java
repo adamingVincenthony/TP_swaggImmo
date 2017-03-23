@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Visite;
+/**
+ * methodes permettant de gérer les visite dans la bdd
+ * @author inti0210
+ *
+ */
 @Repository
 public class VisiteDaoImpl implements IVisiteDao{
 
@@ -18,29 +23,29 @@ public class VisiteDaoImpl implements IVisiteDao{
 	}
 	
 	@Override
-	public Visite addVisite(Visite p) {
+	public Visite addVisite(Visite v) {
 		
-		return (Visite) sf.getCurrentSession().save(p);
+		return (Visite) sf.getCurrentSession().save(v);
 	}
 
 	@Override
 	public List<Visite> findAllVisites() {
-		String req="SELECT p from Visite p";
+		String req="SELECT v from Visite v";
 		return sf.getCurrentSession().createQuery(req).list();
 	}
 
 	@Override
-	public Visite getByIdVisite(int id_p) {
-		return (Visite) sf.getCurrentSession().get(Visite.class, id_p);
+	public Visite getByIdVisite(int id_v) {
+		return (Visite) sf.getCurrentSession().get(Visite.class, id_v);
 	}
 
 	@Override
-	public Visite updateVisite(Visite p) {
-		return (Visite) sf.getCurrentSession().merge(p);
+	public Visite updateVisite(Visite v) {
+		return (Visite) sf.getCurrentSession().merge(v);
 	}
 
 	@Override
-	public void deleteVisite(Visite p) {
-		sf.getCurrentSession().delete(p);
+	public void deleteVisite(Visite v) {
+		sf.getCurrentSession().delete(v);
 	}
 }

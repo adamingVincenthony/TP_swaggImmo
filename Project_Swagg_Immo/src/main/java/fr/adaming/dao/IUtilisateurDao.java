@@ -6,9 +6,9 @@ import fr.adaming.entity.Utilisateur;
 
 public interface IUtilisateurDao {
 
-	public Utilisateur addUtilisateur(Utilisateur p);
+	public Utilisateur addUtilisateur(Utilisateur u);
 	public List<Utilisateur> findAllUtilisateurs();
-	public Utilisateur getByIdUtilisateur(int id_p);
-	public Utilisateur updateUtilisateur(Utilisateur p);
-	public void deleteUtilisateur(Utilisateur p);
+	public Utilisateur getByIdUtilisateur(int id_u);
+	public Utilisateur updateUtilisateur(Utilisateur u);
+	public void deleteUtilisateur(Utilisateur u);
 }

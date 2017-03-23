@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Utilisateur;
+/**
+ * methodes permettant de gérer les utilisateurs(conseillers immobilier) dans la bdd
+ * @author inti0210
+ *
+ */
 @Repository
 public class UtilisateurDaoImpl implements IUtilisateurDao{
 
@@ -18,30 +23,30 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 	}
 	
 	@Override
-	public Utilisateur addUtilisateur(Utilisateur p) {
+	public Utilisateur addUtilisateur(Utilisateur u) {
 		
-		return (Utilisateur) sf.getCurrentSession().save(p);
+		return (Utilisateur) sf.getCurrentSession().save(u);
 	}
 
 	@Override
 	public List<Utilisateur> findAllUtilisateurs() {
-		String req="SELECT p from Utilisateur p";
+		String req="SELECT u from Utilisateur u";
 		return sf.getCurrentSession().createQuery(req).list();
 	}
 
 	@Override
-	public Utilisateur getByIdUtilisateur(int id_p) {
-		return (Utilisateur) sf.getCurrentSession().get(Utilisateur.class, id_p);
+	public Utilisateur getByIdUtilisateur(int id_u) {
+		return (Utilisateur) sf.getCurrentSession().get(Utilisateur.class, id_u);
 	}
 
 	@Override
-	public Utilisateur updateUtilisateur(Utilisateur p) {
-		return (Utilisateur) sf.getCurrentSession().merge(p);
+	public Utilisateur updateUtilisateur(Utilisateur u) {
+		return (Utilisateur) sf.getCurrentSession().merge(u);
 	}
 
 	@Override
-	public void deleteUtilisateur(Utilisateur p) {
-		sf.getCurrentSession().delete(p);
+	public void deleteUtilisateur(Utilisateur u) {
+		sf.getCurrentSession().delete(u);
 	}
 	
 }

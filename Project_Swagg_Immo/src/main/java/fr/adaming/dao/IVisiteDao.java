@@ -6,10 +6,10 @@ import fr.adaming.entity.Visite;
 
 public interface IVisiteDao {
 
-	public Visite addVisite(Visite p);
+	public Visite addVisite(Visite v);
 	public List<Visite> findAllVisites();
-	public Visite getByIdVisite(int id_p);
-	public Visite updateVisite(Visite p);
-	public void deleteVisite(Visite p);
+	public Visite getByIdVisite(int id_v);
+	public Visite updateVisite(Visite v);
+	public void deleteVisite(Visite v);
 	
 }

@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Proprietaire;
-
+/**
+ * methodes permettant de gérer les proprietaires dans la bdd
+ * @author inti0210
+ *
+ */
 @Repository
 public class ProprietaireDaoImpl implements IProprietaireDao{
 

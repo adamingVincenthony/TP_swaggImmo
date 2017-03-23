@@ -6,9 +6,9 @@ import fr.adaming.entity.Contrat;
 
 public interface IContratDao {
 
-	public Contrat addContrat(Contrat p);
+	public Contrat addContrat(Contrat c);
 	public List<Contrat> findAllContrats();
-	public Contrat getByIdContrat(int id_p);
-	public Contrat updateContrat(Contrat p);
-	public void deleteContrat(Contrat p);
+	public Contrat getByIdContrat(int id_c);
+	public Contrat updateContrat(Contrat c);
+	public void deleteContrat(Contrat c);
 }
