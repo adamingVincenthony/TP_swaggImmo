@@ -6,7 +6,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.entity.Client;
-
+/**
+ * methodes permettant de gérer les clients dans la bdd
+ * @author inti0210
+ *
+ */
 public class ClientDaoImpl implements IClientDao{
 
 	@Autowired
@@ -17,29 +21,29 @@ public class ClientDaoImpl implements IClientDao{
 	}
 	
 	@Override
-	public Client addClient(Client p) {
+	public Client addClient(Client cl) {
 		
-		return (Client) sf.getCurrentSession().save(p);
+		return (Client) sf.getCurrentSession().save(cl);
 	}
 
 	@Override
 	public List<Client> findAllClients() {
-		String req="SELECT p from Client p";
+		String req="SELECT cl from Client cl";
 		return sf.getCurrentSession().createQuery(req).list();
 	}
 
 	@Override
-	public Client getByIdClient(int id_p) {
-		return (Client) sf.getCurrentSession().get(Client.class, id_p);
+	public Client getByIdClient(int id_cl) {
+		return (Client) sf.getCurrentSession().get(Client.class, id_cl);
 	}
 
 	@Override
-	public Client updateClient(Client p) {
-		return (Client) sf.getCurrentSession().merge(p);
+	public Client updateClient(Client cl) {
+		return (Client) sf.getCurrentSession().merge(cl);
 	}
 
 	@Override
-	public void deleteClient(Client p) {
-		sf.getCurrentSession().delete(p);
+	public void deleteClient(Client cl) {
+		sf.getCurrentSession().delete(cl);
 	}
 }
