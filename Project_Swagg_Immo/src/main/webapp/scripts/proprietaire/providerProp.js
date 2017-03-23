@@ -9,7 +9,7 @@ app.factory("propProvider", function($http) {
 	var urlglobal = ""; /* METTRE L'URL QUAND SERVICE OKI */
 	
 	/**
-	 * Fonction pour ajouter un propriétaire
+	 * ------------------------------------------------------------ Fonction pour ajouter un propriétaire
 	 */
 	function addProp(propForm, callback) {
 		$http({
@@ -30,7 +30,23 @@ app.factory("propProvider", function($http) {
 		})
 
 	}
-/*Retour des fonctions du provider*/
+	/**
+	 * -----------------------------------------------------------Fonction pour chercher un propriétaire
+	 */
+	function getProp(idProp, callback){
+		$http.get(urlglobal + '/proprietaire/' + idProp)
+		.success(function(response) {
+			console.log(response);
+			callback(response);
+		})
+		.error(function(response) {
+			console.log(response.statusText);
+		})
+	}
+	
+	
+	
+/** -------------------------------------------------------------Retour des fonctions du provider*/
 	return {
 		addProp : addProp,
 	}
