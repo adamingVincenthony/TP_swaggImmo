@@ -2,6 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,31 +23,37 @@ public class VisiteDaoImpl implements IVisiteDao{
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
+
 	@Override
-	public Visite addVisite(Visite v) {
-		
-		return (Visite) sf.getCurrentSession().save(v);
+	public Visite addVisite(Visite v) { 
+		Session s =	sf.getCurrentSession();
+		return (Visite)	s.save(v);
 	}
 
 	@Override
 	public List<Visite> findAllVisites() {
 		String req="SELECT v from Visite v";
-		return sf.getCurrentSession().createQuery(req).list();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		return 	query.list();
 	}
 
 	@Override
 	public Visite getByIdVisite(int id_v) {
-		return (Visite) sf.getCurrentSession().get(Visite.class, id_v);
+		Session s = sf.getCurrentSession();
+		return (Visite) s.get(Visite.class, id_v);
 	}
 
 	@Override
 	public Visite updateVisite(Visite v) {
-		return (Visite) sf.getCurrentSession().merge(v);
+
+		Session s  = sf.getCurrentSession();
+		return (Visite) 	s.merge(v);
 	}
 
 	@Override
 	public void deleteVisite(Visite v) {
-		sf.getCurrentSession().delete(v);
+		Session s = sf.getCurrentSession();
+		s.delete(v);
 	}
 }
