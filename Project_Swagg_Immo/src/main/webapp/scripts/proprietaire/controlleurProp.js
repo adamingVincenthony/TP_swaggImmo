@@ -87,37 +87,25 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		
 	}
 	
+})
+/**
+ * -------------------------------------------------------Fonction pour afficher
+ * tous les propriétaires
+ */
+.controller("findAllProp",
+		function($rootScope, $scope, propProvider, $location) {
+			propProvider.findAllProp(function(callback) {
+				$scope.proprietaires = callback.data;
+			})
+		}
+
+
+
 });
 
 
 
 
-
-
-
-
-
-
-
-//
-///**
-// * -------------------------------------------------------Fonction pour afficher
-// * tous les propriétaires
-// */
-//app.controller("findAllProp",
-//		function($rootScope, $scope, propProvider, $location) {
-//			propProvider.findAllProp(function(callback) {
-//				$scope.proprietaires = callback.data;
-//			})
-//		}
-
-
-
-//});
-//
-//
-//
-//
 
 
 

@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Client;
 /**
@@ -13,6 +14,7 @@ import fr.adaming.entity.Client;
  * @author inti0210
  *
  */
+@Repository
 public class ClientDaoImpl implements IClientDao{
 
 	@Autowired
