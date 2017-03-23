@@ -5,46 +5,51 @@
 <title>Insert title here</title>
 
 <!-- JQuery libraries-->
-<script type="text/javascript" src="scripts/boostrap/js/jquery.js"></script>
+<script type="text/javascript" src="scripts/jquery.js"></script>
 
 <!-- Bootstrap libraries-->
-<link rel="stylesheet" type="text/css" href="scripts/boostrap/css/bootstrap.css">
-<script type="text/javascript" src="scripts/boostrap/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+<script type="text/javascript" src=scripts/bootstrap.js"></script>
 
 <!-- ref vers feuilles css -->
 <link rel="stylesheet" href="style/style.css">
 
 </head>
 <body >
-<div class="container-fluid">
-	<table style="font-family: Arial;">
-	<tr>
-			<td colspan="2" class="header">
-			</td>
-	</tr>
-	<table/>
-	<div  class="container">
+<div class="container-fluid" style="background-image: url('resources/images/landscape.jpg');">
 	<div class="row">
-				<nav class="navbar navbar-inverse">
-					<ul class="nav nav-pills">
-						<li role="presentation" class="active"><a href="#">Accueil</a></li>
-						<li role="presentation"><a href="#/accueil"><span class="label label-warning">Liste des Poils</span></a></li>
-						<li role="presentation"><a href="#/rechercher"><span class="label label-warning">Liste des Poils</span></a></li>
-						<li role="presentation"><a href="#/ajouter"><span class="label label-warning">Liste des Poils</span></a></li>
-						<li role="presentation"><a href="#/supprimer"><span class="label label-warning">Liste des Poils</span></a></li>
-						<li role="presentation"><a href="#/modifier"><span class="label label-warning">Liste des Poils</span></a></li>
+	<div  class="container" id="header">
+			<h1 style="color: #00007d ; font-family: Arial;"  >SWAGG IMMO</h1>
+	</div>
+		<div  class="container">
+				<div class="row">
+	
+	
+				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px; background-color: RGBA(255,255,255,0.50);">
+					<ul class="nav nav-tabs">
+						<li role="presentation" class="active"><a href="#/accueil">Accueil</a></li>
+						<li role="presentation"><a href="#/accueil">Clients</a></li>
+						<li role="presentation"><a href="#/rechercher">Biens</a></li>
+						<li role="presentation"><a href="#/ajouter">Proprietaires</a></li>
+						<li role="presentation"><a href="#/supprimer">Visites</a></li>
+						<li role="presentation"><a href="#/modifier">Contrats</a></li>
 					</ul>
 				</nav>
-		
+
 		<div class="col-xs-2" id="leftmenu">
 				<div class="col-xs-12" style="margin-top: 15px">
-				<a href="#/home">Accueil</a> 
-				<a href="#/template1">T1_àcompleter</a> 
-				<a href="#/template2">T2_à completer</a>
-				<a href="#/template1">T1_à completer</a> 
-				<a href="#/template2">T2_à completer</a> 
-				<a href="#/template1">T1_à completer</a> 
-				<a href="#/template2">T2_à completer</a>
+
+				<br/>
+				<ng-view></ng-view>
+				
+				<div class="list-group">
+  					<a href="#" class="list-group-item list-group-item-info">Et</a>
+  					<a href="#" class="list-group-item list-group-item-info">Mes</a>
+  					<a href="#" class="list-group-item list-group-item-info">Couilles sur</a>
+  					<a href="#" class="list-group-item list-group-item-info">Ton front ?</a>
+				</div>
+				
+				
 						
 						
 						<!-- 				Activation avec le mode html 5 -->
@@ -61,19 +66,17 @@
 
 						<h1>Bonjour Bienvenue sur le Site de Swagg Immo</h1>
 						<ng-view></ng-view>
-
 		</div>		
-				
-<table>
-		<tr>
-			<td colspan="2" class="footer">
-				<h1>Website Footer</h1>
-			</td>
-		</tr>
-</table>
+			
+			</div>
 		</div>
-		</div>
-	
 	</div>
+	<div class="col-xs-12" id="footer">	
+			<div class="row">
+
+				<h1 style="color: #ffda28;" >Website Footer</h1>
+			</div>
+			</div>
+</div>
 </body>
 </html>
