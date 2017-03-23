@@ -37,12 +37,16 @@ public class ProprietaireDaoImpl implements IProprietaireDao{
 
 	@Override
 	public Proprietaire getByIdProprietaire(int id_p) {
-		return (Proprietaire) sf.getCurrentSession().get(Proprietaire.class, id_p);
+		Proprietaire p = (Proprietaire) sf.getCurrentSession().get(Proprietaire.class, id_p);
+		System.out.println(p);
+		return p ;
 	}
 
 	@Override
 	public Proprietaire updateProprietaire(Proprietaire p) {
-		return (Proprietaire) sf.getCurrentSession().merge(p);
+		System.out.println("Le propriétaire modifié est bien : "+p.getId()+p.getNom()+p.getAdresse()+p.getNumeroPrive()+p.getNumeroTravail());
+		sf.getCurrentSession().merge(p);
+		return p ;
 	}
 
 	@Override

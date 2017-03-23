@@ -15,12 +15,90 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		propProvider.addProp($scope.propForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("accueil"); /* modifier cet url après la vue */
+				$location.path("/testadd.html"); /* modifier cet url après la vue */
 			}
 		})
 	}
 	
+})
+/**
+ * -------------------------------------------------------Fonction pour update
+ * un propriétaire
+ */
+.controller("updateProp", function($scope, $rootScope, propProvider, $location){
+	
+	/** initiatisation des champs du formulaire en null + id en undefined */
+	$scope.propUpdateForm = {
+			id : undefined,
+			nom : "",
+			adresse : "",
+			numeroPrive : "",
+			numeroTravail : ""
+		
+	}
+	/** développement de la méthode appellée dans la page */
+	$scope.update = function() {
+		propProvider.updateProp($scope.propUpdateForm, function (callback){
+			if(callback !=undefined && callback!=""){
+				$location.path("/testadd.html"); /* modifier cet URL après pour le retour ^^ */
+			}
+		})
+	}
+	
+
+	
+})
+/**
+ * -------------------------------------------------------Fonction pour supprimer
+ * un propriétaires
+ */
+.controller("deleteProp",function($scope, propProvider, $location){
+	/** initialisation de l'id du propriétaire à supprimer en indéfini */
+	$scope.id = undefined;
+	/** développement de la méthode appellée dans la page */
+	$scope.delete = function() {
+		propProvider.deleteProp($scope.id, function(callback) {
+			/** Quand la fonction est terminée, le retour : */
+			if (callback != undefined && callback != "") {
+				$scope.proprietaire = callback;
+				$location.path("/testadd.html"); /* modifier cet url après la création de la vue */
+			}
+		})
+		
+	}
+	
+})
+/**
+ * -------------------------------------------------------Fonction pour chercher
+ * un propriétaire
+ */
+.controller("getProp", function($scope, $rootScope, $location, propProvider) {
+	/** initialisation de l'id nul */
+	$scope.id = undefined;
+	/** développement de la méthode appellée dans la page */
+	$scope.get = function() {
+		propProvider.getProp($scope.id, function(callback) {
+			/** Quand la fonction est terminée, le retour : */
+			if (callback != undefined && callback != "") {
+				$scope.proprietaire = callback;
+				$location.path("/testresul.html"); /* modifier cet url après la vue */
+			}
+		})
+		
+	}
+	
 });
+
+
+
+
+
+
+
+
+
+
+
 //
 ///**
 // * -------------------------------------------------------Fonction pour afficher
@@ -32,78 +110,9 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 //				$scope.proprietaires = callback.data;
 //			})
 //		}
-///**
-// * -------------------------------------------------------Fonction pour update
-// * un propriétaire
-// */
-//.controller("updateProp", function($scope, $rootScope, propProvider, $location){
-//	if($rootScope.propUpdateForm.id==undefined){
-//	/** initiatisation des champs du formulaire en null + id en undefined */
-//	$scope.propUpdateForm = {
-//			propId : undefined,
-//			propNom : "",
-//			propAdresse : "",
-//			propTel1 : "",
-//			propTel2 : ""
-//		}
-//	}else{
-//		$scope.propUpdateForm.propId = $rootScope.propUpdateForm.propId;
-//		$scope.propUpdateForm.propNom = $rootScope.propUpdateForm.propNom;
-//		$scope.propUpdateForm.propAdresse = $rootScope.propUpdateForm.propAdresse;
-//		$scope.propUpdateForm.propTel1 = $rootScope.propUpdateForm.propTel1;
-//		$scope.propUpdateForm.propTel2 = $rootScope.propUpdateForm.propTel2;
-//		}
-//	/** développement de la méthode appellée dans la page */
-//	$scope.update = function() {
-//		propProvider.updateProp($scope.propUpdateForm, function (callback){
-//			if(callback !=undefined && callback!=""){
-//				$location.path("accueil"); /* modifier cet URL après pour le retour ^^ */
-//			}
-//		})
-//	}
-//	
-//}
-///**
-// * ---------------------------------------------------- Fonction pour ajouter un
-// * propriétaire
-// */
-//
-///**
-// * -------------------------------------------------------Fonction pour chercher
-// * un propriétaire
-// */
-//.controler("getProp", function($scope, $rootScope, $location, propProvider) {
-//	/** initialisation de l'id nul */
-//	$scope.id = undefined;
-//	/** développement de la méthode appellée dans la page */
-//	$scope.get = function() {
-//		propProvider.getProp($scope.id, function(callback) {
-//			/** Quand la fonction est terminée, le retour : */
-//			if (callback != undefined && callback != "") {
-//				$scope.proprietaire = callback;
-//				$location.path("accueil"); /* modifier cet url après la vue */
-//			}
-//		})
-//	}
-//	
-//}
-///**
-// * -------------------------------------------------------Fonction pour supprimer
-// * un propriétaires
-// */
-//.controller("deleteProp",function($scope, propProvider, $location){
-//	/** initialisation de l'id du propriétaire à supprimer en indéfini */
-//	$scope.id = undefined;
-//	/** développement de la méthode appellée dans la page */
-//	$scope.get = function() {
-//		propProvider.deleteProp($scope.id, function(callback) {
-//			/** Quand la fonction est terminée, le retour : */
-//			if (callback != undefined && callback != "") {
-//				$scope.proprietaire = callback;
-//				$location.path("accueil"); /* modifier cet url après la création de la vue */
-//			}
-//		})
-//	}
+
+
+
 //});
 //
 //

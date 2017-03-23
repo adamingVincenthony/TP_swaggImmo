@@ -59,7 +59,7 @@ public class ProprietaireRest {
 	 * @return
 	 */
 	@GET
-	@Path("/getById/{id_param}")
+	@Path("/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Proprietaire getByIdProprietaireRest(@PathParam("id_param") int id) {
 		return proprietaireService.getByIdProprietaire(id);
@@ -70,7 +70,6 @@ public class ProprietaireRest {
 	 * @param proprietaire
 	 */
 	@POST
-	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void addProprietaireRest(Proprietaire proprietaire){
@@ -82,7 +81,6 @@ public class ProprietaireRest {
 	 * @param proprietaire
 	 */
 	@PUT
-	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void updateProprietaireRest(Proprietaire proprietaire){
@@ -94,8 +92,8 @@ public class ProprietaireRest {
 	 * @param id
 	 */
 	@DELETE
-	@Path("/delete/{id_param}")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{id_param}")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
 		proprietaireService.deleteProprietaire(id);
 	}
