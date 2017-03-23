@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,30 +37,35 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 	@Override
 	public List<Utilisateur> findAllUtilisateurs() {
 		String req="SELECT u from Utilisateur u";
-		Session s = sf.getCurrentSession()
-				.createQuery(req)
-				return 		.list();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(req);
+		return query.list();
 	}
 
 	@Override
 	public Utilisateur getByIdUtilisateur(int id_u) {
-		return (Utilisateur) sf.getCurrentSession().get(Utilisateur.class, id_u);
+	Session s = sf.getCurrentSession();
+	return (Utilisateur) s.get(Utilisateur.class, id_u);
 	}
 
 	@Override
-	public Utilisateur updateUtilisateur(Utilisateur u) {
-		return (Utilisateur) sf.getCurrentSession().merge(u);
+	public Utilisateur updateUtilisateur(Utilisateur u) { 
+		Session s = sf.getCurrentSession();
+		return (Utilisateur) s.merge(u);
 	}
 
 	@Override
 	public void deleteUtilisateur(Utilisateur u) {
-		sf.getCurrentSession().delete(u);
+		Session s = sf.getCurrentSession();
+		s .delete(u);
 	}
 
 	@Override
 	public void attribuer(Client client, Bien bien) {
-		sf.getCurrentSession().merge(client);
-		sf.getCurrentSession().merge(bien);
+		Session s1 = sf.getCurrentSession();
+		Session s2 = sf.getCurrentSession();
+		s1.merge(client);
+		s2.merge(bien);
 	}
 	
 }
