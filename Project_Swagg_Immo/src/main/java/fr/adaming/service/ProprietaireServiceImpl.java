@@ -17,6 +17,15 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	@Autowired
 	private IProprietaireDao proprietaireDao = new ProprietaireDaoImpl();
 	
+	
+	/**
+	 * setter
+	 * @param proprietaireDao
+	 */
+	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
+		this.proprietaireDao = proprietaireDao;
+	}
+
 	/**
 	 * Ajoute un proprietaire en appelant la methode associée de la dao
 	 */
