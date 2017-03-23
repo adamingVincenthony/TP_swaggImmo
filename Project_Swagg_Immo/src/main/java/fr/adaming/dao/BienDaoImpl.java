@@ -15,7 +15,7 @@ import fr.adaming.entity.Bien;
  *
  */
 @Repository
-public class BienDaoImpl implements IBienDao{
+public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 
 	@Autowired
 	private SessionFactory sf;

@@ -12,7 +12,7 @@ import fr.adaming.entity.Bien;
 
 @Service
 @Transactional
-public class BienServiceImpl implements IBienService{
+public class BienServiceImpl<T extends Bien> implements IBienService<T>{
 
 	@Autowired
 	private IBienDao bienDao = new BienDaoImpl();

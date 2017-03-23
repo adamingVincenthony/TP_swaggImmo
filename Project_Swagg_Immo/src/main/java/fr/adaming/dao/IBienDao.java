@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.adaming.entity.Bien;
 
-public interface IBienDao {
+public interface IBienDao<T extends Bien> {
 
 	public Bien addBien(Bien b);
 	public List<Bien> findAllBiens();

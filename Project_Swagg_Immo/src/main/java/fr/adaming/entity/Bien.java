@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @DiscriminatorValue("bien")
 @XmlRootElement
 //ajout de la strategy de génération de table
-public class Bien implements Serializable{
+public abstract class Bien implements Serializable{
 
 
 	/* les attributs */

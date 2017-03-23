@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Component
 @Path("/bien")
-public class BienRest {
+public class BienRest<T extends Bien> {
 	
 	/**
 	 * injection automatique du propriétaire service
@@ -72,7 +72,7 @@ public class BienRest {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addBienRest(Bien bien){
+	public void addBienRest(T bien){
 		bienService.addBien(bien);
 	}
 	
@@ -83,7 +83,7 @@ public class BienRest {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateBienRest(Bien bien){
+	public void updateBienRest(T bien){
 		bienService.updateBien(bien);
 	}
 	
