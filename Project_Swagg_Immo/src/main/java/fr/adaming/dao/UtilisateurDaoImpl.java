@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,14 +29,16 @@ public class UtilisateurDaoImpl implements IUtilisateurDao{
 	@Override
 	public Utilisateur addUtilisateur(Utilisateur u) {
 		
-		Session s = sf.getCurrentSession()
-				return (Utilisateur) s.save(u);
+		Session s = sf.getCurrentSession();
+		return (Utilisateur) s.save(u);
 	}
 
 	@Override
 	public List<Utilisateur> findAllUtilisateurs() {
 		String req="SELECT u from Utilisateur u";
-		return sf.getCurrentSession().createQuery(req).list();
+		Session s = sf.getCurrentSession()
+				.createQuery(req)
+				return 		.list();
 	}
 
 	@Override
