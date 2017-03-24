@@ -80,6 +80,17 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 		s.merge(client);
 		s.merge(bien);
 	}
+	
+	/**
+	 * méthode d'attribution d'un bien à un responsable dans la liste des intérêts
+	 */
+	@Override
+	public void attribuerBienResponsable(Utilisateur responsable, Bien bien) {
+		Session s = sf.getCurrentSession();
+		s.merge(responsable);
+		s.merge(bien);
+	}
+
 
 	/**
 	 * méthode pour afficher la liste des biens d'un proprietaire

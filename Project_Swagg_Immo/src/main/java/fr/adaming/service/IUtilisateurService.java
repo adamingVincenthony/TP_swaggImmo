@@ -28,6 +28,12 @@ public interface IUtilisateurService {
 	public void attribuer(int idClient, int idBien);
 	
 	/**
+	 * méthode d'attribution d'un bien à un responsable
+	 */
+	public void attribuerBienResponsable(int idResponsable, int idBien);
+	
+	
+	/**
 	 * méthode d'affichage de la liste des biens d'un proprio  dans la liste des intérêts
 	 */
 	public List<Bien> getListeBienProprietaire(int id_p);
@@ -36,5 +42,6 @@ public interface IUtilisateurService {
 	 * méthode d'affichage de la liste des visites d'un utilisateur
 	 */
 	public List<Visite> getListeVisite(int id_u);
+
 	
 }
