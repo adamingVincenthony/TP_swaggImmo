@@ -4,6 +4,9 @@
 app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 //================ Propiétaires ============================================
+	.when("/accueil", {
+		templateUrl : "index.html"
+	})
 	.when("/prop", {
 		templateUrl : "templates/main-content/Proprietaire/listProp.html",
 		controller : "findAllProp"
