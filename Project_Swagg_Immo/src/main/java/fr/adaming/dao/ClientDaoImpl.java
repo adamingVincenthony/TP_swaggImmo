@@ -45,7 +45,8 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public Client getByIdClient(int id_cl) {
 		Session s = sf.getCurrentSession();
-		return (Client)	s.get(Client.class, id_cl);
+		Client client = (Client) s.get(Client.class, id_cl);
+		return client;
 	}
 
 	@Override
