@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript" src="scripts/angular.js"></script>
+<script type="text/javascript" src="scripts/angular-route.js"></script>
 <script type="text/javascript" src="scripts/module.js"></script>
 <script type="text/javascript" src="scripts/bien/controlleurBien.js"></script>
 <script type="text/javascript" src="scripts/bien/providerBien.js"></script>
@@ -15,17 +16,15 @@
 <script type="text/javascript" src="scripts/bootstrap.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
+
 	<p>Test ajout des biens</p>
 	<p>Quel type de bien voulez-vous enregistrer ?</p>
 	<!-- boutton pour afficher le formulaire Bien à louer -->
 	<button type="button" class="btn btn-primary" data-toggle="modal"
 		data-target="#formulaireBienLouer" data-whatever="@getbootstrap">Bien
 		à louer</button>
-=======
->>>>>>> branch 'master' of https://github.com/adamingVincenthony/TP_swaggImmo.git
 
-<<<<<<< HEAD
+
 	<!-- ///////////////////////////////////// LES fORMULAIRES /////////////////////////////////////// -->
 	<!-- ----------- bien à louer -->
 <div ng-controller="addBalCtrl">
@@ -82,24 +81,6 @@
 									ng-model="bienForm.loyerMensuel">
 							</div>
 						</div>
-=======
-<h1 align="center">Test des Biens, en générique ma gueule :)</h1>
-		
-<h3 align="center">Ajout d'un bien : </h3>
-<br/>
-<p>Quel type de bien voulez-vous enregistrer ?</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formulaireLocation" data-whatever="@getbootstrap">Bien à louer</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formulaireBien" data-whatever="@getbootstrap">Bien à vendre</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formlaireTerrain" data-whatever="@getbootstrap">Terrain à vendre</button>
-<!-- Formulaire Bien à louer  -->
-<div w3-include-html="testbien/addbienalouer.html"></div>
-<!-- Formulaire Bien à Acheter -->
-<div w3-include-html="testbien/addbienaacheter.html"></div>
-<!-- Formulaire Terrain à vendre -->
-<div w3-include-html="testbien/addterrain.html"></div>
->>>>>>> branch 'master' of https://github.com/adamingVincenthony/TP_swaggImmo.git
-
-<<<<<<< HEAD
 
 						<div class="form-group">
 							<label for="inputChargeBien" class="col-sm-3 control-label">Charge
@@ -131,9 +112,6 @@
 							ng-click="ajouter()">Ajouter</button>
 					</form>
 </div>
-=======
-<!-- script pour le include; a mettre en fin de page ! -->
-<script>w3IncludeHTML();</script>
->>>>>>> branch 'master' of https://github.com/adamingVincenthony/TP_swaggImmo.git
+
 </body>
 </html>

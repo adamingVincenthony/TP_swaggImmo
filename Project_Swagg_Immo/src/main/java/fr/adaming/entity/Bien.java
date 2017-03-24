@@ -116,6 +116,11 @@ public abstract class Bien implements Serializable{
 	 * @param revenuCadastral
 	 * @param surface
 	 */
+	
+	
+	
+	
+	
 	public Bien(String statut, String type, Date dateSoumission, Date dateDispo, String localisation,
 			long revenuCadastral, String surface) {
 		super();
@@ -128,6 +133,13 @@ public abstract class Bien implements Serializable{
 		this.surface = surface;
 	}
 
+	public Bien(String type, String localisation, long revenuCadastral, String surface) {
+		super();
+		this.type = type;
+		this.localisation = localisation;
+		this.revenuCadastral = revenuCadastral;
+		this.surface = surface;
+	}
 	/**
 	 * Constructeur avec id
 	 * @param id
