@@ -31,35 +31,6 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	}
 	
 	/**
-	 * injection de dépendances des objets de la dao
-	 */
-	@Autowired 
-	private IProprietaireDao proprietaireDao;
-	@Autowired 
-	private IUtilisateurDao responsableDao;
-	@Autowired 
-	private IClientDao clientDao;
-	
-	
-	/**
-	 * setter des objets de la Dao
-	 * @param proprietaireDao
-	 */
-	
-	
-	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
-		this.proprietaireDao = proprietaireDao;
-	}
-
-	public void setResponsableDao(IUtilisateurDao responsableDao) {
-		this.responsableDao = responsableDao;
-	}
-
-	public void setClientDao(IClientDao clientDao) {
-		this.clientDao = clientDao;
-	}
-
-	/**
 	 * méthodes de gestion CRUD des utilisateurs
 	 */
 	@Override
@@ -144,9 +115,9 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	 */
 	@Override
 	public List<Contrat> getListeContratClient(int id_c) {
-		Client client = clientDao.getByIdClient(id_c);
-		List<Contrat> listeContratClient = client.getListeContrat();
-		return listeContratClient;
+		Session s = sf.getCurrentSession();
+		Client client = (Client) s.get(Client.class, id_c);
+		return client.getListeContrat();
 	}
 	
 }
