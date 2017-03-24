@@ -2,9 +2,7 @@
  * Fichier de rootage
  */
 app.config(function($routeProvider) {
-	$routeProvider.when("/accueil", {
-		templateUrl : "index.html",	
-	})
+	$routeProvider
 //================ Propiétaires ============================================
 	.when("/prop", {
 		templateUrl : "templates/main-content/Proprietaire/listProp.html",
@@ -31,3 +29,7 @@ app.config(function($routeProvider) {
 		redirectTo : "/accueil"
 	})
 });
+
+//.when("/accueil", {
+//	templateUrl : "index.html",	
+//})
