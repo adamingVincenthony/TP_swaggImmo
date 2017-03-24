@@ -12,6 +12,7 @@ import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.entity.Visite;
 
 /**
  * methodes permettant de gérer les utilisateurs(conseillers immobilier) dans la bdd
@@ -30,6 +31,7 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	
 	@Autowired 
 	private IProprietaireDao proprietaireDao;
+	private IUtilisateurDao responsableDao;
 	
 	/**
 	 * méthodes de gestion CRUD des utilisateurs
@@ -87,6 +89,16 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 		Proprietaire proprietaire = proprietaireDao.getByIdProprietaire(id_p);
 		List<Bien> listeBien = proprietaire.getListeBien();
 		return listeBien;
+	}
+
+	/**
+	 * méthode pour afficher la liste des visites d'un responsable
+	 */
+	@Override
+	public List<Visite> getListeVisite(int id_u) {
+		Utilisateur responsable = responsableDao.getByIdUtilisateur(id_u);
+		List<Visite> listeVisite = responsableDao.getListeVisite(id_u);
+		return listeVisite;
 	}
 	
 }

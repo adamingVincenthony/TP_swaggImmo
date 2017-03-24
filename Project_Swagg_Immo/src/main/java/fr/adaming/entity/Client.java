@@ -36,7 +36,7 @@ public class Client implements Serializable{
 	/* Les associations */
 	
 	/**
-	 * Un client peut-être intéressé par plusieurs bien 
+	 * Un client peut-être intéressé par plusieurs biens 
 	 */
 	@ManyToMany
 	//@JoinColumn(name="bien_id_fk", referencedColumnName="id_bien")

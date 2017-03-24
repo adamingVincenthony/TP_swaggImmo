@@ -107,7 +107,7 @@ public class ContratRest {
 	@Path("/attribuer/{id_param_contrat}/{id_param_utilisateur}/{id_param_bien}/{id_param_client}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void attribuer(@PathParam("id_param_contrat") int idContrat, @PathParam("id_param_u") int idUtilisateur, @PathParam("id_param_b") int idBien, @PathParam("id_param_client") int idClient){
+	public void attribuer(@PathParam("id_param_contrat") int idContrat, @PathParam("id_param_utilisateur") int idUtilisateur, @PathParam("id_param_bien") int idBien, @PathParam("id_param_client") int idClient){
 		contratService.attribuer(idContrat, idUtilisateur, idBien, idClient);
 	}
 	

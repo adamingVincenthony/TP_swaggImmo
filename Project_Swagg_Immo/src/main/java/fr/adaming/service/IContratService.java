@@ -6,6 +6,11 @@ import fr.adaming.entity.Contrat;
 
 public interface IContratService {
 	
+	/**
+	 * méthode CRUD de la gestion des contrats
+	 * @param contrat
+	 * @return
+	 */
 	public Contrat addContrat(Contrat contrat);
 	public List<Contrat> findAllContrat();
 	public void deleteContrat(int id);

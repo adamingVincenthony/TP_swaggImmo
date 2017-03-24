@@ -24,6 +24,9 @@ import fr.adaming.entity.Utilisateur;
 @Transactional
 public class ContratServiceImpl implements IContratService{
 
+	/**
+	 * injection automatique des objets contrat, client, bien, responsable de la Dao
+	 */
 	@Autowired
 	private IContratDao contratDao = new ContratDaoImpl();
 	private IClientDao clientDao = new ClientDaoImpl();
@@ -39,6 +42,13 @@ public class ContratServiceImpl implements IContratService{
 		this.contratDao = contratDao;
 	}
 
+	
+	/**
+	 * méthode CRUD de la gestion des contrats
+	 * @param contrat
+	 * @return
+	 */
+	
 	/**
 	 * Ajoute un contrat en appelant la methode associée de la dao
 	 */
@@ -102,10 +112,10 @@ public class ContratServiceImpl implements IContratService{
 		 */
 		Client client = clientDao.getByIdClient(idClient);
 		List<Contrat> listeContratClient = client.getListeContrat();
-		Bien bien = bienDao.getByIdBien(idBien);
-		Contrat contrat = contratDao.getByIdContrat(idContrat);
 		Utilisateur responsable = responsableDao.getByIdUtilisateur(idResponsable);
 		List<Contrat> listeContratResponsable = responsable.getListeContrat();
+		Bien bien = bienDao.getByIdBien(idBien);
+		Contrat contrat = contratDao.getByIdContrat(idContrat);
 		
 		/**
 		 * attribution du bien au contrat

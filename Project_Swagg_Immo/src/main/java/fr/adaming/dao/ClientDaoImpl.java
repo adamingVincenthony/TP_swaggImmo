@@ -24,6 +24,9 @@ public class ClientDaoImpl implements IClientDao{
 		this.sf = sf;
 	}
 	
+	/**
+	 * méthode CRUD de la gestion des clients
+	 */
 	@Override
 	public Client addClient(Client cl) {
 		Session s = sf.getCurrentSession();
