@@ -39,9 +39,9 @@ public class BienALouer extends Bien{
 	}
 
 	
-	public BienALouer(String type, String localisation, long revenuCadastral, String surface, double montantCaution, double loyerMensuel, double loyerCharge,
+	public BienALouer(String type, String localisation, long revenuCadastral, String surface, Date dateSoumission, double montantCaution, double loyerMensuel, double loyerCharge,
 			String typeBail, String ameublement) {
-		super(type, localisation, revenuCadastral, surface);
+		super(type, localisation, revenuCadastral, surface, dateSoumission);
 		this.montantCaution = montantCaution;
 		this.loyerMensuel = loyerMensuel;
 		this.loyerCharge = loyerCharge;
