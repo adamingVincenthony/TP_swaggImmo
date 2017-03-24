@@ -1,9 +1,11 @@
 package fr.adaming.service.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.codehaus.jackson.map.ser.StdSerializers.UtilDateSerializer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.BienAAcheter;
+import fr.adaming.entity.BienALouer;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.service.IBienService;
@@ -123,7 +126,8 @@ public class UtilisateurServiceTest {
 //		Client client3 = new Client(902, 1000, "titi");
 //		Client client4 = new Client(903, 1000, "tete");
 //		
-//		Bien bien = new BienAAcheter("non-disponible");
+//		BienALouer bien = new BienALouer(1000, 1000, 1000, "maison", "meuble");
+//		bienService.addBienBAL(bien);
 //		
 //		clientService.addClient(client1);
 //		clientService.addClient(client2);
@@ -138,6 +142,26 @@ public class UtilisateurServiceTest {
 //		
 //		int taille = bien.getClientInteret().size();
 //		
+//	}
+	
+//	/**
+//	 * Test : attribuer bien/utilisateur
+//	 */
+//	@Test
+//	@Transactional
+//	public void testAttribuerResponsableBien(){
+//		
+//		Utilisateur user1 = new Utilisateur("root","root");
+//		
+//		BienALouer bien = new BienALouer(1000, 1000, 1000, "maison", "meuble");
+//		bienService.addBienBAL(bien);
+//		
+//		utilisateurService.attribuerBienResponsable(user1.getId(),bien.getId());
+//		
+//		String nomTrouve = bien.getResponsable().getNom();
+//		
+//		assertEquals(user1.getNom(),nomTrouve);
+//		assertNotNull(user1.getListeBien());
 //	}
 }
 

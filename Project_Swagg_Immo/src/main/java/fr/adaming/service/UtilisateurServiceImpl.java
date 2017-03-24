@@ -27,8 +27,14 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 
 	@Autowired
 	private IUtilisateurDao utilisateurDao = new UtilisateurDaoImpl();
+	
+	@Autowired
 	private IClientDao clientDao = new ClientDaoImpl();
+	
+	@Autowired
 	private IBienDao bienDao = new BienDaoImpl();
+	
+	@Autowired
 	private IProprietaireDao proprietaireDao = new ProprietaireDaoImpl();
 	
 	/**
