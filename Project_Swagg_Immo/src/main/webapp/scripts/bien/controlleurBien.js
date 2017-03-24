@@ -1,8 +1,7 @@
 /**
 * Controleur AJS des biens
 */
-
-app.controller("addBAL",function($scope, $rootScope, $location, bienProvider) {
+app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider) {
 	$scope.bienForm = {
 		/** on initialise des valeurs nulles */
 		type : "",
