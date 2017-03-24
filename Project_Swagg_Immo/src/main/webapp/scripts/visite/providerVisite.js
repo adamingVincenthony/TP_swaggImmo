@@ -1,22 +1,22 @@
 /**
- * Provider AJS des services CRUD du propriétaire
+ * Provider AJS des services CRUD des visites
  */
-app.factory("propProvider", function($http) {
+app.factory("visiteProvider", function($http) {
 
 	/**
-	 * URL globale pour l'appel des services propriétaires
+	 * URL globale pour l'appel des services visites
 	 */
-	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/proprietaire"; /* METTRE L'URL QUAND SERVICE OKI */
+	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/visite"; /* METTRE L'URL QUAND SERVICE OKI */
 
 	/**
 	 * ------------------------------------------------------------ Fonction
-	 * pour ajouter un propriétaire
+	 * pour ajouter une visite
 	 */
-	function addProp(propForm, callback) {
+	function addVisite(visiteForm, callback) {
 		$http({
 			method : 'POST',
 			url : urlglobal, 
-			data : angular.toJson(propForm),
+			data : angular.toJson(visiteForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -33,10 +33,10 @@ app.factory("propProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * chercher un propriétaire
+	 * chercher une visite
 	 */
-	function getProp(idProp, callback) {
-		$http.get(urlglobal +'/get/'+idProp) 
+	function getVisite(idVisite, callback) {
+		$http.get(urlglobal +'/get/'+idVisite) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -49,9 +49,9 @@ app.factory("propProvider", function($http) {
 }
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * afficher tous les propriétaires
+	 * afficher toutes les visites
 	 */
-	function findAllProp(callback) {
+	function findAllVisite(callback) {
 		$http.get(urlglobal + '/liste/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -62,9 +62,9 @@ app.factory("propProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * supprimer un propriétaires
+	 * supprimer une visite
 	 */
-	function deleteProp(id, callback){
+	function deleteVisite(id, callback){
 		$http({
 			method : 'DELETE',
 			url : urlglobal +'/'+id, /*Encoder ça en formulaire ?  */
@@ -80,13 +80,13 @@ app.factory("propProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * modifier un propriétaire
+	 * modifier une visite
 	 */
-	function updateProp(propUpdateForm, callback){
+	function updateVisite(visiteUpdateForm, callback){
 		$http({
 			method : 'PUT',
 			url : urlglobal, 
-			data : angular.toJson(propUpdateForm),
+			data : angular.toJson(visiteUpdateForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -108,11 +108,11 @@ app.factory("propProvider", function($http) {
 	 * fonctions du provider
 	 */
 	return {
-		addProp : addProp,
-		getProp : getProp,
-		findAllProp : findAllProp,
-		deleteProp : deleteProp,
-		updateProp : updateProp
+		addVisite : addVisite,
+		getVisite : getVisite,
+		findAllVisite : findAllVisite,
+		deleteVisite : deleteVisite,
+		updateVisite : updateVisite
 	}
 
 })
