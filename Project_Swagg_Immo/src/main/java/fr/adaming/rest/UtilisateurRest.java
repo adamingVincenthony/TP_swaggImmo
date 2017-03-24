@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.adaming.entity.Bien;
+import fr.adaming.entity.Contrat;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.entity.Visite;
 import fr.adaming.service.IUtilisateurService;
@@ -133,4 +134,14 @@ public class UtilisateurRest {
 		return utilisateurService.getListeVisite(id_u);
 	}
 	
+	/**
+	 * méthode d'affichage de la liste des contrats d'un client
+	 * @return
+	 */
+	@GET
+	@Path("/getListeContratClient/{id_param_c}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Contrat> getListeContratClient(@PathParam("id_param_c") int id_u){
+		return utilisateurService.getListeContratClient(id_u) ;
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Contrat;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.entity.Visite;
@@ -42,6 +43,10 @@ public interface IUtilisateurService {
 	 * méthode d'affichage de la liste des visites d'un utilisateur
 	 */
 	public List<Visite> getListeVisite(int id_u);
-
+	
+	/**
+	 * méthode d'affichage de la liste des contrats d'un client
+	 */
+	public List<Contrat> getListeContratClient(int id_c);
 	
 }

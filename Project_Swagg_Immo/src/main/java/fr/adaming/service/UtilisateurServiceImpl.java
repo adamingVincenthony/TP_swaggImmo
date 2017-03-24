@@ -16,6 +16,7 @@ import fr.adaming.dao.ProprietaireDaoImpl;
 import fr.adaming.dao.UtilisateurDaoImpl;
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Contrat;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.entity.Visite;
@@ -39,7 +40,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	}
 
 	/**
-	 * méthodes de la couche service de la classe Utilisateur pour la gestion des utilisateurs
+	 * méthodes CRUD de la couche service de la classe Utilisateur pour la gestion des utilisateurs
 	 */
 	
 	/**
@@ -92,18 +93,34 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	 */
 	@Override
 	public void attribuer(int idClient, int idBien) {
+		/**
+		 * récupération d'un client par son id
+		 * récupération d'un bien par son id
+		 */
 		Client client = clientDao.getByIdClient(idClient);
 		Bien bien = bienDao.getByIdBien(idBien);
 		
+		/**
+		 * récupération des listes de biens du client et de client pour un bien
+		 */
 		List<Bien> listeBien = client.getListeInteret();
 		List<Client> listeClient= bien.getClientInteret(); 
 
+		/**
+		 * mise à jour des données des listes à partir des objets récupérés
+		 */
 		listeBien.add(bien);
 		listeClient.add(client);
 		
+		/**
+		 * attribution des listes mises à jour aux objets clients et biens
+		 */
 		client.setListeInteret(listeBien);
 		bien.setClientInteret(listeClient);
 		
+		/**
+		 * appel de la méthode de la dao
+		 */
 		utilisateurDao.attribuer(client, bien);
 		
 	}
@@ -113,15 +130,30 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		 */
 		@Override
 		public void attribuerBienResponsable(int idResponsable, int idBien) {
+			/**
+			 * récupération des objets par leur id
+			 */
 			Utilisateur responsable = utilisateurDao.getByIdUtilisateur(idResponsable);
 			Bien bien = bienDao.getByIdBien(idBien);
 			
+			/**
+			 * récupération de la liste de biens d'un responsable
+			 */
 			List<Bien> listeBien = responsable.getListeBien(); 
 
+			/**
+			 * ajout du bien à la liste récupérée
+			 */
 			listeBien.add(bien);
 			
+			/**
+			 * affectation de la liste à un responsable
+			 */
 			responsable.setListeBien(listeBien);
 		
+			/**
+			 * appel de la méthode de la dao
+			 */
 			utilisateurDao.attribuerBienResponsable(responsable, bien);
 			
 		}
@@ -146,5 +178,11 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		
 	}
 
+	/**
+	 * méthode d'affichage de la liste des contrats d'un client
+	 */
+	public List<Contrat> getListeContratClient(int id_c) {
+		return utilisateurDao.getListeContratClient(id_c);
+	}
 
 }

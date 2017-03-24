@@ -27,6 +27,9 @@ public class ProprietaireServiceImpl implements IProprietaireService{
 	}
 
 	/**
+	 * méthode CRUD du propriétaire
+	 */
+	/**
 	 * Ajoute un proprietaire en appelant la methode associée de la dao
 	 */
 	@Override

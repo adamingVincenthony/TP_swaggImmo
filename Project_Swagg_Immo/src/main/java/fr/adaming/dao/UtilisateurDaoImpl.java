@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
+import fr.adaming.entity.Contrat;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.entity.Visite;
@@ -32,6 +33,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	@Autowired 
 	private IProprietaireDao proprietaireDao;
 	private IUtilisateurDao responsableDao;
+	private IClientDao clientDao;
+	
 	
 	/**
 	 * méthodes de gestion CRUD des utilisateurs
@@ -55,7 +58,8 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	@Override
 	public Utilisateur getByIdUtilisateur(int id_u) {
 	Session s = sf.getCurrentSession();
-	return (Utilisateur) s.get(Utilisateur.class, id_u);
+	Utilisateur responsable = (Utilisateur) s.get(Utilisateur.class, id_u);
+	return responsable;
 	}
 
 	@Override
@@ -110,6 +114,16 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 		Utilisateur responsable = responsableDao.getByIdUtilisateur(id_u);
 		List<Visite> listeVisite = responsable.getListeVisite();
 		return listeVisite;
+	}
+	
+	/**
+	 * méthode pour afficher la liste des contrats d'un client
+	 */
+	@Override
+	public List<Contrat> getListeContratClient(int id_c) {
+		Client client = clientDao.getByIdClient(id_c);
+		List<Contrat> listeContratClient = client.getListeContrat();
+		return listeContratClient;
 	}
 	
 }
