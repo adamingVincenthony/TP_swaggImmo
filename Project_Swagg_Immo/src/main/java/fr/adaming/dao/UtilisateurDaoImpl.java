@@ -30,12 +30,35 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 		this.sf = sf;
 	}
 	
+	/**
+	 * injection de dépendances des objets de la dao
+	 */
 	@Autowired 
 	private IProprietaireDao proprietaireDao;
+	@Autowired 
 	private IUtilisateurDao responsableDao;
+	@Autowired 
 	private IClientDao clientDao;
 	
 	
+	/**
+	 * setter des objets de la Dao
+	 * @param proprietaireDao
+	 */
+	
+	
+	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
+		this.proprietaireDao = proprietaireDao;
+	}
+
+	public void setResponsableDao(IUtilisateurDao responsableDao) {
+		this.responsableDao = responsableDao;
+	}
+
+	public void setClientDao(IClientDao clientDao) {
+		this.clientDao = clientDao;
+	}
+
 	/**
 	 * méthodes de gestion CRUD des utilisateurs
 	 */
