@@ -97,7 +97,7 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	@Override
 	public List<Visite> getListeVisite(int id_u) {
 		Utilisateur responsable = responsableDao.getByIdUtilisateur(id_u);
-		List<Visite> listeVisite = responsableDao.getListeVisite(id_u);
+		List<Visite> listeVisite = responsable.getListeVisite();
 		return listeVisite;
 	}
 	

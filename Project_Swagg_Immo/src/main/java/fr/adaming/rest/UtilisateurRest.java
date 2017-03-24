@@ -107,7 +107,7 @@ public class UtilisateurRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void attribuerRest(@PathParam("id_param_c") int idClient, @PathParam("id_param_b") int idBien){
-		utilisateurService.attribuer(idBien, idClient);
+		utilisateurService.attribuer(idClient, idBien);
 	}
 	
 	/**
