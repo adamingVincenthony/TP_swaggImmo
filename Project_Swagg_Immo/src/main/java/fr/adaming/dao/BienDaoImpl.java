@@ -25,9 +25,10 @@ public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 	}
 	
 	@Override
-	public Bien addBien(Bien b) {
-		
-		return (Bien) sf.getCurrentSession().save(b);
+	public Bien addBien(T b) {
+		System.out.println(b);
+		sf.getCurrentSession().save(b);
+		return b ;
 	}
 
 	@Override

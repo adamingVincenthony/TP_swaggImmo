@@ -14,68 +14,119 @@
 <script type="text/javascript" src="scripts/bootstrap.js"></script>
 </head>
 <body>
-	<h1 align="center">Test des Biens, en générique ma gueule :)</h1>
-	
-	<div ng-controller="addTAA">
-<h3 align="center">Ajout d'un bien Terrain à acheter :</h3>
-		<form class="form-horizontal">
+	<p>Test ajout des biens</p>
+	<p>Quel type de bien voulez-vous enregistrer ?</p>
+	<!-- boutton pour afficher le formulaire Bien à louer -->
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#formulaireBienLouer" data-whatever="@getbootstrap">Bien
+		à louer</button>
 
-			<div class="form-group">
-				<label for="inputNomProp" class="col-sm-2 control-label">Type
-					:</label>
-				<div class="col-sm-6">
-					<select id="inputTypeBien" ng-model="bienForm.type" name="type">
-						<option value="Maison">Maison</option>
-						<option value="Appartement">Appartement</option>
-						<option value="Studio">Studio</option>
-						<option value="Entrepot">Entrepôt</option>
-						<option value="Emplacement">Emplacement</option>
-						<option value="Terrain">Terrain</option>
-					</select>
+	<!-- ///////////////////////////////////// LES fORMULAIRES /////////////////////////////////////// -->
+	<!-- ----------- bien à louer -->
+	<div class="modal fade" id="formulaireBienLouer" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">Ajout d'un
+						bien à louer :</h4>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputAdresseBien" class="col-sm-2 control-label">Adresse
-					:</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="inputAdresseBien"
-						placeholder="Adresse du bien" ng-model="bienForm.localisation">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputRevenuCadBien" class="col-sm-2 control-label">Revenu Cadastral
-					:</label>
-				<div class="col-sm-6">
-					<input type="number" class="form-control" id="inputRevenuCadBien"
-						ng-model="bienForm.revenuCadastral">
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label for="inputSurfaceBien" class="col-sm-2 control-label">Surface
-					:</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="inputSurfaceBien"
-						ng-model="bienForm.surface">
-				</div>
-			</div>
-			
-				<div class="form-group">
-				<label for="inputSurfaceBien" class="col-sm-2 control-label">Prix achat
-					:</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="inputSurfaceBien"
-						ng-model="bienForm.prixAchat">
-				</div>
-			</div>
+				<div class="modal-body">
+					<!-- BODY du Formulaire -->
+					<form class="form-horizontal" ng-controller="addBAL">
+
+						<div class="form-group">
+							<label for="inputAdresseBien" class="col-sm-3 control-label">Type
+								: :</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputAdresseBien"
+									placeholder="Adresse du bien" ng-model="bienForm.type">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputAdresseBien"
+									placeholder="Adresse du bien" ng-model="bienForm.localisation">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputRevenuCadBien" class="col-sm-3 control-label">Revenu
+								Cadastral :</label>
+							<div class="col-sm-6">
+								<input type="number" class="form-control"
+									id="inputRevenuCadBien" ng-model="bienForm.revenuCadastral">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputSurfaceBien"
+									ng-model="bienForm.surface">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputCautionBien" class="col-sm-3 control-label">Caution :
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputCautionBien"
+									ng-model="bienForm.montantCaution">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputLoyerBien"
+									ng-model="bienForm.loyerMensuel">
+							</div>
+						</div>
 
 
-			<!-- SOUMISSION DU FORMULAIRE MA GUEULE -->
-			<div class="col-sm-2">
-				<button type="button" class="btn btn-primary" ng-click="ajouterTAA()">Ajouter</button>
-			</div>
-		</form>
+						<div class="form-group">
+							<label for="inputChargeBien" class="col-sm-3 control-label">Charge
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputChargeBien"
+									ng-model="bienForm.loyerCharge">
+							</div>
+						</div>
 
+						<div class="form-group">
+							<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputBailBien"
+									ng-model="bienForm.typeBail">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+								:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="inputBailBien"
+									ng-model="bienForm.ameublement">
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary"
+							ng-click="ajouter()">Ajouter</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- fin du formulaire bien à louer -->
+
+
 </body>
 </html>
