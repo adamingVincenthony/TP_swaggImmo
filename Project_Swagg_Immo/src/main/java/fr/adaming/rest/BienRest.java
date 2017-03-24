@@ -73,7 +73,6 @@ public class BienRest {
 	@POST
 	@Path("/bal")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public void addBienRest(BienALouer bien){
 		System.out.println("je rentre dans la méthode bien à louer création");
 		bienService.addBienBAL(bien);
