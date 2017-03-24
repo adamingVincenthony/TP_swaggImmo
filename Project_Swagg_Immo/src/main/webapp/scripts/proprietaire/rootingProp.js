@@ -32,9 +32,9 @@ app.config(function($routeProvider, $locationProvider) {
 		redirectTo : "/accueil"
 	})
 	//supprimer les # dans les url avec le mode html 5
-	$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		});
 });
 
-//.when("/accueil", {
-//	templateUrl : "index.html",	
-//})

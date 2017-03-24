@@ -3,6 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Swagg Immo</title>
+<!-- Balise Base -->
+<base href="http://localhost:8080/Project_Swagg_Immo/index.html">
 
 <!-- JQuery libraries-->
 <script type="text/javascript" src="scripts/jquery.js"></script>
@@ -38,15 +40,16 @@
 	
 				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px; background-color: RGBA(255,255,255,0.50);">
 					<ul class="nav nav-tabs">
-						<li role="presentation" class="active"><a href="#/accueil">Accueil</a></li>
-						<li role="presentation"><a href="#/client">Clients</a></li>
-						<li role="presentation"><a href="#/bien">Biens</a></li>
-						<li role="presentation"><a href="#/prop">Proprietaires</a></li>
-						<li role="presentation"><a href="#/visit">Visites</a></li>
-						<li role="presentation"><a href="#/contrats">Contrats</a></li>
+						<li role="presentation" class="active"><a href="/accueil">Accueil</a></li>
+						<li role="presentation"><a href="/client">Clients</a></li>
+						<li role="presentation"><a href="/bien">Biens</a></li>
+						<li role="presentation"><a href="/prop">Proprietaires</a></li>
+						<li role="presentation"><a href="/visit">Visites</a></li>
+						<li role="presentation"><a href="/contrats">Contrats</a></li>
 					</ul>
 				</nav>
 <div class="col-xs-12" style="height: 500px">
+<img alt="houseLogo" src="resources/images/home.png" class="img-responsive" align="middle" border="">
 		<ng-view></ng-view>
 </div>
 			</div>
