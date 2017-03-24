@@ -27,7 +27,8 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public Client addClient(Client cl) {
 		Session s = sf.getCurrentSession();
-		return (Client) s.save(cl);
+		s.save(cl);
+		return cl;
 	}
 
 	@Override
@@ -47,7 +48,8 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public Client updateClient(Client cl) {
 		Session s = sf.getCurrentSession();
-		return (Client)	s.merge(cl);
+		s.merge(cl);
+		return cl;
 	}
 
 	@Override
