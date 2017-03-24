@@ -1,7 +1,7 @@
 /**
  * Fichier de rootage
  */
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 //================ Propiétaires ============================================
 	.when("/prop", {
