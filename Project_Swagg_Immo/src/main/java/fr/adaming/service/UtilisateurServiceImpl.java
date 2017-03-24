@@ -35,14 +35,29 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	 * setter
 	 * @param utilisateurDao
 	 */
+	
 	public void setUtilisateurDao(IUtilisateurDao utilisateurDao) {
 		this.utilisateurDao = utilisateurDao;
 	}
+	
+	public void setClientDao(IClientDao clientDao) {
+		this.clientDao = clientDao;
+	}
+
+	public void setBienDao(IBienDao bienDao) {
+		this.bienDao = bienDao;
+	}
+
+	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
+		this.proprietaireDao = proprietaireDao;
+	}
+
 
 	/**
 	 * méthodes CRUD de la couche service de la classe Utilisateur pour la gestion des utilisateurs
 	 */
-	
+
+
 	/**
 	 * Ajoute un utilisateur en appelant la methode associée de la dao
 	 */
