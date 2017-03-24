@@ -1,0 +1,34 @@
+<h3 align="center">Suppression d'un propriétaire  </h3>
+<div ng-controller="deleteProp">
+<div class="col-xs-2" id="leftmenu">
+				<div class="col-xs-12" style="margin-top: 15px">
+
+				
+				<div class="list-group">
+  					<a href="#/ajouterProp" class="list-group-item list-group-item-info">Ajouter</a>
+  					<a href="#/modifierProp" class="list-group-item list-group-item-info">Modifier</a>
+  					<a href="#/supprimerProp" class="list-group-item list-group-item-info">Supprimer</a>
+  					<a href="#/chercherProp" class="list-group-item list-group-item-info">Chercher</a>
+				</div>
+				
+		</div>
+	
+		<div class="col-xs-10" id="maincontent">
+<form class="form-horizontal">
+
+	<div class="form-group">
+		<label for="inputIdProp" class="col-sm-2 control-label">Id :</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="inputIdProp"
+				placeholder="Id" ng-model="id">
+		</div>
+	</div>
+
+	
+	<!-- SOUMISSION DU FORMULAIRE MA GUEULE -->
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary" ng-click="delete()">Supprimer</button>
+	</div>
+</form>
+</div>
+</div>

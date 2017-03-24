@@ -1,0 +1,47 @@
+
+<div ng-controller="findAllProp">
+<div class="col-xs-2" id="leftmenu">
+				<div class="col-xs-12" style="margin-top: 15px">
+
+				<br/>
+				
+				
+				<div class="list-group">
+  					<a href="#/ajouterProp" class="list-group-item list-group-item-info">Ajouter</a>
+  					<a href="#/modifierProp" class="list-group-item list-group-item-info">Modifier</a>
+  					<a href="#/supprimerProp" class="list-group-item list-group-item-info">Supprimer</a>
+  					<a href="#/chercherProp" class="list-group-item list-group-item-info">Chercher</a>
+				</div>
+				
+		</div>
+</div>	
+		<div class="col-xs-10" id="maincontent">
+<h3 align="center">La liste des proprios  </h3>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">ID</th>
+				<th style="text-align: center">Nom</th>
+				<th style="text-align: center">Adresse</th>
+				<th style="text-align: center">Tel 1</th>
+				<th style="text-align: center">Tel 2</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="p in proprietaires">
+			<tr>
+				<td>{{p.id}}</td>
+				<td>{{p.nom}}</td>
+				<td>{{p.adresse}}</td>
+				<td>{{p.numeroPrive}}</td>
+				<td>{{p.numeroTravail}}</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>
+</div>
+</div>
