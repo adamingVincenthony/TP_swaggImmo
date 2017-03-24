@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.dao.IBienDao;
 import fr.adaming.dao.BienDaoImpl;
 import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienALouer;
 
 @Service
 @Transactional
-public class BienServiceImpl<T extends Bien> implements IBienService<T>{
+public class BienServiceImpl implements IBienService{
 
 	@Autowired
 	private IBienDao bienDao = new BienDaoImpl();
@@ -30,20 +31,24 @@ public class BienServiceImpl<T extends Bien> implements IBienService<T>{
 	 * Ajoute un bien en appelant la methode associée de la dao
 	 */
 	@Override
-	public void addBien(Bien bien) {
-		
+	public void addBienBAL(BienALouer bien) {
 		bienDao.addBien(bien);
+		
 	}
+	
 	
 	/**
 	 * Recupere une liste de bien
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Bien> findAllBien() {
 		return bienDao.findAllBiens();
 	}
 
 	
+	
+
 	/**
 	 * Supprime un bien
 	 */

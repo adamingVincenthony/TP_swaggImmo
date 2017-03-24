@@ -8,12 +8,12 @@ app.factory("bienProvider", function($http){
 	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/bien";
 	/**
 	 * ------------------------------------------------------------ Fonction
-	 * pour ajouter un bien
+	 * pour ajouter un bien à louer :
 	 */
-	function ajouterTAA (bienForm, callback){
+	function ajouterBAL (bienForm, callback){
 		$http({
 			method : 'POST',
-			url : urlglobal, 
+			url : urlglobal+"/bal/", 
 			data : angular.toJson(bienForm),
 			headers : {
 				'Content-Type' : 'application/json'
@@ -34,7 +34,7 @@ app.factory("bienProvider", function($http){
 	 * fonctions du provider
 	 */
 	return {
-		ajouterTAA : ajouterTAA
+		ajouterBAL : ajouterBAL
 		
 	}
 
