@@ -88,7 +88,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	}
 
 	/**
-	 * méthode d'attribution d'un client un bien
+	 * méthode d'attribution d'un bien à un client
 	 */
 	@Override
 	public void attribuer(int idClient, int idBien) {
@@ -108,6 +108,24 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		
 	}
 
+	/**
+		 * méthode d'attribution d'un bien à un responsable
+		 */
+		@Override
+		public void attribuerBienResponsable(int idResponsable, int idBien) {
+			Utilisateur responsable = utilisateurDao.getByIdUtilisateur(idResponsable);
+			Bien bien = bienDao.getByIdBien(idBien);
+			
+			List<Bien> listeBien = responsable.getListeBien(); 
+
+			listeBien.add(bien);
+			
+			responsable.setListeBien(listeBien);
+		
+			utilisateurDao.attribuerBienResponsable(responsable, bien);
+			
+		}
+	
 	/**
 	 * méthode d'affichage de la liste des biens d'un propriétaire dans la liste des intérêts
 	 */

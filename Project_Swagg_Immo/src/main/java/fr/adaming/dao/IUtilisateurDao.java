@@ -21,7 +21,15 @@ public interface IUtilisateurDao {
 	public Utilisateur getByIdUtilisateur(int id_u);
 	public Utilisateur updateUtilisateur(Utilisateur u);
 	public void deleteUtilisateur(Utilisateur u);
+	
+/**
+ * méthodes d'attribution 
+ * @param client
+ * @param bien
+ */
 	public void attribuer(Client client, Bien bien);
+	public void attribuerBienResponsable(Utilisateur responsable, Bien bien);
 	public List<Bien> getListeBienProprietaire(int id_p);
 	public List<Visite> getListeVisite(int id_u);
+
 }

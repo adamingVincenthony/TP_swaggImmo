@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.entity.Visite;
 import fr.adaming.service.IUtilisateurService;
 
 import javax.ws.rs.DELETE;
@@ -119,6 +120,17 @@ public class UtilisateurRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Bien> getListeBienProprietaireRest(@PathParam("id_param_r") int id_r){
 		return utilisateurService.getListeBienProprietaire(id_r);
+	}
+	
+	/**
+	 * méthode d'affichage de la liste des visites d'un utilisateur
+	 * @return
+	 */
+	@GET
+	@Path("/getListeVisite/{id_param_u}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Visite> getListeVisiteRest(@PathParam("id_param_u") int id_u){
+		return utilisateurService.getListeVisite(id_u);
 	}
 	
 }
