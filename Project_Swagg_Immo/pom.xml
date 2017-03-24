@@ -90,7 +90,7 @@
 		<!-- jersey -->
 
 		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-server -->
-	<dependency>
+		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
 			<version>1.8</version>
@@ -109,7 +109,7 @@
 			<version>1.0.1.Final</version>
 		</dependency>
 
-<!--Jersey + Spring -->
+		<!--Jersey + Spring -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
@@ -141,40 +141,46 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-		<!-- 		Dependances pour le web -->
-	
+
+		<!-- Dependances pour le web -->
+
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.10</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-test</artifactId>
-		    <version>4.1.9.RELEASE</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.1.9.RELEASE</version>
 		</dependency>
-<!-- 		     resteasy webservice dep -->
-    <dependency>
-		<groupId>org.jboss.resteasy</groupId>
-		<artifactId>resteasy-jaxrs</artifactId>
-		<version>1.2.GA</version>
-	</dependency>
- 
-	<dependency>
-	<groupId>org.jboss.resteasy</groupId>
-	<artifactId>resteasy-jaxb-provider</artifactId>
-	<version>1.2.GA</version>
-   </dependency>
+		<!-- resteasy webservice dep -->
+		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.21.Final</version>
+		</dependency>
 
-	<dependency>
-	  <groupId>org.jboss.resteasy</groupId>
-	  <artifactId>resteasy-spring</artifactId>
-	  <version>1.2.GA</version>
-	</dependency> 
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxb-provider -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.21.Final</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-spring -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>3.0.21.Final</version>
+		</dependency>
+
 
 	</dependencies>
 	<!-- ajout du plugin pour la prise en charge 1.8 -->
