@@ -27,91 +27,96 @@
 
 	<!-- ///////////////////////////////////// LES fORMULAIRES /////////////////////////////////////// -->
 	<!-- ----------- bien à louer -->
-<div ng-controller="addBalCtrl">
-<form class="form-horizontal">
+	<div ng-controller="addBalCtrl">
+		<form class="form-horizontal">
 
-						<div class="form-group">
-							<label for="inputAdresseBien" class="col-sm-3 control-label">Type
-								: :</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputAdresseBien"
-									placeholder="Adresse du bien" ng-model="bienForm.type">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputAdresseBien"
-									placeholder="Adresse du bien" ng-model="bienForm.localisation">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputRevenuCadBien" class="col-sm-3 control-label">Revenu
-								Cadastral :</label>
-							<div class="col-sm-6">
-								<input type="number" class="form-control"
-									id="inputRevenuCadBien" ng-model="bienForm.revenuCadastral">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputTypeBien" class="col-sm-3 control-label">Type
+					:</label>
+				<div class="col-sm-2">
+					<select name="inputTypeBien" class="form-control" ng-model="bienForm.type" id="inputTypeBien">
+						<option value="Maison" selected>Maison</option>
+						<option value="Appartement">Appartement</option>
+						<option value="Studio">Studio</option>
+						<option value="Entrepot">Entrepôt</option>
+						<option value="Emplacement">Emplacement</option>
+						<option value="Terrain">Terrain</option>
+					</select> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputAdresseBien"
+						placeholder="Adresse du bien" ng-model="bienForm.localisation">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputRevenuCadBien" class="col-sm-3 control-label">Revenu
+					Cadastral :</label>
+				<div class="col-sm-6">
+					<input type="number" class="form-control" id="inputRevenuCadBien"
+						ng-model="bienForm.revenuCadastral">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputSurfaceBien"
-									ng-model="bienForm.surface">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputSurfaceBien"
+						ng-model="bienForm.surface">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputCautionBien" class="col-sm-3 control-label">Caution :
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputCautionBien"
-									ng-model="bienForm.montantCaution">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputCautionBien" class="col-sm-3 control-label">Caution
+					: :</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputCautionBien"
+						ng-model="bienForm.montantCaution">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputLoyerBien"
-									ng-model="bienForm.loyerMensuel">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputLoyerBien"
+						ng-model="bienForm.loyerMensuel">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputChargeBien" class="col-sm-3 control-label">Charge
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputChargeBien"
-									ng-model="bienForm.loyerCharge">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputChargeBien" class="col-sm-3 control-label">Charge
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputChargeBien"
+						ng-model="bienForm.loyerCharge">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputBailBien" class="col-sm-3 control-label">Bail:
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputBailBien"
-									ng-model="bienForm.typeBail">
-							</div>
-						</div>
+			<div class="form-group">
+				<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputBailBien"
+						ng-model="bienForm.typeBail">
+				</div>
+			</div>
 
-						<div class="form-group">
-							<label for="inputBailBien" class="col-sm-3 control-label">Bail:
-								:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="inputBailBien"
-									ng-model="bienForm.ameublement">
-							</div>
-						</div>
-						<button type="button" class="btn btn-primary"
-							ng-click="ajouter()">Ajouter</button>
-					</form>
-</div>
+			<div class="form-group">
+				<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+					:</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="inputBailBien"
+						ng-model="bienForm.ameublement">
+				</div>
+			</div>
+			<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>
+		</form>
+	</div>
 
 </body>
 </html>
