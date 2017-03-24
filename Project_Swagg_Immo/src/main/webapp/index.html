@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appImmo">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Swagg Immo</title>
 
 <!-- JQuery libraries-->
 <script type="text/javascript" src="scripts/jquery.js"></script>
 
 <!-- Bootstrap libraries-->
-<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
 <script type="text/javascript" src=scripts/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+
 
 <!-- ref vers feuilles css -->
 <link rel="stylesheet" href="style/style.css">
+
+<!-- ref vers feuilles js -->
+<script type="text/javascript" src="scripts/angular.js"></script>
+<script type="text/javascript" src="scripts/angular-route.js"></script>
+<script type="text/javascript" src="scripts/module.js"></script>
+<!-- ref proprio -->
+<script type="text/javascript" src="scripts/proprietaire/controlleurProp.js"></script>
+<script type="text/javascript" src="scripts/proprietaire/providerProp.js"></script>
+<script type="text/javascript" src="scripts/proprietaire/rootingProp.js"></script>
+
 
 </head>
 <body >
@@ -28,46 +39,16 @@
 				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px; background-color: RGBA(255,255,255,0.50);">
 					<ul class="nav nav-tabs">
 						<li role="presentation" class="active"><a href="#/accueil">Accueil</a></li>
-						<li role="presentation"><a href="#/accueil">Clients</a></li>
-						<li role="presentation"><a href="#/rechercher">Biens</a></li>
-						<li role="presentation"><a href="#/ajouter">Proprietaires</a></li>
-						<li role="presentation"><a href="#/supprimer">Visites</a></li>
-						<li role="presentation"><a href="#/modifier">Contrats</a></li>
+						<li role="presentation"><a href="#/client">Clients</a></li>
+						<li role="presentation"><a href="#/bien">Biens</a></li>
+						<li role="presentation"><a href="#/prop">Proprietaires</a></li>
+						<li role="presentation"><a href="#/visit">Visites</a></li>
+						<li role="presentation"><a href="#/contrats">Contrats</a></li>
 					</ul>
 				</nav>
-
-		<div class="col-xs-2" id="leftmenu">
-				<div class="col-xs-12" style="margin-top: 15px">
-
-				<br/>
-				<ng-view></ng-view>
-				
-				<div class="list-group">
-  					<a href="#" class="list-group-item list-group-item-info">Et</a>
-  					<a href="#" class="list-group-item list-group-item-info">Mes</a>
-  					<a href="#" class="list-group-item list-group-item-info">Couilles sur</a>
-  					<a href="#" class="list-group-item list-group-item-info">Ton front ?</a>
-				</div>
-				
-				
-						
-						
-						<!-- 				Activation avec le mode html 5 -->
-				<!-- 				<a href="home">Accueil</a>  -->
-				<!-- 				<a href="cours">Cours</a> -->
-				<!-- 				<a href="etu">Etudiants</a> -->
-						
-				</div>
-
-
-		</div>
-	
-		<div class="col-xs-10" id="maincontent">
-
-						<h1>Bonjour Bienvenue sur le Site de Swagg Immo</h1>
-						<ng-view></ng-view>
-		</div>		
-			
+<div class="col-xs-12" style="height: 500px">
+		<ng-view></ng-view>
+</div>
 			</div>
 		</div>
 	</div>

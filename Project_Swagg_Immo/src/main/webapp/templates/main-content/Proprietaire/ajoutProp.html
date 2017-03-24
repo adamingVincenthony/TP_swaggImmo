@@ -1,0 +1,62 @@
+<h3 align="center">Ajout d'un propriétaire  </h3>
+<div ng-controller="addProp">
+
+<div class="col-xs-2" id="leftmenu">
+				<div class="col-xs-12" style="margin-top: 15px">
+
+				
+				<div class="list-group">
+  					<a href="#/ajouterProp" class="list-group-item list-group-item-info">Ajouter</a>
+  					<a href="#/modifierProp" class="list-group-item list-group-item-info">Modifier</a>
+  					<a href="#/supprimerProp" class="list-group-item list-group-item-info">Supprimer</a>
+  					<a href="#/chercherProp" class="list-group-item list-group-item-info">Chercher</a>
+				</div>
+				
+		</div>
+	
+		<div class="col-xs-10" id="maincontent">
+
+						<h1>Ajout d'un propriétaire</h1>
+						<br/>		
+<form class="form-horizontal">
+
+	<div class="form-group">
+		<label for="inputNomProp" class="col-sm-2 control-label">Nom :</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputNomProp"
+				placeholder="Nom du propriétaire" ng-model="propForm.nom">
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputAdresseProp" class="col-sm-2 control-label">Adresse :</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputAdresseProp"
+				placeholder="Adresse du propriétaire" ng-model="propForm.adresse">
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputTel1Prop" class="col-sm-2 control-label">Téléphone privé :</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputTel1Prop"
+				placeholder="06 XX XX XX XX" ng-model="propForm.numeroPrive">
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="inputTel2Prop" class="col-sm-2 control-label">Téléphone public :</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputTel2Prop"
+				placeholder="06 XX XX XX XX" ng-model="propForm.numeroTravail">
+		</div>
+	</div>
+	
+	
+	<!-- SOUMISSION DU FORMULAIRE MA GUEULE -->
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>
+	</div>
+</form>
+</div>
+</div>
