@@ -1,2 +1,2 @@
 /** Le module AngularJS */
-var app=angular.module("appImmo",[]);
+var app=angular.module("appImmo",['ngRoute']);
