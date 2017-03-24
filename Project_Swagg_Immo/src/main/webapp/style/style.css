@@ -21,7 +21,7 @@
 }
 #footer{
 	width: 100%;
-	background:linear-gradient(to bottom, RGBA(255,255,255,0.01), RGBA(255,255,255,0.30)) ;
+	background:linear-gradient(to bottom, RGBA(255,255,255,0.30), RGBA(255,255,255,0.01)) ;
 	color : white;
 	text-align: center;
 	font-family: Arial; 
@@ -91,4 +91,7 @@ h1{
 	text-align :center;
 	color : gold;
 	padding: 5px;
+}
+.container{
+	width: 97%;
 }

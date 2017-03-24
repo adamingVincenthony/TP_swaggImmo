@@ -15,7 +15,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		propProvider.addProp($scope.propForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/testadd.html"); /* modifier cet url après la vue */
+				$location.path("/prop"); /* modifier cet url après la vue */
 			}
 		})
 	}
@@ -40,7 +40,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 	$scope.update = function() {
 		propProvider.updateProp($scope.propUpdateForm, function (callback){
 			if(callback !=undefined && callback!=""){
-				$location.path("/testadd.html"); /* modifier cet URL après pour le retour ^^ */
+				$location.path("/prop"); /* modifier cet URL après pour le retour ^^ */
 			}
 		})
 	}
@@ -61,7 +61,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.proprietaire = callback;
-				$location.path("/testadd.html"); /* modifier cet url après la création de la vue */
+				$location.path("/prop"); /* modifier cet url après la création de la vue */
 			}
 		})
 		
@@ -81,7 +81,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.proprietaire = callback;
-				$location.path("/testresul.html"); /* modifier cet url après la vue */
+				$location.path("/prop"); /* modifier cet url après la vue */
 			}
 		})
 		
