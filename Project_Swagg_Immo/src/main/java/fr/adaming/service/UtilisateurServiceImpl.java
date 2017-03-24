@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,8 +126,16 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		 * récupération des listes de biens du client et de client pour un bien
 		 */
 		List<Bien> listeBien = client.getListeInteret();
-		List<Client> listeClient= bien.getClientInteret(); 
-
+		if(listeBien == null){
+			listeBien = new ArrayList<>();
+		}
+		
+		
+		List<Client> listeClient = bien.getClientInteret(); 
+		if(listeClient == null){
+			listeClient = new ArrayList<>();
+		}
+		
 		/**
 		 * mise à jour des données des listes à partir des objets récupérés
 		 */
