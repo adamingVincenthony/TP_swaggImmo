@@ -6,6 +6,7 @@ import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.entity.Visite;
 
 
 public interface IUtilisateurDao {
@@ -22,4 +23,5 @@ public interface IUtilisateurDao {
 	public void deleteUtilisateur(Utilisateur u);
 	public void attribuer(Client client, Bien bien);
 	public List<Bien> getListeBienProprietaire(int id_p);
+	public List<Visite> getListeVisite(int id_u);
 }

@@ -14,18 +14,25 @@ import fr.adaming.entity.Client;
 @Transactional
 public class ClientServiceImpl implements IClientService{
 
+	/**
+	 * injection automatique de la classe client de la Dao
+	 */
 	@Autowired
 	private IClientDao clientDao = new ClientDaoImpl();
 	
 	
 	/**
-	 * setter
+	 * setter du clientDao
 	 * @param clientDao
 	 */
 	public void setClientDao(IClientDao clientDao) {
 		this.clientDao = clientDao;
 	}
 
+	/**
+	 * méthode CRUD de la gestion des clients
+	 */
+	
 	/**
 	 * Ajoute un client en appelant la methode associée de la dao
 	 */
@@ -71,11 +78,6 @@ public class ClientServiceImpl implements IClientService{
 		return clientDao.getByIdClient(id);
 	}
 	
-	
-	/**
-	 * affecter un bien à un client
-	 */
-	
-	
+
 
 }

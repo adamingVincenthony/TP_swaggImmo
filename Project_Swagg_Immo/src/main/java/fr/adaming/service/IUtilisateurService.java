@@ -6,6 +6,7 @@ import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.entity.Visite;
 
 public interface IUtilisateurService {
 	
@@ -30,5 +31,10 @@ public interface IUtilisateurService {
 	 * méthode d'affichage de la liste des biens d'un proprio  dans la liste des intérêts
 	 */
 	public List<Bien> getListeBienProprietaire(int id_p);
+	
+	/**
+	 * méthode d'affichage de la liste des visites d'un utilisateur
+	 */
+	public List<Visite> getListeVisite(int id_u);
 	
 }

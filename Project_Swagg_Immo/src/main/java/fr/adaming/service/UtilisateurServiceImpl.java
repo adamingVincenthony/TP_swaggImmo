@@ -18,6 +18,7 @@ import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.entity.Visite;
 
 @Service
 @Transactional
@@ -116,5 +117,16 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 		return utilisateurDao.getListeBienProprietaire(id_p);
 		
 	}
+	
+	/**
+	 * méthode d'affichage de la liste des biens d'un propriétaire dans la liste des intérêts
+	 */
+	@Override
+	public List<Visite> getListeVisite(int id_u) {
+		
+		return utilisateurDao.getListeVisite(id_u);
+		
+	}
+
 
 }

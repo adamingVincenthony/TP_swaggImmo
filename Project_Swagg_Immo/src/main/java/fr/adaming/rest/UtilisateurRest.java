@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import fr.adaming.entity.Bien;
 import fr.adaming.entity.Utilisateur;
 import fr.adaming.service.IUtilisateurService;
 
@@ -93,8 +94,31 @@ public class UtilisateurRest {
 	 */
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	public void deleteUser(@PathParam("id_param") int id){
+	public void deleteUserRest(@PathParam("id_param") int id){
 		utilisateurService.deleteUtilisateur(id);
+	}
+	
+	/**
+	 * attribution d'un bien à un client
+	 * @param id
+	 */
+	@PUT
+	@Path("/attribuer/{id_param_c}/{id_param_b}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void attribuerRest(@PathParam("id_param_c") int idClient, @PathParam("id_param_b") int idBien){
+		utilisateurService.attribuer(idClient, idBien);
+	}
+	
+	/**
+	 * méthode d'affichage de la liste des biens d'un propriétaire
+	 * @return
+	 */
+	@GET
+	@Path("/getListeBien/{id_param_r}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Bien> getListeBienProprietaireRest(@PathParam("id_param_r") int id_r){
+		return utilisateurService.getListeBienProprietaire(id_r);
 	}
 	
 }
