@@ -28,6 +28,8 @@ app.config(function($routeProvider) {
 	.otherwise({
 		redirectTo : "/accueil"
 	})
+	//supprimer les # dans les url avec le mode html 5
+	$locationProvider.html5Mode(true);
 });
 
 //.when("/accueil", {
