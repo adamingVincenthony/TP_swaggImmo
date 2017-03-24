@@ -1,5 +1,7 @@
 package fr.adaming.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -35,6 +37,18 @@ public class BienALouer extends Bien{
 	public BienALouer() {
 		super();
 	}
+
+	
+	public BienALouer(String type, String localisation, long revenuCadastral, String surface, double montantCaution, double loyerMensuel, double loyerCharge,
+			String typeBail, String ameublement) {
+		super(type, localisation, revenuCadastral, surface);
+		this.montantCaution = montantCaution;
+		this.loyerMensuel = loyerMensuel;
+		this.loyerCharge = loyerCharge;
+		this.typeBail = typeBail;
+		this.ameublement = ameublement;
+	}
+
 
 	public BienALouer(double montantCaution, double loyerMensuel, double loyerCharge, String typeBail,
 			String ameublement) {
