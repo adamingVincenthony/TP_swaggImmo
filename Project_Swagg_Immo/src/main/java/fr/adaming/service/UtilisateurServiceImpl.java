@@ -184,19 +184,15 @@ public class UtilisateurServiceImpl implements IUtilisateurService{
 	 */
 	@Override
 	public List<Bien> getListeBienProprietaire(int id_p) {
-		
 		return utilisateurDao.getListeBienProprietaire(id_p);
-		
 	}
 	
 	/**
-	 * méthode d'affichage de la liste des biens d'un propriétaire dans la liste des intérêts
+	 * méthode d'affichage de la liste des visites d'un utilisateur responsable
 	 */
 	@Override
 	public List<Visite> getListeVisite(int id_u) {
-		
 		return utilisateurDao.getListeVisite(id_u);
-		
 	}
 
 	/**

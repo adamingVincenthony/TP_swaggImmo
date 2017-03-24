@@ -124,19 +124,19 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	 */
 	@Override
 	public List<Bien> getListeBienProprietaire(int id_p) {
-		Proprietaire proprietaire = proprietaireDao.getByIdProprietaire(id_p);
-		List<Bien> listeBien = proprietaire.getListeBien();
-		return listeBien;
+		Session s = sf.getCurrentSession();
+		Proprietaire proprietaire = (Proprietaire) s.get(Proprietaire.class, id_p);
+		return proprietaire.getListeBien();
 	}
 
 	/**
-	 * méthode pour afficher la liste des visites d'un responsable
+	 * méthode pour afficher la liste des visites d'un utilisateur responsable
 	 */
 	@Override
 	public List<Visite> getListeVisite(int id_u) {
-		Utilisateur responsable = responsableDao.getByIdUtilisateur(id_u);
-		List<Visite> listeVisite = responsable.getListeVisite();
-		return listeVisite;
+		Session s = sf.getCurrentSession();
+		Utilisateur responsable = (Utilisateur) s.get(Utilisateur.class, id_u);
+		return responsable.getListeVisite();
 	}
 	
 	/**
