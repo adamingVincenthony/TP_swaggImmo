@@ -1,5 +1,6 @@
 package fr.adaming.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -26,7 +27,11 @@ public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 	
 	@Override
 	public Bien addBien(T b) {
-		System.out.println(b);
+		System.out.println("La date de soumission de B :");
+		b.getDateSoumission();
+		Date date = new Date();
+		b.setDateSoumission(date);
+		b.setStatut("Disponible");
 		sf.getCurrentSession().save(b);
 		return b ;
 	}

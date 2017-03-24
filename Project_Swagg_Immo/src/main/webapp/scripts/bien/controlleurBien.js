@@ -8,11 +8,12 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 		localisation : "",
 		revenuCadastral : undefined,
 		surface : "",
-		montantCaution : "",
-		loyerMensuel : "",
-		loyerCharge : "",
+		montantCaution : undefined,
+		loyerMensuel : undefined,
+		loyerCharge : undefined,
 		typeBail : "",
-		ameublement : ""	
+		ameublement : "",
+		dateSoumission : undefined
 	}
 	
 	/** Développement de la méthode ajouter appellée dans la page */

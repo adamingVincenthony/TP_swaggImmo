@@ -3,6 +3,7 @@ package fr.adaming.service.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.map.ser.StdSerializers.UtilDateSerializer;
@@ -115,34 +116,41 @@ public class UtilisateurServiceTest {
 	}
 	
 	
-//	/**
-//	 * Test : attribuer bien/client
-//	 */
-//	@Test
-//	@Transactional
-//	public void testAttribuerClientBien(){
-//		Client client1 = new Client(900, 1000, "toto");
-//		Client client2 = new Client(901, 1000, "tata");
-//		Client client3 = new Client(902, 1000, "titi");
-//		Client client4 = new Client(903, 1000, "tete");
-//		
-//		BienALouer bien = new BienALouer(1000, 1000, 1000, "maison", "meuble");
-//		bienService.addBienBAL(bien);
-//		
-//		clientService.addClient(client1);
-//		clientService.addClient(client2);
-//		clientService.addClient(client3);
-//		clientService.addClient(client4);
-//		
-//		
-//		utilisateurService.attribuer(client1.getId(), bien.getId());
-//		utilisateurService.attribuer(client2.getId(), bien.getId());
-//		utilisateurService.attribuer(client3.getId(), bien.getId());
-//		utilisateurService.attribuer(client4.getId(), bien.getId());
-//		
-//		int taille = bien.getClientInteret().size();
-//		
-//	}
+	/**
+	 * Test : attribuer bien/client
+	 */
+	@Test
+	@Transactional
+	public void testAttribuerClientBien(){
+		
+		Client client1 = new Client(1000, "toto");
+
+		BienALouer bien1 = new BienALouer(1000, 1000, 1000, "maison", "meuble");
+		BienALouer bien2 = new BienALouer(1000, 1000, 1000, "appart", "meuble");
+		BienALouer bien3 = new BienALouer(1000, 1000, 1000, "entrepot", "meuble");
+		
+		bienService.addBienBAL(bien1);
+		bienService.addBienBAL(bien2);
+		bienService.addBienBAL(bien3);
+		
+		clientService.addClient(client1);
+		int taille;
+		
+		if(bien1.getClientInteret() == null){
+			 taille = 0;
+		}else{
+			taille = bien1.getClientInteret().size();
+		}
+	
+		utilisateurService.attribuer(client1.getId(), bien1.getId());
+		utilisateurService.attribuer(client1.getId(), bien2.getId());
+		utilisateurService.attribuer(client1.getId(), bien3.getId());
+		
+		int tailleRetour = bien1.getClientInteret().size();
+
+		assertEquals(taille+1, tailleRetour);
+		
+	}
 	
 //	/**
 //	 * Test : attribuer bien/utilisateur
