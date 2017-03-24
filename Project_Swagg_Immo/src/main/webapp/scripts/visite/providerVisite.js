@@ -1,5 +1,5 @@
 /**
- * Provider AJS des services CRUD des visites
+ * Provider AJS des services CRUD du propriétaire
  */
 app.factory("visiteProvider", function($http) {
 
@@ -16,7 +16,7 @@ app.factory("visiteProvider", function($http) {
 		$http({
 			method : 'POST',
 			url : urlglobal, 
-			data : angular.toJson(visiteForm),
+			data : angular.toJson(propForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -36,7 +36,7 @@ app.factory("visiteProvider", function($http) {
 	 * chercher une visite
 	 */
 	function getVisite(idVisite, callback) {
-		$http.get(urlglobal +'/get/'+idVisite) 
+		$http.get(urlglobal +'/getById/'+idVisite) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -52,7 +52,7 @@ app.factory("visiteProvider", function($http) {
 	 * afficher toutes les visites
 	 */
 	function findAllVisite(callback) {
-		$http.get(urlglobal + '/liste/') 
+		$http.get(urlglobal + '/findall/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);

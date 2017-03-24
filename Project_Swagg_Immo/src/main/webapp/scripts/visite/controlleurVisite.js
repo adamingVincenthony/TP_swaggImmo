@@ -5,7 +5,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 	$scope.visiteForm = {
 		/** on initialise des valeurs nulles */
 		date : ""
-		
+			//penser au attribution
 	}
 	/** Développement de la méthode ajouter appellée dans la page */
 	$scope.ajouter = function() {
@@ -13,7 +13,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 		visiteProvider.addVisite($scope.visiteForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/testadd.html"); /* modifier cet url après la vue */
+				$location.path("/visite"); /* modifier cet url après la vue */
 			}
 		})
 	}
@@ -29,13 +29,13 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 	$scope.visiteUpdateForm = {
 			id : undefined,
 			date : ""
-		
+		//same
 	}
 	/** développement de la méthode appellée dans la page */
 	$scope.update = function() {
 		visiteProvider.updateVisite($scope.visiteUpdateForm, function (callback){
 			if(callback !=undefined && callback!=""){
-				$location.path("/testadd.html"); /* modifier cet URL après pour le retour ^^ */
+				$location.path("/visite"); /* modifier cet URL après pour le retour ^^ */
 			}
 		})
 	}
@@ -48,7 +48,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
  * une visite
  */
 .controller("deleteVisite",function($scope, visiteProvider, $location){
-	/** initialisation de l'id de la visite à supprimer en indéfini */
+	/** initialisation de l'id du visite à supprimer en indéfini */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.delete = function() {
@@ -56,7 +56,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.visite = callback;
-				$location.path("/testadd.html"); /* modifier cet url après la création de la vue */
+				$location.path("/visite"); /* modifier cet url après la création de la vue */
 			}
 		})
 		
@@ -76,7 +76,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.visite = callback;
-				$location.path("/testresul.html"); /* modifier cet url après la vue */
+				$location.path("/visite"); /* modifier cet url après la vue */
 			}
 		})
 		
