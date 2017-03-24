@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="appImmo">
+<html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Swagg Immo</title>
@@ -17,17 +17,20 @@
 <link rel="stylesheet" href="style/style.css">
 
 <!-- ref vers feuilles js -->
+
 <script type="text/javascript" src="scripts/angular.js"></script>
 <script type="text/javascript" src="scripts/angular-route.js"></script>
 <script type="text/javascript" src="scripts/module.js"></script>
-<!-- ref proprio -->
-<script type="text/javascript" src="scripts/proprietaire/controlleurProp.js"></script>
 <script type="text/javascript" src="scripts/proprietaire/providerProp.js"></script>
 <script type="text/javascript" src="scripts/proprietaire/rootingProp.js"></script>
+<!-- ref proprio -->
+<script type="text/javascript" src="scripts/proprietaire/controlleurProp.js"></script>
+
 
 
 </head>
-<body >
+
+<body ng-app="appImmo" >
 <div class="container-fluid" style="background-image: url('resources/images/landscape.jpg');">
 	<div class="row">
 	<div  class="container" id="header">
@@ -39,7 +42,7 @@
 	
 				<nav class="navbar navbar-inverse" id="navbar" style="padding :5px; background-color: RGBA(255,255,255,0.50);">
 					<ul class="nav nav-tabs">
-						<li role="presentation" class="active"><a href="/accueil">Accueil</a></li>
+						<li role="presentation"><a href="/accueil">Accueil</a></li>
 						<li role="presentation"><a href="/client">Clients</a></li>
 						<li role="presentation"><a href="/bien">Biens</a></li>
 						<li role="presentation"><a href="/prop">Proprietaires</a></li>
@@ -48,7 +51,7 @@
 					</ul>
 				</nav>
 <div class="col-xs-12" style="height: 500px">
-<img alt="houseLogo" src="resources/images/home.png" class="img-responsive" align="middle" border="">
+
 		<ng-view></ng-view>
 </div>
 			</div>
