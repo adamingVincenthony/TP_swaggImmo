@@ -32,7 +32,7 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
 	private IProprietaireDao proprietaireDao;
 	
 	/**
-	 * méthodes de gestion des utilisateurs
+	 * méthodes de gestion CRUD des utilisateurs
 	 */
 	@Override
 	public Utilisateur addUtilisateur(Utilisateur u) {

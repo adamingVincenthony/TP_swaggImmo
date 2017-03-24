@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.Client;
 import fr.adaming.entity.Contrat;
+import fr.adaming.entity.Utilisateur;
 /**
  * methodes permettant de gérer les contrats dans la bdd
  * @author inti0210
@@ -62,14 +63,15 @@ public class ContratDaoImpl implements IContratDao{
 	}
 
 	/**
-	 * méthode d'attribution du bien loué ou vendu au client
+	 * méthode d'attribution du bien loué ou vendu au client et au responsable
 	 */
 	@Override
-	public void attribuer(Contrat contrat, Client client, Bien bien) {
+	public void attribuer(Contrat contrat, Client client, Utilisateur responsable, Bien bien) {
 		Session s = sf.getCurrentSession();
 		s.merge(contrat);
 		s.merge(bien);
 		s.merge(client);
+		s.merge(responsable);
 	}
 	
 	

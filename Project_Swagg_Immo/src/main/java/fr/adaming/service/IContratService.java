@@ -11,5 +11,5 @@ public interface IContratService {
 	public void deleteContrat(int id);
 	public void updateContrat(Contrat contrat);
 	public Contrat getByIdContrat(int id);
-	public void  attribuer(int idContrat, int idClient, int idBien);
+	public void  attribuer(int idContrat, int idClient, int idResponsable, int idBien);
 }
