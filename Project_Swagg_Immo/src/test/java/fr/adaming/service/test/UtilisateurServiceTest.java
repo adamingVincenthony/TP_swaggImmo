@@ -11,7 +11,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienAAcheter;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Utilisateur;
+import fr.adaming.service.IBienService;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IUtilisateurService;
 
 @RunWith(SpringJUnit4ClassRunner.class) // le runner de spring
@@ -20,6 +25,12 @@ public class UtilisateurServiceTest {
 
 	@Autowired
 	IUtilisateurService utilisateurService;
+	
+	@Autowired
+	IClientService clientService;
+	
+	@Autowired
+	IBienService bienService;
 	
 	/**
 	 * Setter
@@ -99,4 +110,36 @@ public class UtilisateurServiceTest {
 		String resultatAttendu = proprioTrouve2.getNom();
 		assertEquals(resultatAttendu,proprioTrouve.getNom());
 	}
+	
+	
+//	/**
+//	 * Test : attribuer bien/client
+//	 */
+//	@Test
+//	@Transactional
+//	public void testAttribuerClientBien(){
+//		Client client1 = new Client(900, 1000, "toto");
+//		Client client2 = new Client(901, 1000, "tata");
+//		Client client3 = new Client(902, 1000, "titi");
+//		Client client4 = new Client(903, 1000, "tete");
+//		
+//		Bien bien = new BienAAcheter("non-disponible");
+//		
+//		clientService.addClient(client1);
+//		clientService.addClient(client2);
+//		clientService.addClient(client3);
+//		clientService.addClient(client4);
+//		
+//		
+//		utilisateurService.attribuer(client1.getId(), bien.getId());
+//		utilisateurService.attribuer(client2.getId(), bien.getId());
+//		utilisateurService.attribuer(client3.getId(), bien.getId());
+//		utilisateurService.attribuer(client4.getId(), bien.getId());
+//		
+//		int taille = bien.getClientInteret().size();
+//		
+//	}
 }
+
+	
+	

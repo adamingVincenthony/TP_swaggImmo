@@ -157,24 +157,24 @@
 		    <artifactId>spring-test</artifactId>
 		    <version>4.1.9.RELEASE</version>
 		</dependency>
-<!-- 		     resteasy webservice dep
+<!-- 		     resteasy webservice dep -->
     <dependency>
 		<groupId>org.jboss.resteasy</groupId>
 		<artifactId>resteasy-jaxrs</artifactId>
 		<version>1.2.GA</version>
 	</dependency>
-	 JAXB manipuler xml  
+ 
 	<dependency>
 	<groupId>org.jboss.resteasy</groupId>
 	<artifactId>resteasy-jaxb-provider</artifactId>
 	<version>1.2.GA</version>
    </dependency>
-	spring resteasy
+
 	<dependency>
 	  <groupId>org.jboss.resteasy</groupId>
 	  <artifactId>resteasy-spring</artifactId>
 	  <version>1.2.GA</version>
-	</dependency> -->
+	</dependency> 
 
 	</dependencies>
 	<!-- ajout du plugin pour la prise en charge 1.8 -->

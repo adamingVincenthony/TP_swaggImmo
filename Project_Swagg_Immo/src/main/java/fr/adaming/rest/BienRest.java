@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienALouer;
 import fr.adaming.service.IBienService;
 
 import javax.ws.rs.DELETE;
@@ -25,10 +26,10 @@ import javax.ws.rs.core.MediaType;
  */
 @Component
 @Path("/bien")
-public class BienRest<T extends Bien> {
+public class BienRest {
 	
 	/**
-	 * injection automatique du propriétaire service
+	 * injection automatique du bien service
 	 */
 	@Autowired
 	private IBienService bienService;
@@ -43,7 +44,7 @@ public class BienRest<T extends Bien> {
 	
 	
 	/**
-	 * méthode d'affichage de la liste des propriétaires
+	 * méthode d'affichage de la liste des bien
 	 * @return
 	 */
 	@GET
@@ -54,7 +55,7 @@ public class BienRest<T extends Bien> {
 	}
 	
 	/**
-	 * méthode de recherche par id d'un propriétaire 
+	 * méthode de recherche par id d'un bien
 	 * @param id
 	 * @return
 	 */
@@ -66,25 +67,25 @@ public class BienRest<T extends Bien> {
 	}
 	
 	/**
-	 * méthode d'ajout d'un propriétaire 
+	 * méthode d'ajout d'un bien à louer
 	 * @param bien
 	 */
 	@POST
+	@Path("/bal")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public void addBienRest(T bien){
-		System.out.println(bien.getRevenuCadastral()+" "+bien.getType());
-		bienService.addBien(bien);
+	public void addBienRest(BienALouer bien){
+		System.out.println("je rentre dans la méthode bien à louer création");
+		bienService.addBienBAL(bien);
 	}
 	
 	/**
-	 * méthode de mise à jour des données d'un propriétaire
+	 * méthode de mise à jour des données d'un bien
 	 * @param bien
 	 */
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateBienRest(T bien){
+	public void updateBienRest(Bien bien){
 		bienService.updateBien(bien);
 	}
 	

@@ -1,6 +1,7 @@
 package fr.adaming.dao.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -12,6 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IUtilisateurDao;
+import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienAAcheter;
+import fr.adaming.entity.BienALouer;
+import fr.adaming.entity.Client;
 import fr.adaming.entity.Utilisateur;
 
 @RunWith(SpringJUnit4ClassRunner.class) // le runner de spring
@@ -92,4 +97,7 @@ public class UtilisateurDaoTest {
 		String resultatAttendu = proprioTrouve2.getNom();
 		assertEquals(resultatAttendu,proprioTrouve.getNom());
 	}
+	
+
+
 }
