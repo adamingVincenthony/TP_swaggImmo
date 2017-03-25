@@ -9,7 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +23,9 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 
 
@@ -84,6 +87,7 @@ public abstract class Bien implements Serializable{
 	 * Chaque bien peut être le centre d'intêret de plusieurs clients
 	 */
 	@ManyToMany(mappedBy="listeInteret")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinColumn(name="client_id_fk", referencedColumnName="id_client")
 	private List<Client> clientInteret;
 	/**
@@ -100,6 +104,7 @@ public abstract class Bien implements Serializable{
 	 * Mais une visite ne concerne qu'un seul bien
 	 */
 	@OneToMany(mappedBy="bien")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Visite> listeVisite;
 	
 	
