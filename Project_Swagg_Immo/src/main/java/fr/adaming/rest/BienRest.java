@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienAAcheter;
 import fr.adaming.entity.BienALouer;
+import fr.adaming.entity.TerrainAAcheter;
 import fr.adaming.service.IBienService;
 
 import javax.ws.rs.DELETE;
@@ -60,7 +62,7 @@ public class BienRest {
 	 * @return
 	 */
 	@GET
-	@Path("/getById/{id_param}")
+	@Path("/get/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Bien getByIdBienRest(@PathParam("id_param") int id) {
 		return bienService.getByIdBien(id);
@@ -74,8 +76,25 @@ public class BienRest {
 	@Path("/bal")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void addBienRest(BienALouer bien){
-		System.out.println("je rentre dans la méthode bien à louer création");
 		bienService.addBienBAL(bien);
+	}
+	/**
+	 * methode d'ajout d'un bien à vendre :
+	 */
+	@POST
+	@Path("/bav")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void addBienVeRest(BienAAcheter bien){
+		bienService.addBienBAV(bien);
+	}
+	/**
+	 * methode d'ajout d'un terrain à vendre :
+	 */
+	@POST
+	@Path("/ter")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void addTerrain(TerrainAAcheter bien){
+		bienService.addTerrain(bien);
 	}
 	
 	/**
@@ -90,10 +109,11 @@ public class BienRest {
 	}
 	
 	/**
-	 * suppression d'un propriétaire
+	 * suppression d'un bien
 	 * @param id
 	 */
 	@DELETE
+	@Path("/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
 		bienService.deleteBien(id);

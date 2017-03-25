@@ -10,5 +10,5 @@ public interface IBienDao<T extends Bien> {
 	public List<Bien> findAllBiens();
 	public Bien getByIdBien(int id_b);
 	public Bien updateBien(Bien b);
-	public void deleteBien(Bien b);
+	public void deleteBien(T b);
 }

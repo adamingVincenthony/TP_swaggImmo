@@ -20,143 +20,380 @@
 	<p>Test ajout des biens</p>
 	<p>Quel type de bien voulez-vous enregistrer ?</p>
 	<!-- boutton pour afficher le formulaire Bien à louer -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bienalouer" data-whatever="@getbootstrap">Ajouter un bien à louer</button>
-
-
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#bienalouer" data-whatever="@getbootstrap">Ajouter
+		un bien à louer</button>
+	<!-- boutton pour afficher le formulaire Bien à vendre -->
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#bienavendre" data-whatever="@getbootstrap">Ajouter
+		un bien à vendre</button>
+	<!-- boutton pour afficher le formulaire Bien à vendre -->
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#terrainavendre" data-whatever="@getbootstrap">Ajouter
+		un terrain à vendre</button>
+		
 	<!-- ///////////////////////////////////// LES fORMULAIRES /////////////////////////////////////// -->
 	<!-- ----------- bien à louer -->
-<div class="modal fade" id="bienalouer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Ajouter un bien à louer</h4>
-      </div>
-      <div class="modal-body">
-       
-<div ng-controller="addBalCtrl">
-		<form class="form-horizontal">
+	<div class="modal fade" id="bienalouer" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">Ajouter un bien
+						à louer</h4>
+				</div>
+				<div class="modal-body">
 
-			<div class="form-group">
-				<label for="inputTypeBien" class="col-sm-3 control-label">Type
-					:</label>
-				<div class="col-sm-3">
-					<select name="inputTypeBien" class="form-control" ng-model="bienForm.type" id="inputTypeBien">
-						<option value="Maison">Maison</option>
-						<option value="Appartement">Appartement</option>
-						<option value="Studio">Studio</option>
-						<option value="Entrepôt">Entrepôt</option>
-						<option value="Emplacement">Emplacement</option>
-						<option value="Terrain">Terrain</option>
-					</select> 
-				</div>
-				<label for="inputMeubleBien" class="col-sm-2 control-label">Meublé	:</label>
-				<div class="col-sm-3">
-					<select name="inputMeubleBien" class="form-control" ng-model="bienForm.ameublement" id="inputMeubleBien">
-						<option value="Meublé">Meublé</option>
-						<option value="Non meublé">Non meublé</option>
-					</select> 
-				</div>
-				
-				
-				
-			</div>
-			<div class="form-group">
-				<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
-					:</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="inputAdresseBien"
-						placeholder="44 rue de la Motte, 44000 Nantes" ng-model="bienForm.localisation">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputRevenuCadBien" class="col-sm-4 control-label">Revenu
-					Cadastral :</label>
-				<div class="col-sm-2">
-					<input type="number" class="form-control" id="inputRevenuCadBien"
-						ng-model="bienForm.revenuCadastral">
-				</div>
-				
-					<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
-					:</label>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="inputSurfaceBien"
-						ng-model="bienForm.surface">
-				</div>
-			
-			</div>
+					<div ng-controller="addBalCtrl">
+						<form class="form-horizontal">
 
-	
-			<div class="form-group">
-				<label for="inputCautionBien" class="col-sm-4 control-label">Caution:</label>
-				<div class="col-sm-2">
-					<input type="number" class="form-control" id="inputCautionBien"
-						ng-model="bienForm.montantCaution">
-				</div>
-				
-				<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
-					:</label>
-				<div class="col-sm-2">
-					<input type="number" class="form-control" id="inputLoyerBien"
-						ng-model="bienForm.loyerMensuel">
-				</div>
-			</div>
+							<div class="form-group">
+								<label for="inputTypeBien" class="col-sm-3 control-label">Type
+									:</label>
+								<div class="col-sm-3">
+									<select name="inputTypeBien" class="form-control"
+										ng-model="bienForm.type" id="inputTypeBien">
+										<option value="Maison">Maison</option>
+										<option value="Appartement">Appartement</option>
+										<option value="Studio">Studio</option>
+										<option value="Entrepôt">Entrepôt</option>
+										<option value="Emplacement">Emplacement</option>
+									</select>
+								</div>
+								<label for="inputMeubleBien" class="col-sm-2 control-label">Meublé
+									:</label>
+								<div class="col-sm-3">
+									<select name="inputMeubleBien" class="form-control"
+										ng-model="bienForm.ameublement" id="inputMeubleBien">
+										<option value="Meublé">Meublé</option>
+										<option value="Non meublé">Non meublé</option>
+									</select>
+								</div>
 
-		
 
-			<div class="form-group">
-				<label for="inputChargeBien" class="col-sm-4 control-label">Charge
-					:</label>
-				<div class="col-sm-2">
-					<input type="number" class="form-control" id="inputChargeBien"
-						ng-model="bienForm.loyerCharge">
+
+							</div>
+							<div class="form-group">
+								<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
+									:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="inputAdresseBien"
+										placeholder="44 rue de la Motte, 44000 Nantes"
+										ng-model="bienForm.localisation">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputRevenuCadBien" class="col-sm-4 control-label">Revenu
+									Cadastral :</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control"
+										id="inputRevenuCadBien" ng-model="bienForm.revenuCadastral">
+								</div>
+
+								<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
+									:</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputSurfaceBien"
+										ng-model="bienForm.surface">
+								</div>
+
+							</div>
+
+
+							<div class="form-group">
+								<label for="inputCautionBien" class="col-sm-4 control-label">Caution:</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control" id="inputCautionBien"
+										ng-model="bienForm.montantCaution">
+								</div>
+
+								<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
+									:</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control" id="inputLoyerBien"
+										ng-model="bienForm.loyerMensuel">
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label for="inputChargeBien" class="col-sm-4 control-label">Charge
+									:</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control" id="inputChargeBien"
+										ng-model="bienForm.loyerCharge">
+								</div>
+
+								<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+								</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputBailBien"
+										ng-model="bienForm.typeBail">
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputDsBien" class="col-sm-4 control-label">Date
+									de disponibilitée : </label>
+								<div class="col-sm-4">
+									<input type="date" class="form-control" id="inputDsBien"
+										ng-model="bienForm.dateDispo">
+								</div>
+							</div>
+							<p><i>* Indiquer la surface en m² </br>
+							** Les prix sont en € TTC </i>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary"
+									ng-click="ajouter()">Ajouter</button>
+							</div>
+
+
+
+
+						</form>
+					</div>
 				</div>
-				
-				<label for="inputBailBien" class="col-sm-3 control-label">Bail:
-					</label>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="inputBailBien"
-						ng-model="bienForm.typeBail">
-				
+				<div class="modal-footer"></div>
 			</div>
 		</div>
-			<div class="form-group">
-			<label for="inputDsBien" class="col-sm-4 control-label">Date de disponibilitée :
-					</label>
-				<div class="col-sm-4">
-					<input type="date" class="form-control" id="inputDsBien" ng-model="bienForm.dateSoumission">
-			</div>
-			</div>
-				<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>
-					
-			
-		</form>
-	</div>       
-       
-       
-       
-       
-       
-   
-       
-       
-      </div>
-      <div class="modal-footer">
+	</div>
+	<!-- ----------- bien à vendre -->
+		<div class="modal fade" id="bienavendre" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">Ajouter un bien
+						à vendre</h4>
+				</div>
+				<div class="modal-body">
 
-      </div>
-    </div>
-  </div>
-</div>	
+					<div ng-controller="addBavCtrl">
+						<form class="form-horizontal">
+
+							<div class="form-group">
+								<label for="inputTypeBien" class="col-sm-3 control-label">Type
+									:</label>
+								<div class="col-sm-3">
+									<select name="inputTypeBien" class="form-control"
+										ng-model="bienForm.type" id="inputTypeBien">
+										<option value="Maison">Maison</option>
+										<option value="Appartement">Appartement</option>
+										<option value="Studio">Studio</option>
+										<option value="Entrepôt">Entrepôt</option>
+										<option value="Emplacement">Emplacement</option>
+									</select>
+								</div>
+								
+								<label for="inputSurfaceBien" class="col-sm-3 control-label">Surface
+									:</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputSurfaceBien"
+										ng-model="bienForm.surface">
+								</div>
+								
+
+
+							</div>
+							<div class="form-group">
+								<label for="inputAdresseBien" class="col-sm-3 control-label">Adresse
+									:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="inputAdresseBien"
+										placeholder="44 rue de la Motte, 44000 Nantes"
+										ng-model="bienForm.localisation">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputRevenuCadBien" class="col-sm-4 control-label">Revenu
+									Cadastral :</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control"
+										id="inputRevenuCadBien" ng-model="bienForm.revenuCadastral">
+								</div>
+
+								<label for="inputPrixABien" class="col-sm-3 control-label">Prix de vente
+									:</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputPrixABien"
+										ng-model="bienForm.prixAchat">
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label for="inputEtatBien" class="col-sm-4 control-label">Etat
+									:</label>
+								<div class="col-sm-4">
+									<select name="inputEtatBien" class="form-control"
+										ng-model="bienForm.etatBien" id="inputEtatBien">
+										<option value="Impeccable">Impeccable</option>
+										<option value="Correct">Correct</option>
+										<option value="A restaurer">A restaurer</option>
+										
+									</select>
+								</div>
+							</div>
+
+
+
+						
+							<div class="form-group">
+								<label for="inputDsBien" class="col-sm-4 control-label">Date
+									de disponibilitée : </label>
+								<div class="col-sm-4">
+									<input type="date" class="form-control" id="inputDsBien"
+										ng-model="bienForm.dateDispo">
+								</div>
+							</div>
+							<p><i>* Indiquer la surface en m² </br>
+							** Les prix sont en € TTC </i>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary"
+									ng-click="ajouter()">Ajouter</button>
+							</div>
+
+
+
+
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
+	<!-- ----------- terrain à vendre -->
+		<div class="modal fade" id="terrainavendre" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">Ajouter un terrain
+						à vendre</h4>
+				</div>
+				<div class="modal-body">
+
+					<div ng-controller="addTerCtrl">
+						<form class="form-horizontal">
+
+							<div class="form-group">			
+								<label for="inputSurfaceBien" class="col-sm-4 control-label">Surface
+									:</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputSurfaceBien"
+										ng-model="bienForm.surface">
+								</div>
+			
+							</div>
+							<div class="form-group">
+								<label for="inputAdresseBien" class="col-sm-4 control-label">Adresse
+									:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="inputAdresseBien"
+										placeholder="44 rue de la Motte, 44000 Nantes"
+										ng-model="bienForm.localisation">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputRevenuCadBien" class="col-sm-4 control-label">Revenu
+									Cadastral :</label>
+								<div class="col-sm-2">
+									<input type="number" class="form-control"
+										id="inputRevenuCadBien" ng-model="bienForm.revenuCadastral">
+								</div>
+
+								<label for="inputPrixABien" class="col-sm-3 control-label">Prix de vente
+									:</label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="inputPrixABien"
+										ng-model="bienForm.prixAchat">
+								</div>
+
+							</div>
+
+							
+							<div class="form-group">
+								<label for="inputDsBien" class="col-sm-4 control-label">Date
+									de disponibilitée : </label>
+								<div class="col-sm-4">
+									<input type="date" class="form-control" id="inputDsBien"
+										ng-model="bienForm.dateDispo">
+								</div>
+							</div>
+							<p><i>* Indiquer la surface en ares </br>
+							** Les prix sont en € TTC </i>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary"
+									ng-click="ajouter()">Ajouter</button>
+							</div>
+
+
+
+
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+<!-- //////////////////////////////////////////// TEST DE LA METHODE SUPPRIMER /////////////////////////////////////////// -->
+<h3 align="center">Suppression d'un bien :  </h3>
+<div ng-controller="deleteBien">
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="inputIdBien"
+				placeholder="Id" ng-model="id">
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary" ng-click="deleteBien()">Supprimer</button>
+	</div>
+</form>
+</div>
+<!-- //////////////////////////////////////////// TEST GET BY ID /////////////////////////////////////////// -->
+<h3 align="center">Recherche d'un bien :  </h3>
+<div ng-controller="getBien">
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="inputIdBien"
+				placeholder="Id" ng-model="id">
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<button type="button" class="btn btn-primary" ng-click="getDatBien()">Chercher</button>
+	</div>
+</form>
+</div>
+
+
+
+
+
+
+
 
 </body>
 </html>

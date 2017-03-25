@@ -27,8 +27,6 @@ public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 	
 	@Override
 	public Bien addBien(T b) {
-		System.out.println("La date de soumission de B :");
-		b.getDateSoumission();
 		Date date = new Date();
 		b.setDateSoumission(date);
 		b.setStatut("Disponible");
@@ -57,7 +55,7 @@ public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 	}
 
 	@Override
-	public void deleteBien(Bien b) {
+	public void deleteBien(T b) {
 		Session s = sf.getCurrentSession();
 		s.delete(b);
 	}

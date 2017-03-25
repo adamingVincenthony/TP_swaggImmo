@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.dao.IBienDao;
 import fr.adaming.dao.BienDaoImpl;
 import fr.adaming.entity.Bien;
+import fr.adaming.entity.BienAAcheter;
 import fr.adaming.entity.BienALouer;
+import fr.adaming.entity.TerrainAAcheter;
 
 @Service
 @Transactional
@@ -54,8 +56,8 @@ public class BienServiceImpl implements IBienService{
 	 */
 	@Override
 	public void deleteBien(int id) {
-		Bien bien = bienDao.getByIdBien(id);
-		bienDao.deleteBien(bien);
+
+		bienDao.deleteBien(bienDao.getByIdBien(id));
 		
 	}
 
@@ -74,6 +76,30 @@ public class BienServiceImpl implements IBienService{
 	@Override
 	public Bien getByIdBien(int id) {
 		return bienDao.getByIdBien(id);
+	}
+
+	/**
+	 * Service pour ajouter un bien à vendre
+	 * Appel la méthode générique pour ajouter un bien
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void addBienBAV(BienAAcheter bien) {
+		bienDao.addBien(bien);
+		
+	}
+
+	/**
+	 * Service pour ajouter un terrain à vendre
+	 * Appel la méthode générique pour un ajouter un bien à la bdd
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void addTerrain(TerrainAAcheter bien) {
+		//Set le type du bien en Terrain
+		bien.setType("Terrain");
+		bienDao.addBien(bien);
+		
 	}
 
 }
