@@ -105,6 +105,18 @@ app.factory("bienProvider", function($http){
 		});
 	
 }
+	/**
+	 * Fonction pour afficher tous les biens :
+	 */
+	function findAllBien(callback) {
+		$http.get(urlglobal + '/liste/') 
+		.then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
 	
 	/**
 	 * -------------------------------------------------------------Retour des
@@ -115,7 +127,8 @@ app.factory("bienProvider", function($http){
 		ajouterBAV : ajouterBAV,
 		ajouterTER : ajouterTER,
 		deleteBien : deleteBien,
-		getBien : getBien
+		getBien : getBien,
+		findAllBien : findAllBien
 		
 	}
 

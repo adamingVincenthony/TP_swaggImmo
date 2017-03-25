@@ -118,5 +118,13 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 	}
 	
 })
+/**
+ * Controller pour afficher tous les biens
+ */
+.controller("findAllBien",function($rootScope, $scope, bienProvider, $location) {
+			bienProvider.findAllBien(function(callback) {
+				$scope.biens = callback.data;
+			})
+		})
 
 ;

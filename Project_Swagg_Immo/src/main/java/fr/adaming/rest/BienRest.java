@@ -50,7 +50,7 @@ public class BienRest {
 	 * @return
 	 */
 	@GET
-	@Path("/findAll")
+	@Path("/liste")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Bien> findAllBienRest(){
 		return bienService.findAllBien();

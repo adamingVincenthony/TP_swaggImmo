@@ -387,9 +387,34 @@
 	</div>
 </form>
 </div>
-
-
-
+<br/><br/>
+<!-- //////////////////////////////////////////// TEST : LA LISTE ////////////////////////////////////// -->
+<div ng-controller="findAllBien">
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">ID</th>
+				<th style="text-align: center">Type </th>
+				<th style="text-align: center">Adresse </th>
+				<th style="text-align: center">Surface </th>
+				<th style="text-align: center">Statut </th>
+				
+			</tr>
+		</thead>
+		<tbody ng-repeat="b in biens">
+			<tr>
+				<td>{{b.id}}</td>
+				<td>{{b.type}}</td>
+				<td>{{b.localisation}}</td>
+				<td>{{b.surface}}</td>
+				<td>{{b.statut}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>
+<!-- fin du tableau liste -->
 
 
 
