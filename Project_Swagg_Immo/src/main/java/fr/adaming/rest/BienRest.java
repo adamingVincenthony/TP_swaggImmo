@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import fr.adaming.entity.Bien;
 import fr.adaming.entity.BienAAcheter;
 import fr.adaming.entity.BienALouer;
+import fr.adaming.entity.Proprietaire;
 import fr.adaming.entity.TerrainAAcheter;
 import fr.adaming.service.IBienService;
 

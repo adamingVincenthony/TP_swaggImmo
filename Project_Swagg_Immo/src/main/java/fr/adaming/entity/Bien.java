@@ -270,13 +270,16 @@ public abstract class Bien implements Serializable{
 		this.listeVisite = listeVisite;
 	}
 	/**--------------------------------------------------Autres méthodes------------------------------------*/
-	
 	@Override
 	public String toString() {
 		return "Bien [id=" + id + ", statut=" + statut + ", type=" + type + ", dateSoumission=" + dateSoumission
 				+ ", dateDispo=" + dateDispo + ", localisation=" + localisation + ", revenuCadastral=" + revenuCadastral
-				+ ", surface=" + surface + "]";
+				+ ", surface=" + surface + ", proprietaire=" + proprietaire + ", responsable=" + responsable
+				+ ", clientInteret=" + clientInteret + ", contrat=" + contrat + ", listeVisite=" + listeVisite + "]";
 	}
+	
+	
+	
 	
 	
 	
