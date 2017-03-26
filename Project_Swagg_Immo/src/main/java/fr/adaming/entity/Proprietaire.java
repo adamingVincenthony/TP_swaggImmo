@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.LazyCollection;
@@ -45,8 +46,8 @@ public class Proprietaire implements Serializable {
 	 * Un propriétaire est associé à un ou plusieurs bien
 	 */
 
-	@OneToMany(mappedBy="proprietaire",fetch=FetchType.EAGER)
-	@JsonIgnore
+	@OneToMany(mappedBy="proprietaire")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Bien> listeBien;
 
 	/* Les constructeurs */
@@ -124,7 +125,7 @@ public class Proprietaire implements Serializable {
 		this.numeroTravail = numeroTravail;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public List<Bien> getListeBien() {
 		return listeBien;
 	}

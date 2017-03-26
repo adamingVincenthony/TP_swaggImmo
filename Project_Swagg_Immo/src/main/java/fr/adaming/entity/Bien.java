@@ -226,7 +226,7 @@ public abstract class Bien implements Serializable{
 	public void setSurface(String surface) {
 		this.surface = surface;
 	}
-	@XmlTransient
+	@XmlElement
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
