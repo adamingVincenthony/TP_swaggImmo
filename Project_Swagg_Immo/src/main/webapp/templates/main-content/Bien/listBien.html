@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div class="col-xs-2" id="leftmenu">
+				<div class="col-xs-12" style="margin-top: 15px">
 
-</body>
-</html>
+				
+				<div class="list-group">
+					<a href="/bien" class="list-group-item list-group-item-info">Liste</a>
+  					<a href="/ajouterBien" class="list-group-item list-group-item-info">Ajouter</a>
+  					<a href="/modifierBien" class="list-group-item list-group-item-info">Modifier</a>
+  					<a href="/supprimerBien" class="list-group-item list-group-item-info">Supprimer</a>
+  					<a href="/chercherBien" class="list-group-item list-group-item-info">Chercher</a>
+				</div>
+				
+		</div>
+</div>	
+
+<div class="col-xs-10" id="maincontent">
+<h3 align="center">Liste des biens gerés :  </h3>
+
+
+		<div class="table-responsive">
+			<table class="table table-bordered" style="text-align: center">
+				<thead>
+					<tr>
+						<th style="text-align: center">ID</th>
+						<th style="text-align: center">Type</th>
+						<th style="text-align: center">Adresse</th>
+						<th style="text-align: center">Surface</th>
+						<th style="text-align: center">Statut</th>
+						<th style="text-align: center">Propriétaire</th>
+
+					</tr>
+				</thead>
+				<tbody ng-repeat="b in biens">
+					<tr>
+						<td>{{b.id}}</td>
+						<td>{{b.type}}</td>
+						<td>{{b.localisation}}</td>
+						<td>{{b.surface}}</td>
+						<td>{{b.statut}}</td>
+						<td>{{b.proprietaire.nom}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
