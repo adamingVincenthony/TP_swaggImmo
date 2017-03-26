@@ -1,19 +1,21 @@
 /**
- * Controleur AJS du CRUD visite
+ * Controleur AJS du CRUD Contriétaire
  */
-app.controller("addVisite", function($scope, $rootScope, $location, visiteProvider) {
-	$scope.visiteForm = {
+app.controller("addCont", function($scope, $rootScope, $location, ContProvider) {
+	$scope.contratForm = {
 		/** on initialise des valeurs nulles */
-		date : ""
-			//penser au attribution
+		prix : "",
+		date : "",
+		reference : ""
+		
 	}
 	/** Développement de la méthode ajouter appellée dans la page */
 	$scope.ajouter = function() {
 		/** appel de la méthode du provider définie avant */
-		visiteProvider.addVisite($scope.visiteForm, function(callback) {
+		contratProvider.addCont($scope.contratForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/visite"); /* modifier cet url après la vue */
+				$location.path("/contrat"); /* modifier cet url après la vue */
 			}
 		})
 	}
@@ -21,21 +23,23 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 })
 /**
  * -------------------------------------------------------Fonction pour update
- * une visite
+ * un Contriétaire
  */
-.controller("updateVisite", function($scope, $rootScope, visiteProvider, $location){
+.controller("updateCont", function($scope, $rootScope, contProvider, $location){
 	
 	/** initiatisation des champs du formulaire en null + id en undefined */
-	$scope.visiteUpdateForm = {
+	$scope.contratUpdateForm = {
 			id : undefined,
-			date : ""
-		//same
+			prix : "",
+			date : "",
+			reference : ""
+		
 	}
 	/** développement de la méthode appellée dans la page */
 	$scope.update = function() {
-		visiteProvider.updateVisite($scope.visiteUpdateForm, function (callback){
+		contratProvider.updateCont($scope.contratUpdateForm, function (callback){
 			if(callback !=undefined && callback!=""){
-				$location.path("/visite"); /* modifier cet URL après pour le retour ^^ */
+				$location.path("/contrat"); /* modifier cet URL après pour le retour ^^ */
 			}
 		})
 	}
@@ -45,18 +49,18 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 })
 /**
  * -------------------------------------------------------Fonction pour supprimer
- * une visite
+ * un Contriétaires
  */
-.controller("deleteVisite",function($scope, visiteProvider, $location){
-	/** initialisation de l'id du visite à supprimer en indéfini */
+.controller("deleteCont",function($scope, contProvider, $location){
+	/** initialisation de l'id du Contriétaire à supprimer en indéfini */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.delete = function() {
-		visiteProvider.deleteVisite($scope.id, function(callback) {
+		contratProvider.deleteCont($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.visites = callback;
-				$location.path("/visite"); /* modifier cet url après la création de la vue */
+				$scope.contrat = callback;
+				$location.path("/contrat"); /* modifier cet url après la création de la vue */
 			}
 		})
 		
@@ -65,18 +69,18 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 })
 /**
  * -------------------------------------------------------Fonction pour chercher
- * une visite
+ * un Contrat
  */
-.controller("getVisite", function($scope, $rootScope, $location, visiteProvider) {
+.controller("getCont", function($scope, $rootScope, $location, contProvider) {
 	/** initialisation de l'id nul */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.get = function() {
-		visiteProvider.getVisite($scope.id, function(callback) {
+		ContProvider.getCont($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.visite = callback;
-				$location.path("/visite"); /* modifier cet url après la vue */
+				$scope.contrat = callback;
+				$location.path("/contrat"); /* modifier cet url après la vue */
 			}
 		})
 		
@@ -85,11 +89,11 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 })
 /**
  * -------------------------------------------------------Fonction pour afficher
- * toutes les visites
+ * tous les Contriétaires
  */
-.controller("findAllVisite",function($rootScope, $scope, visiteProvider, $location) {
-			visiteProvider.findAllVisite(function(callback) {
-				$scope.visite = callback.data;
+.controller("findAllCont",function($rootScope, $scope, contProvider, $location) {
+			ContProvider.findAllCont(function(callback) {
+				$scope.contrats = callback.data;
 			})
 		});
 

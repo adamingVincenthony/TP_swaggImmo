@@ -24,11 +24,21 @@
 <script type="text/javascript" src="scripts/angular.js"></script>
 <script type="text/javascript" src="scripts/angular-route.js"></script>
 <script type="text/javascript" src="scripts/module.js"></script>
-<script type="text/javascript" src="scripts/proprietaire/providerProp.js"></script>
-<script type="text/javascript" src="scripts/proprietaire/rootingProp.js"></script>
+
 <!-- ref proprio -->
 <script type="text/javascript" src="scripts/proprietaire/controlleurProp.js"></script>
+<script type="text/javascript" src="scripts/proprietaire/providerProp.js"></script>
+<script type="text/javascript" src="scripts/proprietaire/rootingProp.js"></script>
 
+<!-- ref visite -->
+<script type="text/javascript" src="scripts/visite/controlleurVisite.js"></script>
+<script type="text/javascript" src="scripts/visite/providerVisite.js"></script>
+<script type="text/javascript" src="scripts/visite/rootingVisite.js"></script>
+
+<!-- ref contrat -->
+<script type="text/javascript" src="scripts/contrat/controlleurCont.js"></script>
+<script type="text/javascript" src="scripts/contrat/providerCont.js"></script>
+<script type="text/javascript" src="scripts/contrat/rootingCont.js"></script>
 
 
 </head>
@@ -37,7 +47,7 @@
 <div class="container-fluid" style="background-image: url('resources/images/landscape.jpg');">
 	<div class="row">
 	<div  class="container" id="header">
-			<h1 style="color: #00007d ; font-family: Arial;"  >SWAGG IMMO</h1>
+			<h1 style="color: #00007d ; font-family: Arial; font-size: xx-large;"  >SWAGG IMMO</h1>
 	</div>
 		<div  class="container">
 				<div class="row">
@@ -50,15 +60,15 @@
 						<li role="presentation"><a href="/bien">Biens</a></li>
 						<li role="presentation"><a href="/prop">Proprietaires</a></li>
 						<li role="presentation"><a href="/visite">Visites</a></li>
-						<li role="presentation"><a href="/contrats">Contrats</a></li>
+						<li role="presentation"><a href="/contrat">Contrats</a></li>
 					</ul>
 				</nav>
 
 <div class="col-xs-12" style="height: 500px">
 
 
-<div id="home" class="col-xs-12" style="height: 500px; background-image: url('resources/images/landscape.jpg');" >
-<!-- <img alt="houseLogo" src="resources/images/home.png" class="img-responsive" align="middle" margin-left="40%"> -->
+<div  class="col-xs-12" style="height: 500px;" >
+<!-- <img alt="houseLogo" src="resources/images/home.png" class="img-responsive" id="home" align="middle" "> -->
 
 		<ng-view></ng-view>
 </div>
