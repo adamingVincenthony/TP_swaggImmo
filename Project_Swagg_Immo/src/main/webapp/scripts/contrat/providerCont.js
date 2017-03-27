@@ -52,7 +52,7 @@ app.factory("contProvider", function($http) {
 	 * afficher tous les contrats
 	 */
 	function findAllCont(callback) {
-		$http.get(urlglobal + '/liste/') 
+		$http.get(urlglobal + '/findAll/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);

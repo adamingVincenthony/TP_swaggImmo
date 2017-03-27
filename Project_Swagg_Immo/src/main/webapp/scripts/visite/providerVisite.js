@@ -52,7 +52,7 @@ app.factory("visiteProvider", function($http) {
 	 * afficher toutes les visites
 	 */
 	function findAllVisite(callback) {
-		$http.get(urlglobal + '/findall/') 
+		$http.get(urlglobal + '/findAll/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
