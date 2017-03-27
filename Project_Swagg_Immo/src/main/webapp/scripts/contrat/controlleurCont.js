@@ -1,7 +1,7 @@
 /**
  * Controleur AJS du CRUD Contriétaire
  */
-app.controller("addCont", function($scope, $rootScope, $location, ContProvider) {
+app.controller("addCont", function($scope, $rootScope, $location, contratProvider) {
 	$scope.contratForm = {
 		/** on initialise des valeurs nulles */
 		prix : "",
@@ -25,7 +25,7 @@ app.controller("addCont", function($scope, $rootScope, $location, ContProvider) 
  * -------------------------------------------------------Fonction pour update
  * un Contriétaire
  */
-.controller("updateCont", function($scope, $rootScope, contProvider, $location){
+.controller("updateCont", function($scope, $rootScope, contratProvider, $location){
 	
 	/** initiatisation des champs du formulaire en null + id en undefined */
 	$scope.contratUpdateForm = {
@@ -51,7 +51,7 @@ app.controller("addCont", function($scope, $rootScope, $location, ContProvider) 
  * -------------------------------------------------------Fonction pour supprimer
  * un Contriétaires
  */
-.controller("deleteCont",function($scope, contProvider, $location){
+.controller("deleteCont",function($scope, contratProvider, $location){
 	/** initialisation de l'id du Contriétaire à supprimer en indéfini */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
@@ -71,12 +71,12 @@ app.controller("addCont", function($scope, $rootScope, $location, ContProvider) 
  * -------------------------------------------------------Fonction pour chercher
  * un Contrat
  */
-.controller("getCont", function($scope, $rootScope, $location, contProvider) {
+.controller("getCont", function($scope, $rootScope, $location, contratProvider) {
 	/** initialisation de l'id nul */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.get = function() {
-		ContProvider.getCont($scope.id, function(callback) {
+		contratProvider.getCont($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.contrat = callback;
@@ -91,8 +91,8 @@ app.controller("addCont", function($scope, $rootScope, $location, ContProvider) 
  * -------------------------------------------------------Fonction pour afficher
  * tous les Contriétaires
  */
-.controller("findAllCont",function($rootScope, $scope, contProvider, $location) {
-			ContProvider.findAllCont(function(callback) {
+.controller("findAllCont",function($rootScope, $scope, contratProvider, $location) {
+	contratProvider.findAllCont(function(callback) {
 				$scope.contrats = callback.data;
 			})
 		});
