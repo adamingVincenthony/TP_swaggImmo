@@ -21,16 +21,14 @@ app.factory("propProvider", function($http) {
 				'Content-Type' : 'application/json'
 			}
 
-		}).success(function(response) {
-			console.log(response);
+		}).then(function successCallback(response) {
+			
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
-
-	}
+		}, function errorCallback(response) {
+			
+		});
+	
+}
 	/**
 	 * -----------------------------------------------------------Fonction pour
 	 * chercher un propriétaire
@@ -92,16 +90,12 @@ app.factory("propProvider", function($http) {
 			}
 
 		})
-		.success(function(response) {
-			console.log(response);
+		.then(function successCallback(response) {
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
-
-	}
+		}, function errorCallback(response) {		
+		});
+	
+}
 	
 	/**
 	 * -------------------------------------------------------------Retour des
