@@ -55,7 +55,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
 		visiteProvider.deleteVisite($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.visites = callback;
+				$scope.visite = callback;
 				$location.path("/visite"); /* modifier cet url après la création de la vue */
 			}
 		})
@@ -89,7 +89,7 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
  */
 .controller("findAllVisite",function($rootScope, $scope, visiteProvider, $location) {
 			visiteProvider.findAllVisite(function(callback) {
-				$scope.visite = callback.data;
+				$scope.visites = callback.data;
 			})
 		});
 
