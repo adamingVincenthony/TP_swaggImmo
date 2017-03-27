@@ -12,3 +12,25 @@
 				
 		</div>
 </div>	
+<div class="col-xs-10" id="maincontent" style="overflow:auto">
+
+<h3 align="center">Recherche d'un bien :</h3>
+	<div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+				<div class="col-sm-3" ng-controller="findAllBien">
+					<select ng-model="bienmodif.id">
+						<option ng-repeat="b in biens" value="{{b.id}}">{{b.id}}</option>
+					</select>
+				</div>		
+			</div>
+			<div class="col-sm-2">
+				<button type="button" class="btn btn-primary"
+					ng-click="getDatBien()">Chercher</button>
+			</div>
+		</form>
+	</div>
+
+
+</div>
