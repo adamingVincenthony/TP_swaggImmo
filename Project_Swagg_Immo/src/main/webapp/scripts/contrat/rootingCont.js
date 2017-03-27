@@ -8,20 +8,20 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Contrat/listContrat.html",
 		controller : "findAllCont"
 	})
-	.when("/ajouterCont", {
+	.when("/ajouterContrat", {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Contrat/ajoutContrat.html",
 		controller : "addCont"
 	})
 
-	.when("/modifierCont", {
+	.when("/modifierContrat", {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Contrat/updateContrat.html",
 		controller : "updateCont"
 	})
-	.when("/chercherCont", {
+	.when("/chercherContrat", {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Contrat/findContrat.html",
 		controller : "getCont"
 	})
-	.when("/supprimerCont", {
+	.when("/supprimerContrat", {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Contrat/deleteContrat.html",
 		controller : "deleteCont"
 	})
