@@ -149,4 +149,10 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 		})
 
 
-;
+.controller("updateBien",function($rootScope, $scope, bienProvider, $location) {
+			bienProvider.findAllBien(function(callback) {
+				$scope.bienfezfezfs = callback.data;
+			})
+		});
+
+

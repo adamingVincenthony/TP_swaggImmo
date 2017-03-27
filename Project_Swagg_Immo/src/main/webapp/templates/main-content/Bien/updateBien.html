@@ -12,3 +12,86 @@
 				
 		</div>
 </div>	
+
+<div class="col-xs-10" id="maincontent" style="overflow:auto">
+<span ng-show="messageupd" style="color:red">L'opération est un succès</span>
+	<!-- afficher un bien à louer bouton -->
+	<button type="button" class="btn btn-primary"
+		ng-click="showbal=!showbal;button2=!button2;button3=!button3"
+		ng-hide="button1">Modifier un bien à louer</button>
+	<!-- afficher un bien à vendre bouton  -->
+	<button type="button" class="btn btn-primary"
+		ng-click="showbav=!showbav;button1=!button1;button3=!button3"
+		ng-hide="button2">Modifier un bien à vendre</button>
+	<!-- afficher un bien à vendre bouton  -->
+	<button type="button" class="btn btn-primary"
+		ng-click="showter=!showter;button2=!button2;button1=!button1"
+		ng-hide="button3">Modifier un terrain à vendre</button>
+<!-- Les formuaires : -->
+<!-- bien à louer -->
+<div ng-show="showbal" >
+<form>
+<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+				<div class="col-sm-3" ng-controller="findAllBien">
+					<select ng-model="bienmodif.id">
+						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Location"'>{{b.id}}</option>
+					</select>
+				</div>		
+			</div>
+
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- bien à vendre -->
+<div ng-show="showbav" >
+<form>
+<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+				<div class="col-sm-3" ng-controller="findAllBien">
+					<select ng-model="bienmodif.id">
+						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Vente"'>{{b.id}}</option>
+					</select>
+				</div>		
+			</div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- terrain à vendre -->
+<div ng-show="showter" >
+<form>
+<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+				<div class="col-sm-3" ng-controller="findAllBien">
+					<select ng-model="bienmodif.id">
+						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Vente(terrain)"'>{{b.id}}</option>
+					</select>
+				</div>		
+			</div>
+</div>
+
+</form>
+</div>
+

@@ -3,7 +3,7 @@
  */
 app.config(function($routeProvider) {
 	$routeProvider
-//================ Bieniétaires ============================================
+//================ Bien ============================================
 	.when("/bien", {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Bien/listBien.html",
 		controller : "findAllBien"
