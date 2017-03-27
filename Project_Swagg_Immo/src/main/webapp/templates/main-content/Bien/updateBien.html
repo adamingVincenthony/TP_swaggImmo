@@ -1,3 +1,4 @@
+<meta charset="utf-8"/>
 <!-- LE MENU -->
 <div class="col-xs-2" id="leftmenu">
 	<div class="col-xs-12" style="margin-top: 15px">
@@ -17,15 +18,15 @@
 
 <!-- LE CORPS -->
 <div class="col-xs-10" id="maincontent" style="overflow: auto">
-<!-- Message de résultat -->
-<span ng-show="messageupd" style="color: red">L'opération est un succès</span>
-<!-- fin du message de résultat -->
-<!-- afficher un bien à louer bouton -->
-<button type="button" class="btn btn-primary" ng-click="showbal=!showbal;button2=!button2;button3=!button3;showform=false" ng-hide="button1">Modifier un bien à louer</button>
-<!-- afficher un bien à vendre bouton  -->
-<button type="button" class="btn btn-primary" ng-click="showbav=!showbav;button1=!button1;button3=!button3" ng-hide="button2">Modifier un bien à vendre</button>
-<!-- afficher un bien à vendre bouton  -->
-<button type="button" class="btn btn-primary" ng-click="showter=!showter;button2=!button2;button1=!button1" ng-hide="button3">Modifier un terrain à vendre</button>
+<!-- Message de rï¿½sultat -->
+<span ng-show="messageupd" style="color: red">L'opÃ©ration est un succÃ¨s</span>
+<!-- fin du message de rï¿½sultat -->
+<!-- afficher un bien ï¿½ louer bouton -->
+<button type="button" class="btn btn-primary" ng-click="showbal=!showbal;button2=!button2;button3=!button3;showform=false" ng-hide="button1">Modifier un bien Ã  louer</button>
+<!-- afficher un bien ï¿½ vendre bouton  -->
+<button type="button" class="btn btn-primary" ng-click="showbav=!showbav;button1=!button1;button3=!button3" ng-hide="button2">Modifier un bien Ã  vendre</button>
+<!-- afficher un bien ï¿½ vendre bouton  -->
+<button type="button" class="btn btn-primary" ng-click="showter=!showter;button2=!button2;button1=!button1" ng-hide="button3">Modifier un terrain Ã  vendre</button>
 
 
 <!-- Debut de l'affichage des formulaires  -->
@@ -50,7 +51,7 @@
 			ng-controller="updateBal">
 			<!-- Les info de bases -->
 			<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+				<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 					:</label>
 				<div class="col-sm-3" ng-controller="findAllProp">
 					<select ng-model="bienmodif.propid"
@@ -66,7 +67,7 @@
 
 			<div class="form-group">
 				<label for="inputDsBien" class="col-sm-2 control-label">Date
-					de disponibilitée : </label>
+					de disponibilitÃ©e : </label>
 				<div class="col-sm-4">
 					<input type="date" class="form-control" id="inputDsBien"
 						ng-model="bienupdate.dateDispo"">
@@ -82,7 +83,7 @@
 					<select name="inputDispoBien" class="form-control"
 						ng-model="bienupdate.statut" id="inputDispoBien">
 						<option value="Disponible">Oui</option>
-						<option value="Vendu/Loué">Non</option>
+						<option value="Vendu/LouÃ©">Non</option>
 					</select>
 				</div>
 				<p>
@@ -90,13 +91,13 @@
 				</p>
 			</div>
 			<div class="form-group">
-				<label for="inputMeubleBien" class="col-sm-2 control-label">Meublé
+				<label for="inputMeubleBien" class="col-sm-2 control-label">Meublï¿½
 					:</label>
 				<div class="col-sm-3">
 					<select name="inputMeubleBien" class="form-control"
 						ng-model="bienupdate.ameublement" id="inputMeubleBien">
-						<option value="Meublé">Meublé</option>
-						<option value="Non meublé">Non meublé</option>
+						<option value="MeublÃ©">MeublÃ©</option>
+						<option value="Non meublÃ©">Non meublÃ©</option>
 					</select>
 				</div>
 				<p>
@@ -142,7 +143,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary" ng-click="updateBal()">Mettre
-				à jour</button>
+				Ã   jour</button>
 		</form>
 </div>
  <!-- FIN DU FORMULAIRE BIEN A LOUER -->
@@ -172,7 +173,7 @@
 			ng-controller="updateBav">
 			<!-- Les info de bases -->
 			<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+				<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 					:</label>
 				<div class="col-sm-3" ng-controller="findAllProp">
 					<select ng-model="bienmodif.propid"
@@ -188,7 +189,7 @@
 
 			<div class="form-group">
 				<label for="inputDsBien" class="col-sm-2 control-label">Date
-					de disponibilitée : </label>
+					de disponibilitÃ©e : </label>
 				<div class="col-sm-4">
 					<input type="date" class="form-control" id="inputDsBien"
 						ng-model="bienupdate.dateDispo"">
@@ -204,7 +205,7 @@
 					<select name="inputDispoBien" class="form-control"
 						ng-model="bienupdate.statut" id="inputDispoBien">
 						<option value="Disponible">Oui</option>
-						<option value="Vendu/Loué">Non</option>
+						<option value="Vendu/LouÃ©">Non</option>
 					</select>
 				</div>
 				<p>
@@ -240,10 +241,10 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary" ng-click="updateBav()">Mettre
-				à jour</button>
+				Ã  jour</button>
 		</form>
 </div>
-<!-- Fin des biens à vendre -->
+<!-- Fin des biens ï¿½ vendre -->
 <!-- //////////////////////////////////////////////////TERRAIN A VENDRE /////////////////////////////////////// -->
 <!-- partie I :choix du bien via ID -->
 <div ng-show="showter">
@@ -264,7 +265,7 @@
 			ng-controller="updateTer">
 			<!-- Les info de bases -->
 			<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+				<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 					:</label>
 				<div class="col-sm-3" ng-controller="findAllProp">
 					<select ng-model="bienmodif.propid"
@@ -280,7 +281,7 @@
 
 			<div class="form-group">
 				<label for="inputDsBien" class="col-sm-2 control-label">Date
-					de disponibilitée : </label>
+					de disponibilitÃ©e : </label>
 				<div class="col-sm-4">
 					<input type="date" class="form-control" id="inputDsBien"
 						ng-model="bienupdate.dateDispo"">
@@ -296,7 +297,7 @@
 					<select name="inputDispoBien" class="form-control"
 						ng-model="bienupdate.statut" id="inputDispoBien">
 						<option value="Disponible">Oui</option>
-						<option value="Vendu/Loué">Non</option>
+						<option value="Vendu/LouÃ©">Non</option>
 					</select>
 				</div>
 				<p>
@@ -315,7 +316,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary" ng-click="updateTer()">Mettre
-				à jour</button>
+				Ã  jour</button>
 		</form>
 
 
