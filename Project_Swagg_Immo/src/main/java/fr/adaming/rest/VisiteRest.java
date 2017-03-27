@@ -59,7 +59,7 @@ public class VisiteRest {
 	 * @return
 	 */
 	@GET
-	@Path("/getById/{id_param}")
+	@Path("/get/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Visite getByIdVisiteRest(@PathParam("id_param") int id) {
 		return visiteService.getByIdVisite(id);
