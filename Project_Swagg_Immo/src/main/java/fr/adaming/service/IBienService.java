@@ -14,6 +14,8 @@ public interface IBienService {
 	public void addTerrain(TerrainAAcheter bien);
 	public List<Bien> findAllBien();
 	public void deleteBien(int id);
-	public void updateBien(Bien bien);
+	public void updateBienTer(TerrainAAcheter bien);
+	public void updateBienBav(BienAAcheter bien);
+	public void updateBienBal(BienALouer bien);
 	public Bien getByIdBien(int id);
 }

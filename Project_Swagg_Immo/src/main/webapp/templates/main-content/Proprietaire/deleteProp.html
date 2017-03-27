@@ -1,4 +1,4 @@
-
+<meta charset="utf-8"/>
 <div class="col-xs-2" id="leftmenu">
 				<div class="col-xs-12" style="margin-top: 15px">
 
@@ -16,21 +16,22 @@
 	
 		<div class="col-xs-10" id="maincontent">
 		<h3 align="center">Suppression d'un proprietaire  </h3>
-<form class="form-horizontal">
+		<br/>
+<span ng-show="messagedel" style="color:red">L'opération est un succès</span>
+<br/><br/>
 
-	<div class="form-group">
-		<label for="inputIdProp" class="col-sm-2 control-label">Id :</label>
-		<div class="col-sm-6">
-			<input type="number" class="form-control" id="inputIdProp"
-				placeholder="Id" ng-model="id">
-		</div>
-	</div>
-
-	
-	<!-- SOUMISSION DU FORMULAIRE MA GUEULE -->
-	<div class="col-sm-2">
-		<button type="button" class="btn btn-primary" ng-click="delete()">Supprimer</button>
-	</div>
+<form class="form-inline">
+  <div class="form-group" ng-controller="findAllProp">
+    <label for="inputIdBien">Choix: </label>
+    <select ng-model="propmodif.id">
+						<option ng-repeat="p in proprietaires" value="{{p.id}}">{{p.nom}}</option>
+					</select>
+  </div>
+  
+ <button type="button" class="btn btn-primary" ng-click="delete()">Supprimer</button>
 </form>
+
+
+
 
 </div>

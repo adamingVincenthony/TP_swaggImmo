@@ -1,7 +1,7 @@
 /**
  * Provider AJS des services CRUD du contrat
  */
-app.factory("contProvider", function($http) {
+app.factory("contratProvider", function($http) {
 
 	/**
 	 * URL globale pour l'appel des services propriétaires
@@ -12,7 +12,7 @@ app.factory("contProvider", function($http) {
 	 * ------------------------------------------------------------ Fonction
 	 * pour ajouter un contrat
 	 */
-	function addProp(contratForm, callback) {
+	function addCont(contratForm, callback) {
 		$http({
 			method : 'POST',
 			url : urlglobal, 
@@ -35,7 +35,7 @@ app.factory("contProvider", function($http) {
 	 * -----------------------------------------------------------Fonction pour
 	 * chercher un contrat
 	 */
-	function getProp(idCont, callback) {
+	function getCont(idCont, callback) {
 		$http.get(urlglobal +'/get/'+idCont) 
 														
 		.then(function successCallback(response) {

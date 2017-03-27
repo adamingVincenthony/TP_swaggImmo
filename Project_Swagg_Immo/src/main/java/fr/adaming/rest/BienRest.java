@@ -103,11 +103,60 @@ public class BienRest {
 	 * @param bien
 	 */
 	@PUT
+	@Path("/upter")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void updateBienRest(Bien bien){
-		bienService.updateBien(bien);
+	public void updateTerRest(TerrainAAcheter bien){
+		System.out.println("-----------------------L'id du bien transferée est bien :"+bien.getId());
+		TerrainAAcheter oldbien = (TerrainAAcheter) bienService.getByIdBien(bien.getId());
+		oldbien.setDateDispo(bien.getDateDispo());
+		oldbien.setProprietaire(bien.getProprietaire());
+		oldbien.setStatut(bien.getStatut());
+		oldbien.setPrixAchat(bien.getPrixAchat());
+		bienService.updateBienTer(oldbien);
 	}
+	
+	/**
+	 * méthode de mise à jour des données d'un bien
+	 * @param bien
+	 */
+	@PUT
+	@Path("/upbav")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void updateBavRest(BienAAcheter bien){
+		System.out.println("-----------------------L'id du bien transferée est bien :"+bien.getId());
+		BienAAcheter oldbien = (BienAAcheter) bienService.getByIdBien(bien.getId());
+		oldbien.setDateDispo(bien.getDateDispo());
+		oldbien.setProprietaire(bien.getProprietaire());
+		oldbien.setStatut(bien.getStatut());
+		oldbien.setPrixAchat(bien.getPrixAchat());
+		oldbien.setEtatBien(bien.getEtatBien());
+		bienService.updateBienBav(oldbien);
+	}
+	
+	@PUT
+	@Path("/upbal")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void updateBalRest(BienALouer bien){
+		System.out.println("-----------------------L'id du bien transferée est bien :"+bien.getId());
+		BienALouer oldbien = (BienALouer) bienService.getByIdBien(bien.getId());
+		oldbien.setDateDispo(bien.getDateDispo());
+		oldbien.setProprietaire(bien.getProprietaire());
+		oldbien.setStatut(bien.getStatut());
+		oldbien.setAmeublement(bien.getAmeublement());
+		oldbien.setTypeBail(bien.getTypeBail());
+		oldbien.setLoyerMensuel(bien.getLoyerMensuel());
+		oldbien.setLoyerCharge(bien.getLoyerCharge());
+		oldbien.setMontantCaution(bien.getMontantCaution());
+		bienService.updateBienBal(oldbien);
+	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * suppression d'un bien

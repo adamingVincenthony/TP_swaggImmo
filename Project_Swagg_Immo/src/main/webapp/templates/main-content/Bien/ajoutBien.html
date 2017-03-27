@@ -1,3 +1,4 @@
+<meta charset="utf-8"/>
 <div class="col-xs-2" id="leftmenu">
 	<div class="col-xs-12" style="margin-top: 15px">
 
@@ -13,21 +14,20 @@
 	</div>
 </div>
 <div class="col-xs-10" id="maincontent" style="overflow:auto">
-<span ng-show="messageadd" style="color:red">L'opération est un succès</span>
-	<p>Quel type de bien voulez-vous enregistrer ?</p>
-	<!-- afficher un bien à louer bouton -->
+<span ng-show="messageadd" style="color:red">L'opÃ©ration est un succÃ¨s</span>
+	<!-- afficher un bien ï¿½ louer bouton -->
 	<button type="button" class="btn btn-primary"
 		ng-click="showbal=!showbal;button2=!button2;button3=!button3"
-		ng-hide="button1">Ajouter un bien à louer</button>
-	<!-- afficher un bien à vendre bouton  -->
+		ng-hide="button1">Ajouter un bien Ã  louer</button>
+	<!-- afficher un bien ï¿½ vendre bouton  -->
 	<button type="button" class="btn btn-primary"
 		ng-click="showbav=!showbav;button1=!button1;button3=!button3"
-		ng-hide="button2">Ajouter un bien à vendre</button>
-	<!-- afficher un bien à vendre bouton  -->
+		ng-hide="button2">Ajouter un bien Ã  vendre</button>
+	<!-- afficher un bien ï¿½ vendre bouton  -->
 	<button type="button" class="btn btn-primary"
 		ng-click="showter=!showter;button2=!button2;button1=!button1"
-		ng-hide="button3">Ajouter un terrain à vendre</button>
-	<!--le formulaire bien à louer ///////////////////////// -->
+		ng-hide="button3">Ajouter un terrain Ã  vendre</button>
+	<!--le formulaire bien ï¿½ louer ///////////////////////// -->
 	<div ng-show="showbal" ng-controller="addBalCtrl">
 		<div ng-controller="addBalCtrl">
 			<form class="form-horizontal">
@@ -41,17 +41,17 @@
 							<option value="Maison">Maison</option>
 							<option value="Appartement">Appartement</option>
 							<option value="Studio">Studio</option>
-							<option value="Entrepôt">Entrepôt</option>
+							<option value="EntrepÃ´t">EntrepÃ´t</option>
 							<option value="Emplacement">Emplacement</option>
 						</select>
 					</div>
-					<label for="inputMeubleBien" class="col-sm-2 control-label">Meublé
+					<label for="inputMeubleBien" class="col-sm-2 control-label">MeublÃ©
 						:</label>
 					<div class="col-sm-3">
 						<select name="inputMeubleBien" class="form-control"
 							ng-model="bienForm.ameublement" id="inputMeubleBien">
-							<option value="Meublé">Meublé</option>
-							<option value="Non meublé">Non meublé</option>
+							<option value="MeublÃ©">MeublÃ©</option>
+							<option value="Non meublÃ©">Non meublÃ©</option>
 						</select>
 					</div>
 
@@ -120,7 +120,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputDsBien" class="col-sm-4 control-label">Date
-						de disponibilitée : </label>
+						de disponibilitÃ©e : </label>
 					<div class="col-sm-4">
 						<input type="date" class="form-control" id="inputDsBien"
 							ng-model="bienForm.dateDispo">
@@ -128,7 +128,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 						:</label>
 					<div class="col-sm-3" ng-controller="findAllProp">
 						<select ng-model="bienmodif.propid">
@@ -137,7 +137,7 @@
 					</div>
 				</div>
 				<p>
-					<i>* Indiquer la surface en m² </br> ** Les prix sont en € TTC
+					<i>* Indiquer la surface en mÂ² </br> ** Les prix sont en â‚¬ TTC
 					</i>
 				</p>
 				<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>
@@ -145,7 +145,7 @@
 			</form>
 		</div>
 	</div>
-	<!--le formulaire bien à vendre ///////////////////////// -->
+	<!--le formulaire bien ï¿½ vendre ///////////////////////// -->
 	<div ng-show="showbav" ng-controller="addBalCtrl">
 		<div ng-controller="addBavCtrl">
 			<form class="form-horizontal">
@@ -159,7 +159,7 @@
 							<option value="Maison">Maison</option>
 							<option value="Appartement">Appartement</option>
 							<option value="Studio">Studio</option>
-							<option value="Entrepôt">Entrepôt</option>
+							<option value="EntrepÃ´t">EntrepÃ´t</option>
 							<option value="Emplacement">Emplacement</option>
 						</select>
 					</div>
@@ -219,7 +219,7 @@
 
 				<div class="form-group">
 					<label for="inputDsBien" class="col-sm-4 control-label">Date
-						de disponibilitée : </label>
+						de disponibilitÃ©e : </label>
 					<div class="col-sm-4">
 						<input type="date" class="form-control" id="inputDsBien"
 							ng-model="bienForm.dateDispo">
@@ -227,7 +227,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 						:</label>
 					<div class="col-sm-3" ng-controller="findAllProp">
 						<select ng-model="bienmodif.propid">
@@ -236,14 +236,14 @@
 					</div>
 				</div>
 				<p>
-					<i>* Indiquer la surface en m² </br> ** Les prix sont en € TTC
-					</i>
+					<i>* Indiquer la surface en mÂ²</br> ** Les prix sont en â‚¬ TTC
+					</i></p>
 
 					<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>
 			</form>
 		</div>
 	</div>
-	<!--le formulaire terrain à vendre ///////////////////////// -->
+	<!--le formulaire terrain ï¿½ vendre ///////////////////////// -->
 	<div ng-show="showter" ng-controller="addBalCtrl">
 		<div ng-controller="addTerCtrl">
 			<form class="form-horizontal">
@@ -286,7 +286,7 @@
 
 				<div class="form-group">
 					<label for="inputDsBien" class="col-sm-4 control-label">Date
-						de disponibilitée : </label>
+						de disponibilitÃ©e : </label>
 					<div class="col-sm-4">
 						<input type="date" class="form-control" id="inputDsBien"
 							ng-model="bienForm.dateDispo">
@@ -294,7 +294,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					<label for="inputIdBien" class="col-sm-2 control-label">PropriÃ©taire
 						:</label>
 					<div class="col-sm-3" ng-controller="findAllProp">
 						<select ng-model="bienmodif.propid">
@@ -303,7 +303,7 @@
 					</div>
 				</div>
 				<p>
-					<i>* Indiquer la surface en ares </br> ** Les prix sont en € TTC
+					<i>* Indiquer la surface en ares </br> ** Les prix sont en â‚¬ TTC
 					</i>
 
 					<button type="button" class="btn btn-primary" ng-click="ajouter()">Ajouter</button>

@@ -1,22 +1,22 @@
 /**
- * Provider AJS des services CRUD du propriétaire
+ * Provider AJS des services CRUD du client
  */
-app.factory("visiteProvider", function($http) {
+app.factory("clientProvider", function($http) {
 
 	/**
-	 * URL globale pour l'appel des services visites
+	 * URL globale pour l'appel des services client
 	 */
-	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/visite"; /* METTRE L'URL QUAND SERVICE OKI */
+	var urlglobal = "http://localhost:8080/Project_Swagg_Immo/rest/client"; /* METTRE L'URL QUAND SERVICE OKI */
 
 	/**
 	 * ------------------------------------------------------------ Fonction
-	 * pour ajouter une visite
+	 * pour ajouter un client
 	 */
-	function addVisite(visiteForm, callback) {
+	function addClient(clientForm, callback) {
 		$http({
 			method : 'POST',
 			url : urlglobal, 
-			data : angular.toJson(visiteForm),
+			data : angular.toJson(clientForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -33,10 +33,10 @@ app.factory("visiteProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * chercher une visite
+	 * chercher un client
 	 */
-	function getVisite(idVisite, callback) {
-		$http.get(urlglobal +'/get/'+idVisite) 
+	function getClient(idClient, callback) {
+		$http.get(urlglobal +'/get/'+idClient) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -49,9 +49,9 @@ app.factory("visiteProvider", function($http) {
 }
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * afficher toutes les visites
+	 * afficher tous les clients
 	 */
-	function findAllVisite(callback) {
+	function findAllClient(callback) {
 		$http.get(urlglobal + '/findAll/') 
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -62,12 +62,12 @@ app.factory("visiteProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * supprimer une visite
+	 * supprimer un client
 	 */
-	function deleteVisite(id, callback){
+	function deleteClient(id, callback){
 		$http({
 			method : 'DELETE',
-			url : urlglobal +'/'+idVisite, /*Encoder ça en formulaire ?  */
+			url : urlglobal +'/'+id, /*Encoder ça en formulaire ?  */
 			})
 			.then(function successCallback(response) {
 				console.log(response.data);
@@ -80,13 +80,13 @@ app.factory("visiteProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
-	 * modifier une visite
+	 * modifier un client
 	 */
-	function updateVisite(visiteUpdateForm, callback){
+	function updateClient(clientUpdateForm, callback){
 		$http({
 			method : 'PUT',
 			url : urlglobal, 
-			data : angular.toJson(visiteUpdateForm),
+			data : angular.toJson(clientUpdateForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -105,14 +105,14 @@ app.factory("visiteProvider", function($http) {
 	
 	/**
 	 * -------------------------------------------------------------Retour des
-	 * fonctions du provider
+	 * fonctions du client
 	 */
 	return {
-		addVisite : addVisite,
-		getVisite : getVisite,
-		findAllVisite : findAllVisite,
-		deleteVisite : deleteVisite,
-		updateVisite : updateVisite
+		addClient : addClient,
+		getClient : getClient,
+		findAllClient : findAllClient,
+		deleteClient : deleteClient,
+		updateClient : updateClient
 	}
 
 })

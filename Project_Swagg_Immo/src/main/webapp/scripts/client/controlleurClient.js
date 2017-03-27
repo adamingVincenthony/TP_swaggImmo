@@ -1,21 +1,19 @@
 /**
- * Controleur AJS du CRUD Contriétaire
+ * Controleur AJS du CRUD client
  */
-app.controller("addCont", function($scope, $rootScope, $location, contratProvider) {
-	$scope.contratForm = {
+app.controller("addClient", function($scope, $rootScope, $location, clientProvider) {
+	$scope.clientForm = {
 		/** on initialise des valeurs nulles */
-		prix : "",
-		date : "",
-		reference : ""
-		
+		numero : "",
+		nom : ""
 	}
 	/** Développement de la méthode ajouter appellée dans la page */
 	$scope.ajouter = function() {
 		/** appel de la méthode du provider définie avant */
-		contratProvider.addCont($scope.contratForm, function(callback) {
+		clientProvider.addClient($scope.clientForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/contrat"); /* modifier cet url après la vue */
+				$location.path("/client"); /* modifier cet url après la vue */
 			}
 		})
 	}
@@ -23,23 +21,22 @@ app.controller("addCont", function($scope, $rootScope, $location, contratProvide
 })
 /**
  * -------------------------------------------------------Fonction pour update
- * un Contriétaire
+ * un client
  */
-.controller("updateCont", function($scope, $rootScope, contratProvider, $location){
+.controller("updateClient", function($scope, $rootScope, clientProvider, $location){
 	
 	/** initiatisation des champs du formulaire en null + id en undefined */
-	$scope.contratUpdateForm = {
+	$scope.clientUpdateForm = {
 			id : undefined,
-			prix : "",
-			date : "",
-			reference : ""
+			numero : "",
+			nom : ""
 		
 	}
 	/** développement de la méthode appellée dans la page */
 	$scope.update = function() {
-		contratProvider.updateCont($scope.contratUpdateForm, function (callback){
+		clientProvider.updateClient($scope.clientUpdateForm, function (callback){
 			if(callback !=undefined && callback!=""){
-				$location.path("/contrat"); /* modifier cet URL après pour le retour ^^ */
+				$location.path("/client"); /* modifier cet URL après pour le retour ^^ */
 			}
 		})
 	}
@@ -49,18 +46,18 @@ app.controller("addCont", function($scope, $rootScope, $location, contratProvide
 })
 /**
  * -------------------------------------------------------Fonction pour supprimer
- * un Contriétaires
+ * un client
  */
-.controller("deleteCont",function($scope, contratProvider, $location){
-	/** initialisation de l'id du Contriétaire à supprimer en indéfini */
+.controller("deleteClient",function($scope, clientProvider, $location){
+	/** initialisation de l'id du client à supprimer en indéfini */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.delete = function() {
-		contratProvider.deleteCont($scope.id, function(callback) {
+		clientProvider.deleteClient($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.contrat = callback;
-				$location.path("/contrat"); /* modifier cet url après la création de la vue */
+				$scope.clients = callback;
+				$location.path("/client"); /* modifier cet url après la création de la vue */
 			}
 		})
 		
@@ -69,18 +66,18 @@ app.controller("addCont", function($scope, $rootScope, $location, contratProvide
 })
 /**
  * -------------------------------------------------------Fonction pour chercher
- * un Contrat
+ * un client
  */
-.controller("getCont", function($scope, $rootScope, $location, contratProvider) {
+.controller("getClient", function($scope, $rootScope, $location, clientProvider) {
 	/** initialisation de l'id nul */
 	$scope.id = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.get = function() {
-		contratProvider.getCont($scope.id, function(callback) {
+		clientProvider.getClient($scope.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.contrat = callback;
-				$location.path("/contrat"); /* modifier cet url après la vue */
+				$scope.clients = callback;
+				$location.path("/client"); /* modifier cet url après la vue */
 			}
 		})
 		
@@ -89,11 +86,11 @@ app.controller("addCont", function($scope, $rootScope, $location, contratProvide
 })
 /**
  * -------------------------------------------------------Fonction pour afficher
- * tous les Contriétaires
+ * tous les clients
  */
-.controller("findAllCont",function($rootScope, $scope, contratProvider, $location) {
-	contratProvider.findAllCont(function(callback) {
-				$scope.contrats = callback.data;
+.controller("findAllClient",function($rootScope, $scope, clientProvider, $location) {
+			clientProvider.findAllClient(function(callback) {
+				$scope.clients = callback.data;
 			})
 		});
 

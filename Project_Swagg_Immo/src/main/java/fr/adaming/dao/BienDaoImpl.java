@@ -51,7 +51,8 @@ public class BienDaoImpl<T extends Bien> implements IBienDao<T>{
 	@Override
 	public Bien updateBien(Bien b) {
 		Session s = sf.getCurrentSession();
-		return (Bien) s.merge(b);
+		s.merge(b);
+		return b;
 	}
 
 	@Override

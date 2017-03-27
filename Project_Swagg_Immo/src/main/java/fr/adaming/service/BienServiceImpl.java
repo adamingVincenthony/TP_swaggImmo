@@ -62,14 +62,6 @@ public class BienServiceImpl implements IBienService{
 		
 	}
 
-	/**
-	 * Modifie un bien
-	 */
-	@Override
-	public void updateBien(Bien bien) {
-		bienDao.updateBien(bien);
-		
-	}
 
 	/**
 	 * Recupere un bien par son Id
@@ -102,6 +94,32 @@ public class BienServiceImpl implements IBienService{
 		bien.setObjectif("Vente(terrain)");
 		bien.setType("Terrain");
 		bienDao.addBien(bien);
+		
+	}
+
+	/**
+	 * Methode pour update un Ter
+	 * appel une méthode générique
+	 */
+	@Override
+	public void updateBienTer(TerrainAAcheter bien) {
+		bienDao.updateBien(bien);
+		
+	}
+
+	/**
+	 * Methode pour update un bav
+	 * appel une méthode générique
+	 */
+	@Override
+	public void updateBienBav(BienAAcheter bien) {
+		bienDao.updateBien(bien);
+		
+	}
+
+	@Override
+	public void updateBienBal(BienALouer bien) {
+		bienDao.updateBien(bien);
 		
 	}
 

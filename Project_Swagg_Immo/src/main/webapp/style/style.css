@@ -49,6 +49,8 @@
 	font-family: Arial;
 	border-color: white;
 	border-width :thin;
+	overflow: auto;
+	
 
 	
 }
