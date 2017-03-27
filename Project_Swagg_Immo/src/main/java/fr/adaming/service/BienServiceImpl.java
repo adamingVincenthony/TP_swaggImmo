@@ -34,6 +34,7 @@ public class BienServiceImpl implements IBienService{
 	 */
 	@Override
 	public void addBienBAL(BienALouer bien) {
+		bien.setObjectif("Location");
 		bienDao.addBien(bien);
 		
 	}
@@ -85,6 +86,7 @@ public class BienServiceImpl implements IBienService{
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addBienBAV(BienAAcheter bien) {
+		bien.setObjectif("Vente");
 		bienDao.addBien(bien);
 		
 	}
@@ -97,6 +99,7 @@ public class BienServiceImpl implements IBienService{
 	@Override
 	public void addTerrain(TerrainAAcheter bien) {
 		//Set le type du bien en Terrain
+		bien.setObjectif("Vente");
 		bien.setType("Terrain");
 		bienDao.addBien(bien);
 		

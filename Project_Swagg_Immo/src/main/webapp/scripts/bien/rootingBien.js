@@ -25,10 +25,7 @@ app.config(function($routeProvider) {
 		templateUrl : "Project_Swagg_Immo/templates/main-content/Bien/deleteBien.html",
 		controller : "deleteBien"
 	})
-	.when("/getbien", {
-		templateUrl : "Project_Swagg_Immo/templates/main-content/Bien/infobien.html",
-		controller : "getBien"
-	})
+	
 	
 	
 	

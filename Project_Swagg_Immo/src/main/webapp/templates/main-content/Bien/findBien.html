@@ -31,6 +31,77 @@
 			</div>
 		</form>
 	</div>
+<div ng-show="bienretour">
+<h3 align="center">Votre bien  :</h3>
+	
+		<table>
+		<tr>
+		<td>ID : </td>
+		<td>{{b.id}}</td>
+		</tr>
+		<tr>
+		<td>Type : </td>
+		<td>{{b.type}}</td>
+		</tr>
+		<tr>
+		<td>Date de soumission : </td>
+		<td>{{b.dateSoumission}}</td>
+		</tr>
+		<tr>
+		<td>Date de dispo : </td>
+		<td>{{b.dateDispo}}</td>
+		</tr>
+		<tr>
+		<td>Localisation : </td>
+		<td>{{b.localisation}}</td>
+		</tr>
+		<tr>
+		<td>Revenu cadastral : </td>
+		<td>{{b.revenuCadastral}}</td>
+		</tr>
+		<tr>
+		<td>Surface : </td>
+		<td>{{b.surface}}</td>
+		</tr>
+		<tr>
+		<td>Propriétaire : </td>
+		<td>{{b.proprietaire.nom}}</td>
+		</tr>
+		<tr>
+		<td>Objectif : </td>
+		<td>{{b.objectif}}</td>
+		</tr>
+		<tr ng-if="b.montantCaution">
+		<td ng-if="b.montantCaution">Caution demandée : </td>
+		<td ng-if="b.montantCaution">{{bienrecup.montantCaution}}</td>
+		</tr>
+		<tr ng-if="b.loyerMensuel">
+		<td ng-if="b.loyerMensuel">Loyer mensuel : </td>
+		<td ng-if="b.loyerMensuel">{{b.loyerMensuel}}</td>
+		</tr >
+		<tr ng-if="b.loyerCharge">
+		<td ng-if="b.loyerCharge">Charges : </td>
+		<td ng-if="b.loyerCharge">{{b.loyerCharge}}</td>
+		</tr>
+		<tr ng-if="b.typeBail">
+		<td ng-if="b.typeBail">Type de bail : </td>
+		<td ng-if="b.typeBail">{{b.typeBail}}</td>
+		</tr>
+		<tr ng-if="b.ameublement">
+		<td ng-if="b.ameublement" >Ameublement : </td>
+		<td ng-if="b.ameublement">{{b.ameublement}}</td>
+		</tr>
+		<tr ng-if="b.prixAchat">
+		<td ng-if="b.prixAchat" >Prix de vente : </td>
+		<td ng-if="b.prixAchat">{{b.prixAchat}}</td>
+		</tr>
+		<tr ng-if="b.etatBien">
+		<td ng-if="b.etatBien" >Etat du bien : </td>
+		<td ng-if="b.etatBien">{{b.etatBien}}</td>
+		</tr>
+		
+		</table>
+	</div>
 
 
 </div>

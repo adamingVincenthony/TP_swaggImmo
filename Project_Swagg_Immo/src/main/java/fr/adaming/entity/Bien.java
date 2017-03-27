@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,7 +62,9 @@ public abstract class Bien implements Serializable{
 	private long revenuCadastral;
 	@Column (name="surface_bien")
 	private String surface; //en declarant la surface en tant que String on peut utiliser les pareurs suivant le type de bien
-	
+	/* Pour la différenciation */
+	@Column (name="objectif")
+	private String objectif;
 	
 	/*Déclaration des associations */
 	
@@ -163,7 +164,7 @@ public abstract class Bien implements Serializable{
 	 * @param surface
 	 */
 	public Bien(int id, String statut, String type, Date dateSoumission, Date dateDispo, String localisation,
-			long revenuCadastral, String surface) {
+			long revenuCadastral, String surface, String objectif) {
 		super();
 		this.id = id;
 		this.statut = statut;
@@ -173,7 +174,9 @@ public abstract class Bien implements Serializable{
 		this.localisation = localisation;
 		this.revenuCadastral = revenuCadastral;
 		this.surface = surface;
+		this.objectif = objectif;
 	}
+	
 	
 	/** -------------------------------Getters et setters-----------------------------------------------*/
 	
@@ -268,6 +271,15 @@ public abstract class Bien implements Serializable{
 	}
 	public void setListeVisite(List<Visite> listeVisite) {
 		this.listeVisite = listeVisite;
+	}
+	
+	
+	@XmlElement
+	public String getObjectif() {
+		return objectif;
+	}
+	public void setObjectif(String objectif) {
+		this.objectif = objectif;
 	}
 	/**--------------------------------------------------Autres méthodes------------------------------------*/
 	@Override

@@ -130,8 +130,9 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 		bienProvider.getBien($rootScope.bienmodif.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$scope.bienrecup = callback.data;
-				$location.path("/getbien"); /* modifier cet url après la vue */
+				$scope.b = callback.data;
+				$scope.bienretour = true;
+				$location.path("/chercherBien"); /* modifier cet url après la vue */
 			}
 		})
 		
