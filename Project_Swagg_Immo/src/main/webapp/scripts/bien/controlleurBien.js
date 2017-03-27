@@ -25,10 +25,9 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* appel de la fonction */
 				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
 				bienProvider.ajouterBAL($scope.bienForm, function(callback) {
-					/** Quand la fonction est terminée, le retour : */
-					if (callback != undefined && callback != "") {
-						$location.path(""); /* modifier cet url après la vue */
-					}
+					/** Quand la fonction est terminée, le retour : */ 
+						$location.path("/bien"); /* modifier cet url après la vue */
+						$scope.messageadd =true;			
 				})				
 			
 		})
@@ -61,10 +60,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* appel de la fonction */
 				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
 				bienProvider.ajouterBAV($scope.bienForm, function(callback) {
-					/** Quand la fonction est terminée, le retour : */
-					if (callback != undefined && callback != "") {
-						$location.path(""); /* modifier cet url après la vue */
-					}
+					$location.path("/bien"); /* modifier cet url après la vue */
+					$scope.messageadd =true;	
 				})				
 			
 		})
@@ -96,9 +93,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
 				bienProvider.ajouterTER($scope.bienForm, function(callback) {
 					/** Quand la fonction est terminée, le retour : */
-					if (callback != undefined && callback != "") {
-						$location.path(""); /* modifier cet url après la vue */
-					}
+					$location.path("/bien"); /* modifier cet url après la vue */
+					$scope.messageadd =true;	
 				})				
 			
 		})
@@ -149,5 +145,6 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				$scope.biens = callback.data;
 			})
 		})
+
 
 ;

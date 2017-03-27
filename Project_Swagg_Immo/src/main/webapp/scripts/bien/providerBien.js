@@ -19,14 +19,9 @@ app.factory("bienProvider", function($http){
 				'Content-Type' : 'application/json'
 			}
 
-		}).success(function(response) {
-			console.log(response);
+		}).then(function successCallback(response) {
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
+		});
 
 	}
 	/**
@@ -42,14 +37,9 @@ app.factory("bienProvider", function($http){
 				'Content-Type' : 'application/json'
 			}
 
-		}).success(function(response) {
-			console.log(response);
+		}).then(function successCallback(response) {
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
+		});
 
 	}
 	/**
@@ -64,14 +54,9 @@ app.factory("bienProvider", function($http){
 				'Content-Type' : 'application/json'
 			}
 
-		}).success(function(response) {
-			console.log(response);
+		}).then(function successCallback(response) {
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
+		});
 
 	}
 	/**
