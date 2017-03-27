@@ -99,7 +99,7 @@ public class BienServiceImpl implements IBienService{
 	@Override
 	public void addTerrain(TerrainAAcheter bien) {
 		//Set le type du bien en Terrain
-		bien.setObjectif("Vente");
+		bien.setObjectif("Vente(terrain)");
 		bien.setType("Terrain");
 		bienDao.addBien(bien);
 		
