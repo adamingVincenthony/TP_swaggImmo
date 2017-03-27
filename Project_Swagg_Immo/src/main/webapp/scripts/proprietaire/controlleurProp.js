@@ -78,11 +78,13 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 	$scope.get = function() {
 		propProvider.getProp($rootScope.propmodif.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
-			if (callback != undefined && callback != "") {
+			propProvider.findBiens($rootScope.propmodif.id, function(callback) {
+				$scope.biens = callback.data;
+			})
 				$scope.propretour = true;
 				$scope.prop = callback.data;
 				$location.path("/chercherProp"); /* modifier cet url après la vue */
-			}
+			
 		})
 		
 	}
@@ -119,9 +121,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
  * la liste des biens du propriétaire
  */		
 .controller("getBienByProp",function($rootScope, $scope, propProvider, $location) {
-			propProvider.findBiens($rootScope.propmodif.id, function(callback) {
-				$scope.biens = callback.data;
-			})
+			
 		})		
 		
 		;
