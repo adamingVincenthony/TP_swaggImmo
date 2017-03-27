@@ -81,7 +81,6 @@ public class ContratRest {
 	 * @param contrat
 	 */
 	@PUT
-	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void updateContratRest(Contrat contrat){
@@ -93,7 +92,7 @@ public class ContratRest {
 	 * @param id
 	 */
 	@DELETE
-	@Path("/delete/{id_param}")
+	@Path("/{id_param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteUser(@PathParam("id_param") int id){
 		contratService.deleteContrat(id);
