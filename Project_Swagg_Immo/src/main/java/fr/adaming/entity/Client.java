@@ -17,6 +17,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="clients")
 @XmlRootElement
@@ -40,16 +43,19 @@ public class Client implements Serializable{
 	 */
 	@ManyToMany
 	//@JoinColumn(name="bien_id_fk", referencedColumnName="id_bien")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Bien> listeInteret;
 	/**
 	 * Un client peut avoir plusieurs contrat avec l'agence
 	 */
 	@OneToMany(mappedBy="client")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Contrat> listeContrat;
 	/**
 	 * Un client peut réaliser plusieures visites
 	 */
 	@OneToMany(mappedBy="client")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Visite> listeVisite;
 	
 	
