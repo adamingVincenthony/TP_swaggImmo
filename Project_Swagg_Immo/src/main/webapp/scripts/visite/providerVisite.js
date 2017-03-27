@@ -16,7 +16,7 @@ app.factory("visiteProvider", function($http) {
 		$http({
 			method : 'POST',
 			url : urlglobal, 
-			data : angular.toJson(propForm),
+			data : angular.toJson(visiteForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
