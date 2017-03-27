@@ -49,10 +49,10 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
  */
 .controller("deleteVisite",function($scope, visiteProvider, $location){
 	/** initialisation de l'id du visite à supprimer en indéfini */
-	$scope.id = undefined;
+	$scope.idVisite = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.delete = function() {
-		visiteProvider.deleteVisite($scope.id, function(callback) {
+		visiteProvider.deleteVisite($scope.idVisite, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.visite = callback;
@@ -68,11 +68,11 @@ app.controller("addVisite", function($scope, $rootScope, $location, visiteProvid
  * une visite
  */
 .controller("getVisite", function($scope, $rootScope, $location, visiteProvider) {
-	/** initialisation de l'id nul */
-	$scope.id = undefined;
+	/** initialisation de l'id nulle */
+	$scope.idVisite = undefined;
 	/** développement de la méthode appellée dans la page */
 	$scope.get = function() {
-		visiteProvider.getVisite($scope.id, function(callback) {
+		visiteProvider.getVisite($scope.idVisite, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
 				$scope.visite = callback;

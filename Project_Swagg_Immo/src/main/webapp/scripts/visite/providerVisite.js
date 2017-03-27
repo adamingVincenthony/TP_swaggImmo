@@ -36,7 +36,7 @@ app.factory("visiteProvider", function($http) {
 	 * chercher une visite
 	 */
 	function getVisite(idVisite, callback) {
-		$http.get(urlglobal +'/getById/'+idVisite) 
+		$http.get(urlglobal +'/get/'+idVisite) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);
@@ -67,7 +67,7 @@ app.factory("visiteProvider", function($http) {
 	function deleteVisite(id, callback){
 		$http({
 			method : 'DELETE',
-			url : urlglobal +'/'+id, /*Encoder ça en formulaire ?  */
+			url : urlglobal +'/'+idVisite, /*Encoder ça en formulaire ?  */
 			})
 			.then(function successCallback(response) {
 				console.log(response.data);
