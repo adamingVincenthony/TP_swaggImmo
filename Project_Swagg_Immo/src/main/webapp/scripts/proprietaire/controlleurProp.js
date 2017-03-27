@@ -15,7 +15,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		propProvider.addProp($scope.propForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/prop"); /* modifier cet url après la vue */
+				$location.path("prop"); /* modifier cet url après la vue */
 			}
 		})
 	}
