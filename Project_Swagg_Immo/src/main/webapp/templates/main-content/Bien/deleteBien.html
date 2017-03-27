@@ -12,3 +12,27 @@
 				
 		</div>
 </div>	
+<div class="col-xs-10" id="maincontent" style="overflow:auto">
+<span ng-show="messagedel" style="color:red">L'opération est un succès</span>
+<h3 align="center">Suppression d'un bien :</h3>
+	<div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-3 control-label">Choix
+					:</label>
+				<div class="col-sm-3" ng-controller="findAllBien">
+					<select ng-model="bienmodif.id">
+						<option ng-repeat="b in biens" value="{{b.id}}">{{b.id}}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col-sm-2">
+				<button type="button" class="btn btn-primary"
+					ng-click="deleteBien()">Supprimer</button>
+			</div>
+		</form>
+	</div>
+
+
+</div>
