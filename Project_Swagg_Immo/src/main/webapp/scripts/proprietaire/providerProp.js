@@ -63,7 +63,7 @@ app.factory("propProvider", function($http) {
 	 * afficher tous les propriétaires
 	 */
 	function findBiens(idProp, callback) {
-		$http.get('http://localhost:8080/Project_Swagg_Immo/rest//utilisateur/getListeBien/'+idProp) 
+		$http.get('http://localhost:8080/Project_Swagg_Immo/rest/utilisateur/getListeBien/'+idProp) 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
