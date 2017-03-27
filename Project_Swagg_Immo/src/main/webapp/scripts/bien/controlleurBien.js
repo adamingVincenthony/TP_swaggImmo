@@ -1,6 +1,6 @@
 /**
-* Controleur AJS des biens
-*/
+ * Controleur AJS des biens
+ */
 app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider, propProvider) {
 	$scope.bienForm = {
 		/** on initialise des valeurs nulles */
@@ -23,10 +23,16 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* ajouter le propriétairebind au formulaire */
 				$scope.bienForm.proprietaire = callback.data;
 				/* appel de la fonction */
-				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
 				bienProvider.ajouterBAL($scope.bienForm, function(callback) {
 					/** Quand la fonction est terminée, le retour : */ 
-						$location.path("/ajouterBien"); /* modifier cet url après la vue */
+						$location.path("/ajouterBien"); /*
+														 * modifier cet url
+														 * après la vue
+														 */
 						$scope.messageadd =true;			
 				})				
 			
@@ -58,9 +64,15 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* ajouter le propriétairebind au formulaire */
 				$scope.bienForm.proprietaire = callback.data;
 				/* appel de la fonction */
-				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
 				bienProvider.ajouterBAV($scope.bienForm, function(callback) {
-					$location.path("/ajouterBien"); /* modifier cet url après la vue */
+					$location.path("/ajouterBien"); /*
+													 * modifier cet url après la
+													 * vue
+													 */
 					$scope.messageadd =true;	
 				})				
 			
@@ -90,10 +102,16 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				/* ajouter le propriétairebind au formulaire */
 				$scope.bienForm.proprietaire = callback.data;
 				/* appel de la fonction */
-				/* L'objet envoyé contient le propriétaire, son ID sera directement lié dans la bdd */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
 				bienProvider.ajouterTER($scope.bienForm, function(callback) {
 					/** Quand la fonction est terminée, le retour : */
-					$location.path("/ajouterBien"); /* modifier cet url après la vue */
+					$location.path("/ajouterBien"); /*
+													 * modifier cet url après la
+													 * vue
+													 */
 					$scope.messageadd =true;	
 				})				
 			
@@ -109,11 +127,14 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 .controller("deleteBien",function($scope, bienProvider, $location, $rootScope){
 	/** développement de la méthode appellée dans la page */
 	$scope.deleteBien = function() {
-		/** L'id du bien a delete est récupéré dans le rootScope a cause de la portée des controleurs */
+		/**
+		 * L'id du bien a delete est récupéré dans le rootScope a cause de la
+		 * portée des controleurs
+		 */
 		bienProvider.deleteBien($rootScope.bienmodif.id, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			if (callback != undefined && callback != "") {
-				$location.path("/supprimerBien"); /* modifier cet url après la création de la vue */
+				$location.path("/supprimerBien"); 
 				$scope.messagedel =true;
 			}
 		})
@@ -132,7 +153,7 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 			if (callback != undefined && callback != "") {
 				$scope.b = callback.data;
 				$scope.bienretour = true;
-				$location.path("/chercherBien"); /* modifier cet url après la vue */
+				$location.path("/chercherBien"); 
 			}
 		})
 		
@@ -148,11 +169,131 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 			})
 		})
 
-
-.controller("updateBien",function($rootScope, $scope, bienProvider, $location) {
-			bienProvider.findAllBien(function(callback) {
-				$scope.bienfezfezfs = callback.data;
-			})
-		});
-
+/**
+ * Le controlleur de la page main update
+ */
+.controller("updateBien", function($scope, $rootScope, $location, bienProvider) {
+	/** développement de la méthode appellée dans la page */
+	$scope.chercherM = function() {
+		bienProvider.getBien($rootScope.bienmodif.id, function(callback) {
+			/** Quand la fonction est terminée, le retour : */
+			if (callback != undefined && callback != "") {
+				$scope.bienup = callback.data;
+				$scope.showform = true;
+				$location.path("/modifierBien"); 
+			}
+		})
+		
+	}
+	
+})
+.controller("updateTer", function($scope, $rootScope, propProvider, $location, bienProvider){
+	
+	/** initiatisation des champs du formulaire en null + id en undefined */
+	$scope.bienupdate = {
+			id : undefined,
+			dateDispo : "",
+			statut : "",
+			prixAchat : ""
+			
+	}
+	/** développement de la méthode appellée dans la page */
+	$scope.updateTer = function() {
+		/** recuperation du propriétaire : */
+		$scope.bienupdate.id = $rootScope.bienmodif.id;
+		propProvider.getProp($rootScope.bienmodif.propid, function(callback) {
+				/* ajouter le propriétairebind au formulaire */
+				$scope.bienupdate.proprietaire = callback.data;
+				/* appel de la fonction */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
+				bienProvider.updateTerPro($scope.bienupdate, function(callback) {
+					/** Quand la fonction est terminée, le retour : */ 
+						$scope.messageupd =true;
+						$location.path("/modifierBien"); 						 
+									
+				})				
+			
+		})
+	
+		
+	}
+	
+})
+.controller("updateBav", function($scope, $rootScope, propProvider, $location, bienProvider){
+	
+	/** initiatisation des champs du formulaire en null + id en undefined */
+	$scope.bienupdate = {
+			id : undefined,
+			dateDispo : "",
+			statut : "",
+			prixAchat : "",
+			etatBien :""
+	}
+	/** développement de la méthode appellée dans la page */
+	$scope.updateBav = function() {
+		/** recuperation du propriétaire : */
+		$scope.bienupdate.id = $rootScope.bienmodif.id;
+		propProvider.getProp($rootScope.bienmodif.propid, function(callback) {
+				/* ajouter le propriétairebind au formulaire */
+				$scope.bienupdate.proprietaire = callback.data;
+				/* appel de la fonction */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
+				bienProvider.updateBavPro($scope.bienupdate, function(callback) {
+					/** Quand la fonction est terminée, le retour : */ 
+						$scope.messageupd =true;
+						$location.path("/modifierBien"); 						 
+									
+				})				
+			
+		})
+	
+		
+	}
+	
+})
+.controller("updateBal", function($scope, $rootScope, propProvider, $location, bienProvider){
+	
+	/** initiatisation des champs du formulaire en null + id en undefined */
+	$scope.bienupdate = {
+			id : undefined,
+			dateDispo : "",
+			statut : "",
+			montantCaution : "",
+			loyerMensuel : "",
+			loyerCharge :"",
+			typeBail : "",
+			ameublement :""
+	}
+	/** développement de la méthode appellée dans la page */
+	$scope.updateBal = function() {
+		/** recuperation du propriétaire : */
+		$scope.bienupdate.id = $rootScope.bienmodif.id;
+		propProvider.getProp($rootScope.bienmodif.propid, function(callback) {
+				/* ajouter le propriétairebind au formulaire */
+				$scope.bienupdate.proprietaire = callback.data;
+				/* appel de la fonction */
+				/*
+				 * L'objet envoyé contient le propriétaire, son ID sera
+				 * directement lié dans la bdd
+				 */
+				bienProvider.updateBalPro($scope.bienupdate, function(callback) {
+					/** Quand la fonction est terminée, le retour : */ 
+						$scope.messageupd =true;
+						$location.path("/modifierBien"); 						 
+									
+				})				
+			
+		})
+	
+		
+	}
+	
+})
+;
 

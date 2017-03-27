@@ -1,97 +1,347 @@
+<!-- LE MENU -->
 <div class="col-xs-2" id="leftmenu">
-				<div class="col-xs-12" style="margin-top: 15px">
+	<div class="col-xs-12" style="margin-top: 15px">
 
-				
-				<div class="list-group">
-					<a href="/bien" class="list-group-item list-group-item-info">Liste</a>
-  					<a href="/ajouterBien" class="list-group-item list-group-item-info">Ajouter</a>
-  					<a href="/modifierBien" class="list-group-item list-group-item-info">Modifier</a>
-  					<a href="/supprimerBien" class="list-group-item list-group-item-info">Supprimer</a>
-  					<a href="/chercherBien" class="list-group-item list-group-item-info">Chercher</a>
-				</div>
-				
+
+		<div class="list-group">
+			<a href="/bien" class="list-group-item list-group-item-info">Liste</a>
+			<a href="/ajouterBien" class="list-group-item list-group-item-info">Ajouter</a>
+			<a href="/modifierBien" class="list-group-item list-group-item-info">Modifier</a>
+			<a href="/supprimerBien" class="list-group-item list-group-item-info">Supprimer</a>
+			<a href="/chercherBien" class="list-group-item list-group-item-info">Chercher</a>
 		</div>
-</div>	
 
-<div class="col-xs-10" id="maincontent" style="overflow:auto">
-<span ng-show="messageupd" style="color:red">L'opération est un succès</span>
-	<!-- afficher un bien à louer bouton -->
-	<button type="button" class="btn btn-primary"
-		ng-click="showbal=!showbal;button2=!button2;button3=!button3"
-		ng-hide="button1">Modifier un bien à louer</button>
-	<!-- afficher un bien à vendre bouton  -->
-	<button type="button" class="btn btn-primary"
-		ng-click="showbav=!showbav;button1=!button1;button3=!button3"
-		ng-hide="button2">Modifier un bien à vendre</button>
-	<!-- afficher un bien à vendre bouton  -->
-	<button type="button" class="btn btn-primary"
-		ng-click="showter=!showter;button2=!button2;button1=!button1"
-		ng-hide="button3">Modifier un terrain à vendre</button>
-<!-- Les formuaires : -->
-<!-- bien à louer -->
-<div ng-show="showbal" >
-<form>
-<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+	</div>
+</div>
+<!-- FIN DU MENU -->
+
+<!-- LE CORPS -->
+<div class="col-xs-10" id="maincontent" style="overflow: auto">
+<!-- Message de résultat -->
+<span ng-show="messageupd" style="color: red">L'opération est un succès</span>
+<!-- fin du message de résultat -->
+<!-- afficher un bien à louer bouton -->
+<button type="button" class="btn btn-primary" ng-click="showbal=!showbal;button2=!button2;button3=!button3;showform=false" ng-hide="button1">Modifier un bien à louer</button>
+<!-- afficher un bien à vendre bouton  -->
+<button type="button" class="btn btn-primary" ng-click="showbav=!showbav;button1=!button1;button3=!button3" ng-hide="button2">Modifier un bien à vendre</button>
+<!-- afficher un bien à vendre bouton  -->
+<button type="button" class="btn btn-primary" ng-click="showter=!showter;button2=!button2;button1=!button1" ng-hide="button3">Modifier un terrain à vendre</button>
+
+
+<!-- Debut de l'affichage des formulaires  -->
+<!-- /////////////////////////////////////////////////BIEN A LOUER/////////////////////////////////////: -->
+<!-- partie I : choix du bien via ID -->
+<div ng-show="showbal">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-4 control-label">Id</label>
 				<div class="col-sm-3" ng-controller="findAllBien">
 					<select ng-model="bienmodif.id">
-						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Location"'>{{b.id}}</option>
+						<option ng-repeat="b in biens" value="{{b.id}}"
+							ng-if='b.objectif=="Location"'>{{b.id}}</option>
 					</select>
-				</div>		
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" ng-click="chercherM()">Chercher</button>
+		</form>
+   
+<!--  fin du choix du bien, formulaire de modif : -->
+<form class="form-horizontal" ng-show="showform"
+			ng-controller="updateBal">
+			<!-- Les info de bases -->
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					:</label>
+				<div class="col-sm-3" ng-controller="findAllProp">
+					<select ng-model="bienmodif.propid"
+						name="{{bienup.proprietaire.nom}}">
+						<option ng-repeat="p in proprietaires" value="{{p.id}}">{{p.nom}}</option>
+					</select>
+
+				</div>
+				<p>
+					<b>Actuel : {{bienup.proprietaire.nom}}</b>
+				</p>
 			</div>
 
-</form>
+			<div class="form-group">
+				<label for="inputDsBien" class="col-sm-2 control-label">Date
+					de disponibilitée : </label>
+				<div class="col-sm-4">
+					<input type="date" class="form-control" id="inputDsBien"
+						ng-model="bienupdate.dateDispo"">
+				</div>
+				<p>
+					<b>Actuelle : {{bienup.dateDispo}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputDispoBien" class="col-sm-2 control-label">Disponible
+					:</label>
+				<div class="col-sm-3">
+					<select name="inputDispoBien" class="form-control"
+						ng-model="bienupdate.statut" id="inputDispoBien">
+						<option value="Disponible">Oui</option>
+						<option value="Vendu/Loué">Non</option>
+					</select>
+				</div>
+				<p>
+					<b>Actuellement : {{bienup.statut}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputMeubleBien" class="col-sm-2 control-label">Meublé
+					:</label>
+				<div class="col-sm-3">
+					<select name="inputMeubleBien" class="form-control"
+						ng-model="bienupdate.ameublement" id="inputMeubleBien">
+						<option value="Meublé">Meublé</option>
+						<option value="Non meublé">Non meublé</option>
+					</select>
+				</div>
+				<p>
+					<b>Actuellement : {{bienup.ameublement}}</b>
+				</p>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="inputCautionBien" class="col-sm-4 control-label">Caution:</label>
+				<div class="col-sm-2">
+					<input type="number" class="form-control" id="inputCautionBien"
+						ng-model="bienupdate.montantCaution"
+						placeholder="{{bienup.montantCaution}}">
+				</div>
+
+				<label for="inputLoyerBien" class="col-sm-3 control-label">Loyer
+					:</label>
+				<div class="col-sm-2">
+					<input type="number" class="form-control" id="inputLoyerBien"
+						ng-model="bienupdate.loyerMensuel"
+						placeholder="{{bienup.loyerMensuel}}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputChargeBien" class="col-sm-4 control-label">Charge
+					:</label>
+				<div class="col-sm-2">
+					<input type="number" class="form-control" id="inputChargeBien"
+						ng-model="bienupdate.loyerCharge"
+						placeholder="{{bienup.loyerCharge}}">
+				</div>
+
+				<label for="inputBailBien" class="col-sm-3 control-label">Bail:
+				</label>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="inputBailBien"
+						ng-model="bienupdate.typeBail" placeholder="{{bienup.typeBail}}">
+
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary" ng-click="updateBal()">Mettre
+				à jour</button>
+		</form>
 </div>
-
-
-
-
-
-
-
-
-
-
-<!-- bien à vendre -->
-<div ng-show="showbav" >
-<form>
-<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+ <!-- FIN DU FORMULAIRE BIEN A LOUER -->
+<!-- //////////////////////////////////////////////////BIEN A VENDRE /////////////////////////////////////// -->
+<!-- partie I : choix du bien via ID -->
+<div ng-show="showbav">
+	
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-4 control-label">Id </label>
 				<div class="col-sm-3" ng-controller="findAllBien">
 					<select ng-model="bienmodif.id">
-						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Vente"'>{{b.id}}</option>
+						<option ng-repeat="b in biens" value="{{b.id}}"
+							ng-if='b.objectif=="Vente"'>{{b.id}}</option>
 					</select>
-				</div>		
+				</div>
 			</div>
-</form>
+			<button type="submit" class="btn btn-primary" ng-click="chercherM()">Chercher</button>
+		</form>
+
+
+
+
+
+<!-- fin de choix du bien, formulaire de modif : -->
+<form class="form-horizontal" ng-show="showform"
+			ng-controller="updateBav">
+			<!-- Les info de bases -->
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					:</label>
+				<div class="col-sm-3" ng-controller="findAllProp">
+					<select ng-model="bienmodif.propid"
+						name="{{bienup.proprietaire.nom}}">
+						<option ng-repeat="p in proprietaires" value="{{p.id}}">{{p.nom}}</option>
+					</select>
+
+				</div>
+				<p>
+					<b>Actuel : {{bienup.proprietaire.nom}}</b>
+				</p>
+			</div>
+
+			<div class="form-group">
+				<label for="inputDsBien" class="col-sm-2 control-label">Date
+					de disponibilitée : </label>
+				<div class="col-sm-4">
+					<input type="date" class="form-control" id="inputDsBien"
+						ng-model="bienupdate.dateDispo"">
+				</div>
+				<p>
+					<b>Actuelle : {{bienup.dateDispo}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputDispoBien" class="col-sm-2 control-label">Disponible
+					:</label>
+				<div class="col-sm-3">
+					<select name="inputDispoBien" class="form-control"
+						ng-model="bienupdate.statut" id="inputDispoBien">
+						<option value="Disponible">Oui</option>
+						<option value="Vendu/Loué">Non</option>
+					</select>
+				</div>
+				<p>
+					<b>Actuellement : {{bienup.statut}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputPrixABien" class="col-sm-2 control-label">Prix
+					de vente :</label>
+				<div class="col-sm-2">
+					<input class="form-control" ng-model="bienupdate.prixAchat"
+						id="disabledInput" type="number"
+						placeholder="{{bienup.prixAchat}}">
+				</div>
+
+			</div>
+
+			<div class="form-group">
+				<label for="inputEtatBien" class="col-sm-4 control-label">Etat
+					:</label>
+				<div class="col-sm-4">
+					<select name="inputEtatBien" class="form-control"
+						ng-model="bienupdate.etatBien" id="inputEtatBien">
+						<option value="Impeccable">Impeccable</option>
+						<option value="Correct">Correct</option>
+						<option value="A restaurer">A restaurer</option>
+
+					</select>
+				</div>
+				<p>
+					<b>Actuellement : {{bienup.etatBien}}</b>
+				</p>
+			</div>
+
+			<button type="submit" class="btn btn-primary" ng-click="updateBav()">Mettre
+				à jour</button>
+		</form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- terrain à vendre -->
-<div ng-show="showter" >
-<form>
-<div class="form-group">
-				<label for="inputIdBien" class="col-sm-2 control-label">Id :</label>
+<!-- Fin des biens à vendre -->
+<!-- //////////////////////////////////////////////////TERRAIN A VENDRE /////////////////////////////////////// -->
+<!-- partie I :choix du bien via ID -->
+<div ng-show="showter">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-4 control-label">Id</label>
 				<div class="col-sm-3" ng-controller="findAllBien">
 					<select ng-model="bienmodif.id">
-						<option ng-repeat="b in biens" value="{{b.id}}" ng-if='b.objectif=="Vente(terrain)"'>{{b.id}}</option>
+						<option ng-repeat="b in biens" value="{{b.id}}"
+							ng-if='b.objectif=="Vente(terrain)"'>{{b.id}}</option>
 					</select>
-				</div>		
+				</div>
 			</div>
-</div>
+			<button type="submit" class="btn btn-primary" ng-click="chercherM()">Chercher</button>
+		</form>
+<!--  fin de la recherche, start update : -->
+<form class="form-horizontal" ng-show="showform"
+			ng-controller="updateTer">
+			<!-- Les info de bases -->
+			<div class="form-group">
+				<label for="inputIdBien" class="col-sm-2 control-label">Propriétaire
+					:</label>
+				<div class="col-sm-3" ng-controller="findAllProp">
+					<select ng-model="bienmodif.propid"
+						name="{{bienup.proprietaire.nom}}">
+						<option ng-repeat="p in proprietaires" value="{{p.id}}">{{p.nom}}</option>
+					</select>
 
-</form>
-</div>
+				</div>
+				<p>
+					<b>Actuel : {{bienup.proprietaire.nom}}</b>
+				</p>
+			</div>
 
+			<div class="form-group">
+				<label for="inputDsBien" class="col-sm-2 control-label">Date
+					de disponibilitée : </label>
+				<div class="col-sm-4">
+					<input type="date" class="form-control" id="inputDsBien"
+						ng-model="bienupdate.dateDispo"">
+				</div>
+				<p>
+					<b>Actuelle : {{bienup.dateDispo}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputDispoBien" class="col-sm-2 control-label">Disponible
+					:</label>
+				<div class="col-sm-3">
+					<select name="inputDispoBien" class="form-control"
+						ng-model="bienupdate.statut" id="inputDispoBien">
+						<option value="Disponible">Oui</option>
+						<option value="Vendu/Loué">Non</option>
+					</select>
+				</div>
+				<p>
+					<b>Actuellement : {{bienup.statut}}</b>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="inputPrixABien" class="col-sm-2 control-label">Prix
+					de vente :</label>
+				<div class="col-sm-2">
+					<input class="form-control" ng-model="bienupdate.prixAchat"
+						id="disabledInput" type="number"
+						placeholder="{{bienup.prixAchat}}">
+				</div>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary" ng-click="updateTer()">Mettre
+				à jour</button>
+		</form>
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- FIN DU CORPS -->

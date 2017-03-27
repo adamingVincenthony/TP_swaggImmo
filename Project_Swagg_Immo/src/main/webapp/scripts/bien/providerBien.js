@@ -103,6 +103,61 @@ app.factory("bienProvider", function($http){
 		});
 	}
 	
+	
+	/**
+	 * Fonction pour update TER
+	 */
+	function updateTerPro(propUpdateForm, callback) {
+		$http({
+			method : 'PUT',
+			url : urlglobal + '/upter/', 
+			data : angular.toJson(propUpdateForm),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
+	/**
+	 * Fonction pour update Bav
+	 */
+	function updateBavPro(propUpdateForm, callback) {
+		$http({
+			method : 'PUT',
+			url : urlglobal + '/upbav/', 
+			data : angular.toJson(propUpdateForm),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
+	/**
+	 * Fonction pour update Bal
+	 */
+	function updateBalPro(propUpdateForm, callback) {
+		$http({
+			method : 'PUT',
+			url : urlglobal + '/upbal/', 
+			data : angular.toJson(propUpdateForm),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
 	/**
 	 * -------------------------------------------------------------Retour des
 	 * fonctions du provider
@@ -113,8 +168,10 @@ app.factory("bienProvider", function($http){
 		ajouterTER : ajouterTER,
 		deleteBien : deleteBien,
 		getBien : getBien,
-		findAllBien : findAllBien
-		
+		findAllBien : findAllBien,
+		updateTerPro : updateTerPro,
+		updateBavPro : updateBavPro,
+		updateBalPro : updateBalPro
 	}
 
 })
