@@ -15,7 +15,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		propProvider.addProp($scope.propForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
 			$scope.messageadd = true;
-				
+			$scope.propForm = null;
 			
 		})
 	}
@@ -42,7 +42,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		propProvider.updateProp($scope.propUpdateForm, function (callback){
 				$scope.proprietairex = callback;
 				$scope.messageupd = true;
-				
+				$scope.propUpdateForm = null;
 			
 		})
 		
@@ -120,11 +120,7 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
  * -------------------------------------------------------Fonction pour afficher
  * la liste des biens du propriétaire
  */		
-.controller("getBienByProp",function($rootScope, $scope, propProvider, $location) {
-			
-		})		
-		
-		;
+
 
 
 

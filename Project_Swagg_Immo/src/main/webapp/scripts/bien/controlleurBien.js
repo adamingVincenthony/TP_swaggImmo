@@ -28,12 +28,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 * directement lié dans la bdd
 				 */
 				bienProvider.ajouterBAL($scope.bienForm, function(callback) {
-					/** Quand la fonction est terminée, le retour : */ 
-						$location.path("/ajouterBien"); /*
-														 * modifier cet url
-														 * après la vue
-														 */
-						$scope.messageadd =true;			
+						$scope.messageadd = true;	
+						$scope.bienForm = null;
 				})				
 			
 		})
@@ -69,11 +65,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 * directement lié dans la bdd
 				 */
 				bienProvider.ajouterBAV($scope.bienForm, function(callback) {
-					$location.path("/ajouterBien"); /*
-													 * modifier cet url après la
-													 * vue
-													 */
-					$scope.messageadd =true;	
+					$scope.messageadd = true;	
+					$scope.bienForm = null;
 				})				
 			
 		})
@@ -108,11 +101,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 */
 				bienProvider.ajouterTER($scope.bienForm, function(callback) {
 					/** Quand la fonction est terminée, le retour : */
-					$location.path("/ajouterBien"); /*
-													 * modifier cet url après la
-													 * vue
-													 */
-					$scope.messageadd =true;	
+					$scope.messageadd = true;	
+					$scope.bienForm = null;
 				})				
 			
 		})
@@ -210,9 +200,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 * directement lié dans la bdd
 				 */
 				bienProvider.updateTerPro($scope.bienupdate, function(callback) {
-					/** Quand la fonction est terminée, le retour : */ 
-						$scope.messageupd =true;
-						$location.path("/modifierBien"); 						 
+					$scope.messageadd = true;	
+					$scope.bienupdate = null;			 
 									
 				})				
 			
@@ -245,9 +234,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 * directement lié dans la bdd
 				 */
 				bienProvider.updateBavPro($scope.bienupdate, function(callback) {
-					/** Quand la fonction est terminée, le retour : */ 
-						$scope.messageupd =true;
-						$location.path("/modifierBien"); 						 
+					$scope.messageadd = true;	
+					$scope.bienupdate = null;							 
 									
 				})				
 			
@@ -283,9 +271,8 @@ app.controller("addBalCtrl",function($scope, $rootScope, $location, bienProvider
 				 * directement lié dans la bdd
 				 */
 				bienProvider.updateBalPro($scope.bienupdate, function(callback) {
-					/** Quand la fonction est terminée, le retour : */ 
-						$scope.messageupd =true;
-						$location.path("/modifierBien"); 						 
+					$scope.messageadd = true;	
+					$scope.bienupdate = null;							 
 									
 				})				
 			
