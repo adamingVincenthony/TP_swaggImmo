@@ -114,8 +114,15 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 	}
 	
 })		
-		
-		
+/**
+ * -------------------------------------------------------Fonction pour afficher
+ * la liste des biens du propriétaire
+ */		
+.controller("getBienByProp",function($rootScope, $scope, propProvider, $location) {
+			propProvider.findBiens($rootScope.propmodif.id, function(callback) {
+				$scope.biens = callback.data;
+			})
+		})		
 		
 		;
 

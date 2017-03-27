@@ -60,6 +60,19 @@ app.factory("propProvider", function($http) {
 	}
 	/**
 	 * -----------------------------------------------------------Fonction pour
+	 * afficher tous les propriétaires
+	 */
+	function findBiens(idProp, callback) {
+		$http.get('http://localhost:8080/Project_Swagg_Immo/rest//utilisateur/getListeBien/'+idProp) 
+		.then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
+	/**
+	 * -----------------------------------------------------------Fonction pour
 	 * supprimer un propriétaires
 	 */
 	function deleteProp(id, callback){
@@ -106,7 +119,8 @@ app.factory("propProvider", function($http) {
 		getProp : getProp,
 		findAllProp : findAllProp,
 		deleteProp : deleteProp,
-		updateProp : updateProp
+		updateProp : updateProp,
+		findBiens : findBiens
 	}
 
 })
