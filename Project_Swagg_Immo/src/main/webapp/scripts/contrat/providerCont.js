@@ -36,7 +36,7 @@ app.factory("contratProvider", function($http) {
 	 * chercher un contrat
 	 */
 	function getCont(idCont, callback) {
-		$http.get(urlglobal +'/get/'+idCont) 
+		$http.get(urlglobal +'/getById/'+idCont) 
 														
 		.then(function successCallback(response) {
 			console.log(response.data);
