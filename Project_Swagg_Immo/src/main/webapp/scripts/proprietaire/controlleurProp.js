@@ -14,9 +14,9 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 		/** appel de la méthode du provider définie avant */
 		propProvider.addProp($scope.propForm, function(callback) {
 			/** Quand la fonction est terminée, le retour : */
-			if (callback != undefined && callback != "") {
-				$location.path("/prop"); /* modifier cet url après la vue */
-			}
+			$scope.messageadd = true;
+				
+			
 		})
 	}
 	
@@ -40,15 +40,13 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 	$scope.update = function() {
 		$scope.propUpdateForm.id = $rootScope.propmodif.id
 		propProvider.updateProp($scope.propUpdateForm, function (callback){
-			if(callback !=undefined && callback!=""){
 				$scope.proprietairex = callback;
 				$scope.messageupd = true;
-				$location.path("/chercherProp"); /* modifier cet URL après pour le retour ^^ */
-			}
+				
+			
 		})
+		
 	}
-	
-
 	
 })
 /**
@@ -116,8 +114,15 @@ app.controller("addProp", function($scope, $rootScope, $location, propProvider) 
 	}
 	
 })		
-		
-		
+/**
+ * -------------------------------------------------------Fonction pour afficher
+ * la liste des biens du propriétaire
+ */		
+.controller("getBienByProp",function($rootScope, $scope, propProvider, $location) {
+			propProvider.findBiens($rootScope.propmodif.id, function(callback) {
+				$scope.biens = callback.data;
+			})
+		})		
 		
 		;
 

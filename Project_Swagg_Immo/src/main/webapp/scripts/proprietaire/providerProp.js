@@ -21,16 +21,14 @@ app.factory("propProvider", function($http) {
 				'Content-Type' : 'application/json'
 			}
 
-		}).success(function(response) {
-			console.log(response);
+		}).then(function successCallback(response) {
+			
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
-
-	}
+		}, function errorCallback(response) {
+			
+		});
+	
+}
 	/**
 	 * -----------------------------------------------------------Fonction pour
 	 * chercher un propriétaire
@@ -53,6 +51,19 @@ app.factory("propProvider", function($http) {
 	 */
 	function findAllProp(callback) {
 		$http.get(urlglobal + '/liste/') 
+		.then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+		}, function errorCallback(response) {
+			console.log("erreur : " + response.statusText);
+		});
+	}
+	/**
+	 * -----------------------------------------------------------Fonction pour
+	 * afficher tous les propriétaires
+	 */
+	function findBiens(idProp, callback) {
+		$http.get('http://localhost:8080/Project_Swagg_Immo/rest//utilisateur/getListeBien/'+idProp) 
 		.then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
@@ -92,16 +103,12 @@ app.factory("propProvider", function($http) {
 			}
 
 		})
-		.success(function(response) {
-			console.log(response);
+		.then(function successCallback(response) {
 			callback(response);
-
-		}).error(function(response) {
-			console.log('Erreur : ' + response.statusText);
-
-		})
-
-	}
+		}, function errorCallback(response) {		
+		});
+	
+}
 	
 	/**
 	 * -------------------------------------------------------------Retour des
@@ -112,7 +119,8 @@ app.factory("propProvider", function($http) {
 		getProp : getProp,
 		findAllProp : findAllProp,
 		deleteProp : deleteProp,
-		updateProp : updateProp
+		updateProp : updateProp,
+		findBiens : findBiens
 	}
 
 })

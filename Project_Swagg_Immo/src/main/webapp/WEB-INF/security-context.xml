@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
@@ -11,35 +11,27 @@
 
 
 
-	<context:property-placeholder location="classpath*:dataSource.properties" />
-	
-	<!-- déclaration du bean dataSource -->
-	<bean id="dataSourceBean"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${db.driver}" />
-		<property name="url" value="${db.url}" />
-		<property name="username" value="${db.user}" />
-		<property name="password" value="${db.mdp}" />
-	</bean>
-	
-	<!-- Déclaration des url sécurisées et des autorisations -->
-	<security:http>
-		<!-- L'interception des url -->
-		<security:intercept-url pattern="/accueil/**" access="ROLE_RESPONSABLE"/>
-		<security:form-login login-page ="/login" authentication-failure-url="/login"/>
-		
-		<security:logout invalidate-session="true" logout-success-url="/accueil" />
-	</security:http>
-	
-	
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSourceBean" 
-			users-by-username-query="SELECT nom_user,mdp_user,activated FROM utilisateurs WHERE nom_user=?"
-			authorities-by-username-query="SELECT u.nom_user, r.rolename FROM utilisateurs u, roles r WHERE r.id_r=1 and u.nom_user=?"/>
-		<security:jdbc-user-service data-source-ref=""/>
-	</security:authentication-provider>
+	<http auto-config='true' entry-point-ref="authenticationEntryPoint">
+        <form-login authentication-success-handler-ref="ajaxAuthenticationSuccessHandler"
+                    authentication-failure-handler-ref="ajaxAuthenticationFailureHandler"/>
+        <logout success-handler-ref="ajaxLogoutSuccessHandler" />
+    </http>
 
-</security:authentication-manager>
+    <beans:bean id="authenticationEntryPoint"
+                class="net.thecodersbreakfast.todo.security.Http401DeniedEntryPoint"/>
+    <beans:bean id="ajaxAuthenticationSuccessHandler"
+                class="net.thecodersbreakfast.todo.security.AjaxAuthenticationSuccessHandler"/>
+    <beans:bean id="ajaxAuthenticationFailureHandler"
+                class="net.thecodersbreakfast.todo.security.AjaxAuthenticationFailureHandler"/>
+    <beans:bean id="ajaxLogoutSuccessHandler"
+                class="net.thecodersbreakfast.todo.security.AjaxLogoutSuccessHandler"/>
 	
-</beans>
+	<beans:bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+
+	<authentication-manager>
+		<security:jdbc-user-service data-source-ref="dataSourceBean" 
+									users-by-username-query="SELECT nom_user,mdp_user,activated FROM utilisateurs WHERE nom_user=?"
+									authorities-by-username-query="SELECT u.nom_user,r.rolename FROM users u, roles r WHERE r.id_r=1 and u.username=?"/>
+	</authentication-manager>
+	
+</beans:beans>
