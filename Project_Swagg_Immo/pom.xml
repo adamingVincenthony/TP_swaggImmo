@@ -179,8 +179,7 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-spring</artifactId>
 			<version>3.0.21.Final</version>
-		</dependency>
-
+		</dependency>		
 
 	</dependencies>
 	<!-- ajout du plugin pour la prise en charge 1.8 -->
