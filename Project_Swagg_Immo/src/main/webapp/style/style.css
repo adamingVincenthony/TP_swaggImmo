@@ -49,8 +49,8 @@
 	font-family: Arial;
 	border-color: white;
 	border-width :thin;
-	overflow: scroll;
-	overflow-x: hidden;
+	overflow: auto;
+	
 
 	
 }
